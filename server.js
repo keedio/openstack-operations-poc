@@ -24,6 +24,19 @@ app.get('/getNodes',function(req,res){
     });
 });
 
+app.get('/getNodesByAz',function(req,res){
+    client.execute("select group_and_count2(region,az,loglevel) as result from counters_nodes where loglevel in ('ERROR','WARN','INFO')and id = '1h'", function (err, result) {
+        if (err) {
+            console.log("No results");
+            res.end();
+        } else {
+            var rows = result.rows;
+            res.json(rows);
+        }
+
+    });
+});
+
 app.get('/*', function  (req, res) {
     res.status(404, {status: 'not found'});
     res.end();
