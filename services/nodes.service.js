@@ -4,14 +4,14 @@
 var config = require('config.json');
 var Q = require('q');
 const cassandra = require('cassandra-driver');
-const client = new cassandra.Client(config.contactPoints);
+const client = new cassandra.Client({ contactPoints: ['127.0.0.1']});
 var service = {};
 
 service.getRegionsInfo = getRegionsInfo;
 
 module.exports = service;
 
-function getRegionsInfo(type, regions, during) {
+function getRegionsInfo() {
 
     client.connect()
         .then(function () {

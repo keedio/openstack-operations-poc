@@ -1,5 +1,6 @@
 ﻿{
-    "connectionString": "mongodb://localhost:27017/mean-stack-registration-login-example",
+    "contactPoints": "['127.0.0.1']",
     "apiUrl": "http://localhost:3000/api",
-    "secret": "REPLACE THIS WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
+    "secret": "Keedio"
+
 }

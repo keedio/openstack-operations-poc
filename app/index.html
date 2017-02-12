@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if IE 9]><html lang="en-us" class="ie9 layout-pf layout-pf-fixed"><![endif]-->
+<!--[if IE 9]><html lang="en-us" class="ie9 layout-pf layout-pf-fixed" ng-app="openStackApp"><![endif]-->
 <!--[if gt IE 9]><!-->
-<html lang="en-us" class="layout-pf layout-pf-fixed transitions">
+<html lang="en-us" class="layout-pf layout-pf-fixed transitions" ng-app="openStackApp">
 <!--<![endif]-->
 <head>
   <meta charset="utf-8">
@@ -60,7 +60,8 @@
   <script src="bower_components/matchHeight/jquery.matchHeight-min.js"></script>
   <!-- Angular -->
   <script src="bower_components/angular/angular.min.js"></script>
-
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
   <!-- Angular-Bootstrap -->
   <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
@@ -70,6 +71,12 @@
 
   <!-- Angular-PatternFly  -->
   <script src="bower_components/angular-patternfly/dist/angular-patternfly.min.js"></script>
+
+
+    <!-- application scripts -->
+    <script src="app.js"></script>
+
+
 
   <!-- C3, D3 - Charting Libraries. Only required if you are using the 'patternfly.charts' module
   <script src="bower_components/patternfly/components/c3/c3.min.js"></script>
@@ -125,7 +132,7 @@
     </li>
   </ul>
 </div>
-<div class="container-fluid container-cards-pf container-pf-nav-pf-vertical nav-pf-persistent-secondary">
+<div class="container-fluid container-cards-pf container-pf-nav-pf-vertical nav-pf-persistent-secondary" ng-init="refresh()" ng-controller="NodesController">
     <div class="actions pull-right">
         <a href="#"><span class="pficon pficon-refresh"></span> Refresh Results</a>
     </div>
@@ -180,115 +187,100 @@
                     </div><!-- /col -->
                 </div><!-- /row -->
             </div>
-            <div class="panel-group" id="accordion-nodes">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion-markup" href="#collapseRegion1">
-                                    Selected Regions
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseRegion1" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <div class="row row-cards-pf">
-                                    <!-- Important:  if you need to nest additional .row within a .row.row-cards-pf, do *not* use .row-cards-pf on the nested .row  -->
-                                    <div class="col-xs-12 col-sm-6 col-md-3">
-                                        <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                            <h2 class="card-pf-title">
-                                                Boston
-                                            </h2>
-                                            <div class="card-pf-body">
-                                                <p class="card-pf-aggregate-status-notifications">
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 col-md-3">
-                                        <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                            <h2 class="card-pf-title">
-                                                Seattle
-                                            </h2>
-                                            <div class="card-pf-body">
-                                                <p class="card-pf-aggregate-status-notifications">
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div><!-- /row -->
-                            </div>
-                        </div>
+            <div class="panel-group" id="accordion-nodes" >
+                <div class="panel panel-default">
+                    <div class="panel-heading" >
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-markup" href="#collapsAllregions">
+                                All Regions
+                            </a>
+                        </h4>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion-markup" href="#collapseRegion2" class="collapsed">
-                                    Boston
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseRegion2" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div class="row row-cards-pf">
-                                    <!-- Important:  if you need to nest additional .row within a .row.row-cards-pf, do *not* use .row-cards-pf on the nested .row  -->
-                                    <div class="col-xs-12 col-sm-6 col-md-3">
-                                        <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                            <h2 class="card-pf-title">
-                                                Availability Zone 1
-                                            </h2>
-                                            <div class="card-pf-body">
-                                                <p class="card-pf-aggregate-status-notifications">
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                                </p>
-                                            </div>
+                    <div id="collapsAllregions" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row row-cards-pf">
+                                <!-- Important:  if you need to nest additional .row within a .row.row-cards-pf, do *not* use .row-cards-pf on the nested .row  -->
+                                <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="region in regions">
+                                    <div class="card-pf card-pf-accented card-pf-aggregate-status">
+                                        <h2 class="card-pf-title">
+                                            {{region.name}}
+                                        </h2>
+                                        <div class="card-pf-body">
+                                            <p class="card-pf-aggregate-status-notifications">
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>{{region.error}}</a></span>
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>{{region.warning}}</a></span>
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span></a>{{region.info}}</span>
+                                            </p>
                                         </div>
-
                                     </div>
-                                    <div class="col-xs-12 col-sm-6 col-md-3">
-                                        <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                            <h2 class="card-pf-title">
-                                                Availability Zone 2
-                                            </h2>
-                                            <div class="card-pf-body">
-                                                <p class="card-pf-aggregate-status-notifications">
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                                </p>
-                                            </div>
-                                        </div>
 
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 col-md-3">
-                                        <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                            <h2 class="card-pf-title">
-                                                Availability Zone 3
-                                            </h2>
-                                            <div class="card-pf-body">
-                                                <p class="card-pf-aggregate-status-notifications">
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                    <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div><!-- /row -->
-                            </div>
+                                </div>
+                            </div><!-- /row -->
                         </div>
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-markup" href="#collapseKeystone" class="collapsed">
+                                Keystone
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseKeystone" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="row row-cards-pf">
+                                <!-- Important:  if you need to nest additional .row within a .row.row-cards-pf, do *not* use .row-cards-pf on the nested .row  -->
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="card-pf card-pf-accented card-pf-aggregate-status">
+                                        <h2 class="card-pf-title">
+                                            Boston
+                                        </h2>
+                                        <div class="card-pf-body">
+                                            <p class="card-pf-aggregate-status-notifications">
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="card-pf card-pf-accented card-pf-aggregate-status">
+                                        <h2 class="card-pf-title">
+                                            Dallas
+                                        </h2>
+                                        <div class="card-pf-body">
+                                            <p class="card-pf-aggregate-status-notifications">
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="card-pf card-pf-accented card-pf-aggregate-status">
+                                        <h2 class="card-pf-title">
+                                            Seattle
+                                        </h2>
+                                        <div class="card-pf-body">
+                                            <p class="card-pf-aggregate-status-notifications">
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
+                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div><!-- /row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="services">
             <div class="container-fluid">
