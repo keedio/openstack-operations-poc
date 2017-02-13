@@ -12,35 +12,41 @@ var counter=0;
 
 /* Route Definations */
 app.get('/getNodes',function(req,res){
-    client.execute("select group_and_count(region,loglevel) as result from counters_nodes where loglevel in ('ERROR','WARN','INFO')and id = '1h'", function (err, result) {
-        if (err) {
-            console.log("No results");
-            res.end();
-        } else {
-            var rows = result.rows;
-            res.json(rows);
-        }
-
-    });
+    executeQuery("select group_and_count(region,loglevel) as result from counters_nodes where loglevel in ('ERROR','WARN','INFO')and id = '1h' and region = 'Boston' and node_type = 'compute'",res);
 });
 
 app.get('/getNodesByAz',function(req,res){
-    client.execute("select group_and_count2(region,az,loglevel) as result from counters_nodes where loglevel in ('ERROR','WARN','INFO')and id = '1h'", function (err, result) {
-        if (err) {
-            console.log("No results");
-            res.end();
-        } else {
-            var rows = result.rows;
-            res.json(rows);
-        }
-
-    });
+    executeQuery("select group_and_count2(region,az,loglevel) as result from counters_nodes where loglevel in ('ERROR','WARN','INFO')and id = '1h' and region = 'Boston' and node_type = 'compute'",res);
 });
 
 app.get('/getServices',function(req,res){
-    client.execute("select  group_and_count2(service,region,loglevel) as result from counters_services where  id = '1h'", function (err, result) {
+    executeQuery("select  group_and_count2(service,region,loglevel) as result from counters_services where  id = '1h' " ,res);
+});
+
+app.get('/getNodesBy',function(req,res){
+    var during = req.param('during');
+    var nodeType = req.param('nodeType');
+    var regions =  splitRegions(req.param('regions'));
+
+    executeQuery("select group_and_count(region,loglevel) as result from counters_nodes where loglevel in ('ERROR','WARN','INFO')and id = '" + during + "' and node_type = '" + nodeType+ "' and region in "+ regions,res);
+});
+
+app.get('/getNodesAzBy',function(req,res){
+    var during = req.param('during');
+    var nodeType = req.param('nodeType');
+    var regions = splitRegions(req.param('regions'));
+    executeQuery("select group_and_count2(region,az,loglevel) as result from counters_nodes where loglevel in ('ERROR','WARN','INFO')and id = '" + during + "' and node_type = '" + nodeType+ "' and region in "+ regions,res);
+});
+
+app.get('/getServicesBy',function(req,res){
+    var during = req.param('during');
+    executeQuery("select  group_and_count2(service,region,loglevel) as result from counters_services where  id = '" + during + "'",res);
+});
+
+function executeQuery(query,res){
+    client.execute(query, function (err, result) {
         if (err) {
-            console.log("No results");
+            console.log(query, "No results");
             res.end();
         } else {
             var rows = result.rows;
@@ -48,9 +54,17 @@ app.get('/getServices',function(req,res){
         }
 
     });
-});
+}
 
+function splitRegions(data) {
 
+    var cad = "('" + data[0] + "'"
+    for (var i = 1; i < data.length; i++)
+        cad += ",'" + data[i] + "'"
+
+    cad += ")"
+    return cad
+}
 
 app.get('/*', function  (req, res) {
     res.status(404, {status: 'not found'});

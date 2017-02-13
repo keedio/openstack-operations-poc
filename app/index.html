@@ -132,8 +132,8 @@
     </li>
   </ul>
 </div>
-<div class="container-fluid container-cards-pf container-pf-nav-pf-vertical nav-pf-persistent-secondary" ng-init="refresh()" id="divController" ng-controller="NodesController">
-    <div class="actions pull-right">
+<div class="container-fluid container-cards-pf container-pf-nav-pf-vertical nav-pf-persistent-secondary" ng-init="init()" id="divController" ng-controller="NodesController">
+    <div class="actions pull-right" >
         <a href="#" id="refreshLink"><span class="pficon pficon-refresh"></span> Refresh Results &nbsp; <span id="refreshTimer">60</span></a>
     </div>
     <ul id="tabbedList" class="nav nav-pills">
@@ -155,32 +155,17 @@
                             <div class="form-group" style="padding-left: 0px">
                                 <span>Log Entries For: </span>
                                 &nbsp;
-                                <select class="selectpicker">
-                                    <option>Compute Nodes</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                    <option disabled>Onions</option>
-                                </select>
+                                <select class="selectpicker"  pf-select ng-model="logEntries.selectedOption" id="logNodesEntry" ng-options="option.name for option in logEntries.availableOptions track by option.id" ng-change="refresh(logEntries.selectedOption.id, regionEntries.selectedOption, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
                             </div>
                             <div class="form-group">
                                 <span>View By Region: </span>
                                 &nbsp;
-                                <select class="selectpicker">
-                                    <option>Boston, Seattle</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                    <option disabled>Onions</option>
-                                </select>
+                                <select class="selectpicker"  pf-select ng-model="regionEntries.selectedOption" id="regionNodesEntry" ng-options="option.name for option in regionEntries.availableOptions track by option.id" multiple ng-change="refresh(logEntries.selectedOption.id, regionEntries.selectedOption, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
                             </div>
                             <div class="form-group">
                                 <span>During: </span>
                                 &nbsp;
-                                <select class="selectpicker">
-                                    <option>Last Day</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                    <option disabled>Onions</option>
-                                </select>
+                                <select class="selectpicker"  pf-select ng-model="duringEntries.selectedOption" id="duringNodesEntry" ng-options="option.name for option in duringEntries.availableOptions track by option.id" ng-change="refresh(logEntries.selectedOption.id, regionEntries.selectedOption, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
                             </div>
 
                         </form>
@@ -259,12 +244,7 @@
                             <div class="form-group" style="padding-left: 0px">
                                 <span>Log Entries For: </span>
                                 &nbsp;
-                                <select class="selectpicker">
-                                    <option>Last Day</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                    <option disabled>Onions</option>
-                                </select>
+                                <select class="selectpicker"  pf-select ng-model="duringEntries.selectedOption" id="duringServicesEntry" ng-options="option.name for option in duringEntries.availableOptions track by option.id" ng-change="refresh(logEntries.selectedOption.id, regionEntries.selectedOption, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
                             </div>
                         </form>
                     </div><!-- /col -->
@@ -279,7 +259,7 @@
                             </a>
                         </h4>
                     </div>
-                    <div id="{{service.name}}" class="panel-collapse collapse in">
+                    <div id="{{service.name}}" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row row-cards-pf">
                                 <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="regionService in service.regions">
@@ -324,17 +304,17 @@
         var timer = setInterval(function () {
             initTime --;
             $('#refreshTimer').html(initTime);
-            if(initTime == 0){
-                initTime = 60;
-                angular.element($('#divController')).scope().refresh();
-            }
+            if(initTime == 0)refreshDashboard();
 
         },1000);
 
         $('#refreshLink').on('click',function(){
-            initTime = 60;
-            angular.element($('#divController')).scope().refresh();
+            refreshDashboard();
         });
+        function refreshDashboard(){
+            initTime = 60;
+            angular.element($('#divController')).scope().refresh($('#logNodesEntry').val(), $('#regionNodesEntry').val(), $('#duringNodesEntry').val(), $('#duringServicesEntry').val() );
+        }
     });
 
 </script>
