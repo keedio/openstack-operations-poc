@@ -25,8 +25,12 @@ app.factory('nodesByAz', function ($resource){
     return $resource('/getNodesByAz');
 });
 
-app.controller('NodesController', ['$scope','nodes','nodesByAz',
-    function($scope,getNodes,getNodesByAz) {
+app.factory('services', function ($resource){
+    return $resource('/getServices');
+});
+
+app.controller('NodesController', ['$scope','nodes','nodesByAz','services',
+    function($scope,getNodes,getNodesByAz,getServices) {
         $scope.refresh=function(){
             getNodes.query(function (data) {
                 var regions = [];
@@ -68,6 +72,33 @@ app.controller('NodesController', ['$scope','nodes','nodesByAz',
                 }
 
                 $scope.azones = azones;
+            });
+
+            getServices.query(function (data) {
+                var services = [];
+                var sortedKeys = Object.keys(data[0].result).sort();
+                var serviceName= "", regionName = "";
+                for (var i = 0; i < sortedKeys.length; i++){
+                    var key = sortedKeys[i];
+                    var name = key.split(".");
+                    var value = data[0].result[key];
+
+                    if (name[0] != serviceName){
+                        serviceName = name[0];
+                        regionName = name[1];
+                        services.push ({"name":name[0], "regions":[] }) ;
+                        services[services.length-1].regions.push ({"name":name[1], "info":0, "warning":0, "error":0}) ;
+                    }
+
+                   else if (name[1] != regionName){
+                        regionName = name[1];
+                        services[services.length-1].regions.push ({"name":name[1], "info":0, "warning":0, "error":0}) ;
+                    }
+
+                    name[2] == "ERROR" ? services[services.length-1].regions[services[services.length-1].regions.length-1].error = value : name[2] == "INFO" ? services[services.length-1].regions[services[services.length-1].regions.length-1].info = value : services[services.length-1].regions[services[services.length-1].regions.length-1].warning = value;
+                }
+
+                $scope.services = services;
             });
         }
 

@@ -37,6 +37,21 @@ app.get('/getNodesByAz',function(req,res){
     });
 });
 
+app.get('/getServices',function(req,res){
+    client.execute("select  group_and_count2(service,region,loglevel) as result from counters_services where  id = '1h'", function (err, result) {
+        if (err) {
+            console.log("No results");
+            res.end();
+        } else {
+            var rows = result.rows;
+            res.json(rows);
+        }
+
+    });
+});
+
+
+
 app.get('/*', function  (req, res) {
     res.status(404, {status: 'not found'});
     res.end();
