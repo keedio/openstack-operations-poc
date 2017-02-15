@@ -8,74 +8,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Stack PatternFly</title>
-    <link rel="stylesheet" href="../bower_components/patternfly/dist/css/patternfly.min.css">
-    <link rel="stylesheet" href="../bower_components/patternfly/dist/css/patternfly-additions.min.css">
-    <link rel="stylesheet" href="../bower_components/angular-patternfly/dist/styles/angular-patternfly.min.css" />
+    <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly.min.css">
+    <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly-additions.min.css">
+    <link rel="stylesheet" href="bower_components/angular-patternfly/dist/styles/angular-patternfly.min.css" />
 
     <!-- jQuery -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap JS -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- C3, D3 - Charting Libraries -->
-    <script src="../bower_components/c3/c3.min.js"></script>
-    <script src="../bower_components/d3/d3.min.js"></script>
+    <script src="bower_components/c3/c3.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
 
     <!-- Datatables, jQuery Grid Component -->
     <!-- Note: jquery.dataTables.js must occur in the html source before patternfly*.js.-->
-    <script src="../bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="../bower_components/datatables-colvis/js/dataTables.colVis.js"></script>
-    <script src="../bower_components/datatables-colreorder/js/dataTables.colReorder.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables-colvis/js/dataTables.colVis.js"></script>
+    <script src="bower_components/datatables-colreorder/js/dataTables.colReorder.js"></script>
 
     <!-- PatternFly Custom Componets -  Sidebar, Popovers and Datatables Customizations -->
     <!-- Note: jquery.dataTables.js must occur in the html source before patternfly*.js.-->
-    <script src="../bower_components/patternfly/dist/js/patternfly.min.js"></script>
+    <script src="bower_components/patternfly/dist/js/patternfly.min.js"></script>
 
     <!-- Bootstrap Combobox -->
-    <script src="../bower_components/patternfly-bootstrap-combobox/js/bootstrap-combobox.js"></script>
+    <script src="bower_components/patternfly-bootstrap-combobox/js/bootstrap-combobox.js"></script>
 
     <!-- Bootstrap Date Time Picker - requires Moment -->
-    <script src="../bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
 
     <!-- Bootstrap Date Picker -->
-    <script src="../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
     <!-- Bootstrap Select -->
-    <script src="../bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
     <!-- Bootstrap Switch -->
-    <script src="../bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+    <script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
 
     <!-- Bootstrap Touchspin -->
-    <script src="../bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
 
     <!-- Bootstrap Tree View -->
-    <script src="../bower_components/patternfly-bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+    <script src="bower_components/patternfly-bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
 
     <!-- Google Code Prettify - Syntax highlighting of code snippets -->
-    <script src="../bower_components/google-code-prettify/bin/prettify.min.js"></script>
+    <script src="bower_components/google-code-prettify/bin/prettify.min.js"></script>
 
 
     <!-- MatchHeight - Used to make sure dashboard cards are the same height -->
-    <script src="../bower_components/matchHeight/jquery.matchHeight-min.js"></script>
+    <script src="bower_components/matchHeight/jquery.matchHeight-min.js"></script>
     <!-- Angular -->
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="../bower_components/angular-resource/angular-resource.js"></script>
-    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- Angular-Bootstrap -->
-    <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
     <!-- Angular-Sanitize -->
-    <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 
     <!-- Angular-PatternFly  -->
-    <script src="../bower_components/angular-patternfly/dist/angular-patternfly.min.js"></script>
+    <script src="bower_components/angular-patternfly/dist/angular-patternfly.min.js"></script>
 
 
     <!-- application scripts -->
-    <script src="../app.js"></script>
+    <script src="app.js"></script>
 </head>
 
 <body class="cards-pf">
@@ -127,7 +127,7 @@
         </li>
     </ul>
 </div>
-<div class="container-fluid container-cards-pf container-pf-nav-pf-vertical nav-pf-persistent-secondary" ng-controller="StackedBarController">
+<div class="container-fluid container-cards-pf container-pf-nav-pf-vertical nav-pf-persistent-secondary" ng-init="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )" ng-controller="StackedBarController">
     <div class="actions pull-right">
         <a href="#"><span class="pficon pficon-refresh"></span> Refresh Results</a>
     </div>
@@ -150,24 +150,18 @@
                             <div class="form-group" style="padding-left: 0px">
                                 <span>Log Entries For: </span>
                                 &nbsp;
-                                <select class="selectpicker">
-                                    <option>Compute Nodes</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                    <option disabled>Onions</option>
-                                </select>
+                                <select class="selectpicker"  pf-select ng-model="logEntries.selectedOption" id="logNodesEntry" ng-options="option.name for option in logEntries.availableOptions track by option.id" ng-change="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
+                            </div>
+                            <div class="form-group">
+                                <span>View By Region: </span>
+                                &nbsp;
+                                <select class="selectpicker"  pf-select ng-model="regionEntries.selectedOption" id="regionNodesEntry" ng-options="option.name for option in regionEntries.availableOptions track by option.id"  ng-change="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
                             </div>
                             <div class="form-group">
                                 <span>During: </span>
                                 &nbsp;
-                                <select class="selectpicker">
-                                    <option>Last Day</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                    <option disabled>Onions</option>
-                                </select>
+                                <select class="selectpicker"  pf-select ng-model="duringEntries.selectedOption" id="duringNodesEntry" ng-options="option.name for option in duringEntries.availableOptions track by option.id" ng-change="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
                             </div>
-
                         </form>
                     </div><!-- /col -->
                 </div><!-- /row -->
@@ -184,8 +178,8 @@
                     <div id="collapseRegion1" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <div id= "stackedVerticalBarChart"></div>
+                                <div class="col-xs-12 col-sm-6" id="graphDiv">
+
                                 </div>
                             </div>
                         </div>
@@ -215,150 +209,19 @@
                             <div class="form-group" style="padding-left: 0px">
                                 <span>Log Entries For: </span>
                                 &nbsp;
-                                <select class="selectpicker">
-                                    <option>Compute Nodes</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                    <option disabled>Onions</option>
-                                </select>
+                                <select class="selectpicker"  pf-select ng-model="regionEntries.selectedOption" id="regionServicesEntry" ng-options="option.name for option in regionEntries.availableOptions track by option.id"  ng-change="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
                             </div>
                             <div class="form-group">
-                                <span>Log Entries For: </span>
+                                <span>During: </span>
                                 &nbsp;
-                                <select class="selectpicker">
-                                    <option>Last Day</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                    <option disabled>Onions</option>
-                                </select>
+                                <select class="selectpicker"  pf-select ng-model="duringEntries.selectedOption" id="duringServicesEntry" ng-options="option.name for option in duringEntries.availableOptions track by option.id" ng-change="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
                             </div>
                         </form>
                     </div><!-- /col -->
                 </div><!-- /row -->
             </div>
             <div class="panel-group" id="accordion-services">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion-markup" href="#collapsenNova">
-                                Nova
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapsenNova" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="row row-cards-pf">
-                                <!-- Important:  if you need to nest additional .row within a .row.row-cards-pf, do *not* use .row-cards-pf on the nested .row  -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                        <h2 class="card-pf-title">
-                                            Boston
-                                        </h2>
-                                        <div class="card-pf-body">
-                                            <p class="card-pf-aggregate-status-notifications">
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                            </p>
-                                        </div>
-                                    </div>
 
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                        <h2 class="card-pf-title">
-                                            Dallas
-                                        </h2>
-                                        <div class="card-pf-body">
-                                            <p class="card-pf-aggregate-status-notifications">
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                        <h2 class="card-pf-title">
-                                            Seattle
-                                        </h2>
-                                        <div class="card-pf-body">
-                                            <p class="card-pf-aggregate-status-notifications">
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div><!-- /row -->
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion-markup" href="#collapseKeystone" class="collapsed">
-                                Keystone
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseKeystone" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row row-cards-pf">
-                                <!-- Important:  if you need to nest additional .row within a .row.row-cards-pf, do *not* use .row-cards-pf on the nested .row  -->
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                        <h2 class="card-pf-title">
-                                            Boston
-                                        </h2>
-                                        <div class="card-pf-body">
-                                            <p class="card-pf-aggregate-status-notifications">
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                        <h2 class="card-pf-title">
-                                            Dallas
-                                        </h2>
-                                        <div class="card-pf-body">
-                                            <p class="card-pf-aggregate-status-notifications">
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                        <h2 class="card-pf-title">
-                                            Seattle
-                                        </h2>
-                                        <div class="card-pf-body">
-                                            <p class="card-pf-aggregate-status-notifications">
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-error-circle-o"></span>4</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-warning-triangle-o"></span>1</a></span>
-                                                <span class="card-pf-aggregate-status-notification"><a href="#"><span class="pficon pficon-ok"></span>1</a>2</span>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div><!-- /row -->
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -378,48 +241,6 @@
         });
     });
 </script>
-
-<script>
-    var c3ChartDefaults = $().c3ChartDefaults();
-
-
-    var stackedColumnsData = [
-    ['Error', 400, 250, 375, 234,120,600,200,400,122,250,400, 250, 375, 234,120,600,200,400,122,250,120,222,345,673,120],
-    ['Warning', 355, 305, 300,234,120,600,200,400,122,250,400, 250, 375, 234,120,600,200,400,122,250,400, 250, 375, 234,23],
-    ['Info', 315, 340, 276,234,120,600,200,400,122,250,400, 250, 375, 234,120,600,200,400,122,250,400, 250, 375, 234,344]
-    ];
-    var stackedGroups = [['Error', 'Warning', 'Info']];
-    var stackedCategories = ['00:00 01-11', '' ,'','','','','06:00', '' ,'','','','', '12:00', '' ,'','','','','18:00', '' ,'','','','','00:00 01-12'];
-    var stackedColors = {
-    pattern: [
-    $.pfPaletteColors.red,
-    $.pfPaletteColors.blue,
-    $.pfPaletteColors.green,
-    ]
-    };
-
-    var stackedVerticalBarChartConfig = c3ChartDefaults.getDefaultStackedBarConfig();
-    stackedVerticalBarChartConfig.axis = {
-    x: {
-    categories: stackedCategories,
-    type: 'category',
-        tick: {
-            multiline: false,
-            centered: true
-        }
-    }
-    };
-    stackedVerticalBarChartConfig.bindto = '#stackedVerticalBarChart';
-    stackedVerticalBarChartConfig.color = stackedColors;
-    stackedVerticalBarChartConfig.data = {
-    columns: stackedColumnsData,
-    groups: stackedGroups,
-    type: 'bar',
-    order: null
-    };
-    var stackedVerticalBarChart = c3.generate(stackedVerticalBarChartConfig);
-</script>
-
 </body>
 </html>
 

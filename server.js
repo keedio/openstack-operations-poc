@@ -43,6 +43,16 @@ app.get('/getServicesBy',function(req,res){
     executeQuery("select  group_and_count2(service,region,loglevel) as result from counters_services where  id = '" + during + "'",res);
 });
 
+app.get('/stacked/stackedServices',function(req,res){
+    var during = req.param('during');
+    var region =  req.param('region');
+    if (region == "all")
+        executeQuery("select group_and_count2(service,loglevel,timeframe) as result from stack_services  where  id = '" + during + "'",res);
+    else
+        executeQuery("select group_and_count2(service,loglevel,timeframe) as result from stack_services where id = '" + during + "' and service in ('Keystone', 'Nova', 'Pacemaker', 'Neutron')  and loglevel in ('INFO','WARN','ERROR') and region = '"+ region + "'",res);
+
+});
+
 function executeQuery(query,res){
     client.execute(query, function (err, result) {
         if (err) {
