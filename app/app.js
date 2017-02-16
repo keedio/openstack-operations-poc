@@ -1,15 +1,15 @@
 
 'use strict';
 
-var app = angular.module("openStackApp",['ngResource', 'ngRoute']) ;
+var app = angular.module("openStackApp",['ngResource', 'ngRoute','monitorNodes', 'services.service','nodes.service']) ;
 
 app.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
         $routeProvider.
         when('/', {
-            templateUrl: 'index.html',
-            controller: 'NodesController'
+            template: 'index.html',
+
         }).
         when('/stackedBars', {
             templateUrl: 'stacked_bar.html',
@@ -17,48 +17,40 @@ app.config(['$routeProvider', '$locationProvider',
         })
     }
 ]);
-
-app.factory('nodes', function ($resource){
-    return $resource('/getNodes');
-});
-
-app.factory('nodesByAz', function ($resource){
-    return $resource('/getNodesByAz');
-});
-
-app.factory('services', function ($resource){
-    return $resource('/getServices');
-});
+/*
 app.factory('nodesBy', function ($resource){
-    return $resource('/getNodesBy');
+    return $resource('/services/getNodesBy');
 });
 
 app.factory('nodesAzBy', function ($resource){
-    return $resource('/getNodesAzBy');
+    return $resource('/services/getNodesAzBy');
 });
 
 app.factory('servicesBy', function ($resource){
-    return $resource('/getServicesBy');
+    return $resource('/services/getServicesBy');
 });
 
 app.factory('stackedServicesBy', function ($resource){
-    return $resource('/stacked/stackedServices');
+    return $resource('/services/stackedServices');
 });
 
-app.controller('NodesController', ['$scope','nodes','nodesByAz','services','nodesBy','nodesAzBy','servicesBy',
-    function($scope,getNodes,getNodesByAz,getServices,getNodesBy, getNodesAzBy, getServicesBy) {
+app.controller('NodesController', ['$scope','nodesBy','nodesAzBy','servicesBy',
+    function($scope,getNodesBy, getNodesAzBy, getServicesBy) {
         $scope.init=function(){
-            getNodes.query(function (data) {
-                parseNodes(data);
-            });
+            getNodesBy.query({"during": '1h', "nodeType": 'compute', "regions": ['Boston','Boston']},
+                function(data){
+                    parseNodes(data);
+                });
 
-            getNodesByAz.query(function (data) {
-                parseNodesByAz(data);
-            });
+            getNodesAzBy.query({"during": '1h', "nodeType": 'compute', "regions": ['Boston','Boston']},
+                function(data){
+                    parseNodesByAz(data);
+                });
 
-            getServices.query(function (data) {
-               parseServices(data);
-            });
+            getServicesBy.query({"during": '1h'},
+                function(data){
+                    parseServices(data);
+                });
         }
         $scope.refresh = function(logEntries,objectRegions,nodeDuring,servicesDuring){
            var regions = []
@@ -336,4 +328,4 @@ app.controller('StackedBarController', ['$scope','$compile','stackedServicesBy',
     }
 ]);
 
-
+*/

@@ -14,6 +14,7 @@ module.exports = router;
 
 
 function getServicesBy(req, res) {
+
     servicesService.getServicesBy(req.query.during )
         .then(function (data) {
             if (data)
