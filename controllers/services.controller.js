@@ -3,24 +3,24 @@
  */
 var express = require('express');
 var router = express.Router();
-var servicesService = require('services/nodes.service');
+var servicesService = require('../services/services.service');
 
 
 router.get('/getServicesBy', getServicesBy);
-router.get('/stacked/stackedServices', stackedServices);
+router.get('/stackedServices', stackedServices);
 
 
 module.exports = router;
 
 
 function getServicesBy(req, res) {
-    servicesService.getServicesBy(req.param('during'))
+    servicesService.getServicesBy(req.query.during )
         .then(function (data) {
-            if (token) {
-                res.json(data);
-            } else {
+            if (data)
+                res.send(data);
+             else
                 res.sendStatus(404);
-            }
+
         })
         .catch(function (err) {
             res.status(400).send(err);
@@ -28,13 +28,14 @@ function getServicesBy(req, res) {
 }
 
 function stackedServices(req, res) {
-    servicesService.stackedServices(req.param('during'),req.param('region'))
+
+    servicesService.stackedServices(req.query.during ,req.query.region)
         .then(function (data) {
-            if (token) {
-                res.json(data);
-            } else {
+            if (data)
+                res.send(data);
+            else
                 res.sendStatus(404);
-            }
+
         })
         .catch(function (err) {
             res.status(400).send(err);
