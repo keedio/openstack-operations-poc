@@ -1,9 +1,6 @@
 /**
  * Created by davidsantamaria on 16/2/17.
  */
-/**
- * Created by davidsantamaria on 16/2/17.
- */
 var express = require('express');
 var router = express.Router();
 var nodesService = require('../services/nodes.service');
