@@ -56,7 +56,6 @@
     <!-- Google Code Prettify - Syntax highlighting of code snippets -->
     <script src="bower_components/google-code-prettify/bin/prettify.min.js"></script>
 
-
     <!-- MatchHeight - Used to make sure dashboard cards are the same height -->
     <script src="bower_components/matchHeight/jquery.matchHeight-min.js"></script>
     <!-- Angular -->
@@ -76,61 +75,19 @@
 
     <!-- application scripts -->
     <script src="app.js"></script>
+    <script src="_layout/layout.component.js"></script>
+    <script src="app-services/nodes.service.js"></script>
+    <script src="app-services/services.service.js"></script>
+    <script src="monitor/monitor-nodes/monitor-nodes.component.js"></script>
+    <script src="refresh-dashboard/refresh.dashboard.component.js"></script>
+    <script src="monitor/monitor-services/monitor-services.component.js"></script>
+
 </head>
 
 <body class="cards-pf">
-<nav class="navbar navbar-pf-vertical">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a href="/" class="navbar-brand">
-            <img class="navbar-brand-icon" src="/assets/img/logo-alt.svg" alt=""><img class="navbar-brand-name" src="/assets/img/brand-alt.svg" alt="PatternFly Enterprise Application">
-        </a>
-    </div>
-    <nav class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li><a href="#" target="_blank" class="nav-item-iconic nav-item-iconic-new-window"><span title="Launch" class="fa fa-external-link"></span></a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right navbar-iconic">
-            <li class="dropdown">
-                <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <span>Administrator | EVM 41 demomasterA</span> &nbsp;
-                    <span title="Username" class="fa pficon-user"> </span>
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li><a href="#">Preferences</a></li>
-                    <li><a href="#">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</nav>
-<div class="nav-pf-vertical nav-pf-vertical-with-sub-menus nav-pf-persistent-secondary">
-    <ul class="list-group">
-        <li class="list-group-item">
-            <a href="/">
-                <span class="fa fa-dashboard active" data-toggle="tooltip" title="" data-original-title="Dashboard"></span>
-                <span class="list-group-item-value">Monitor</span>
-            </a>
-        </li>
-        <li class="list-group-item active">
-            <a href="stacked_bar.html">
-                <span class="fa fa-shield" data-toggle="tooltip" title=""></span>
-                <span class="list-group-item-value">Stacked Bar</span>
-
-            </a>
-        </li>
-    </ul>
-</div>
-<div class="container-fluid container-cards-pf container-pf-nav-pf-vertical nav-pf-persistent-secondary" ng-init="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )" ng-controller="StackedBarController">
-    <div class="actions pull-right">
-        <a href="#"><span class="pficon pficon-refresh"></span> Refresh Results</a>
-    </div>
+<dashboard-layout></dashboard-layout>
+<div class="container-fluid container-cards-pf container-pf-nav-pf-vertical nav-pf-persistent-secondary">
+    <refresh-dashboard></refresh-dashboard>
     <ul id="tabbedList" class="nav nav-pills">
 
         <li class="active" role="presentation"><a href="#nodes" data-toggle="tab">Node Logs</a>
@@ -143,93 +100,18 @@
     </ul>
     <div id="tabbedContent" class="tab-content">
         <div class="tab-pane fade in active" id="nodes">
-            <div class="container-fluid">
-                <div class="row toolbar-pf" style="background: initial">
-                    <div class="col-sm-12" style="padding: 10px 0px 10px 0px">
-                        <form class="toolbar-pf-actions">
-                            <div class="form-group" style="padding-left: 0px">
-                                <span>Log Entries For: </span>
-                                &nbsp;
-                                <select class="selectpicker"  pf-select ng-model="logEntries.selectedOption" id="logNodesEntry" ng-options="option.name for option in logEntries.availableOptions track by option.id" ng-change="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
-                            </div>
-                            <div class="form-group">
-                                <span>View By Region: </span>
-                                &nbsp;
-                                <select class="selectpicker"  pf-select ng-model="regionEntries.selectedOption" id="regionNodesEntry" ng-options="option.name for option in regionEntries.availableOptions track by option.id"  ng-change="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
-                            </div>
-                            <div class="form-group">
-                                <span>During: </span>
-                                &nbsp;
-                                <select class="selectpicker"  pf-select ng-model="duringEntries.selectedOption" id="duringNodesEntry" ng-options="option.name for option in duringEntries.availableOptions track by option.id" ng-change="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
-                            </div>
-                        </form>
-                    </div><!-- /col -->
-                </div><!-- /row -->
-            </div>
-            <div class="panel-group" id="accordion-nodes">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion-markup" href="#collapseRegion1">
-                                All Regions
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseRegion1" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6" id="graphDiv">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion-markup" href="#collapseRegion2" class="collapsed">
-                                Boston
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseRegion2" class="panel-collapse collapse">
-                        <div class="panel-body">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <monitor-nodes></monitor-nodes>
         </div>
         <div class="tab-pane fade" id="services">
-            <div class="container-fluid">
-                <div class="row toolbar-pf" style="background: initial">
-                    <div class="col-sm-12" style="padding: 10px 0px 10px 0px">
-                        <form class="toolbar-pf-actions">
-                            <div class="form-group" style="padding-left: 0px">
-                                <span>Log Entries For: </span>
-                                &nbsp;
-                                <select class="selectpicker"  pf-select ng-model="regionEntries.selectedOption" id="regionServicesEntry" ng-options="option.name for option in regionEntries.availableOptions track by option.id"  ng-change="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
-                            </div>
-                            <div class="form-group">
-                                <span>During: </span>
-                                &nbsp;
-                                <select class="selectpicker"  pf-select ng-model="duringEntries.selectedOption" id="duringServicesEntry" ng-options="option.name for option in duringEntries.availableOptions track by option.id" ng-change="showGraphs(logEntries.selectedOption.id, regionEntries.selectedOption.id, duringEntries.selectedOption.id, duringEntries.selectedOption.id )"></select>
-                            </div>
-                        </form>
-                    </div><!-- /col -->
-                </div><!-- /row -->
-            </div>
-            <div class="panel-group" id="accordion-services">
-
-            </div>
+            <monitor-services></monitor-services>
         </div>
     </div>
+</div>
 </div>
 <script>
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
-        $('.selectpicker').selectpicker();
+
         $('#tabbedList a').click(function (e) {
             if($(this).parent('li').hasClass('active')){
                 $( $(this).attr('href') ).hide();
@@ -239,8 +121,11 @@
                 $(this).tab('show');
             }
         });
+
     });
+
 </script>
+
 </body>
 </html>
 

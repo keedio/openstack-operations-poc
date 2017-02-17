@@ -4,7 +4,7 @@
 
     'use strict';
 var app = angular.module('services.service', ['ngResource']);
-    app.factory('ServicesService', Service);
+    app.factory('ServicesService', [  '$http','$q', Service]);
 
     function Service($http, $q) {
         var service = {};
@@ -15,8 +15,12 @@ var app = angular.module('services.service', ['ngResource']);
 
         return service;
 
-        function GetServicesBy() {
-            return $http.get('/services/getNodesBy').then(handleSuccess, handleError);
+        function GetServicesBy(during) {
+            return  $http({
+                url: '/services/getServicesBy',
+                method: "GET",
+                params: {during: during}
+            }).then(handleSuccess, handleError);
         }
 
         function GetStackedServicesBy() {

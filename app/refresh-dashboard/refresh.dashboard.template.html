@@ -1,0 +1,30 @@
+<div class="actions pull-right" id="refreshDiv" >
+    <a href="" id="refreshLink"><span class="pficon pficon-refresh"></span> Refresh Results &nbsp; <span id="refreshTimer">60</span></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+
+        var initTime = 60;
+        var timer = setInterval(function () {
+            initTime --;
+            $('#refreshTimer').html(initTime);
+            if(initTime == 0)refreshDashboard();
+
+        },1000);
+
+        $('#refreshLink').on('click',function(){
+            refreshDashboard();
+        });
+        function refreshDashboard(){
+            initTime = 60;
+           var scope =  angular.element($('#refreshDiv')).scope();
+
+           $('#liNodes').attr('class') == 'active'?
+               scope.refreshNodes($('#logNodesEntry').val(), $('#regionNodesEntry').val(), $('#duringNodesEntry').val()) :
+               scope.refreshServices ($('#duringServicesEntry').val() );
+
+        }
+    });
+
+</script>

@@ -10,13 +10,15 @@ var app = angular.module('monitorNodes', [
 ]);
 
     app.component('monitorNodes',{
-        templateUrl: 'monitor-nodes/monitor-nodes.template.html',
+        templateUrl: 'monitor/monitor-nodes/monitor-nodes.template.html',
         controller: ['NodesService',
-            function MonitorNodesController ( NodesService) {
+            function MonitorNodesController (NodesService) {
                 var self = this;
 
                 initController();
-                this.logEntries  = {
+
+
+                self.logEntries  = {
                     availableOptions: [
                         {id: 'compute', name: 'Compute'},
                         {id: 'storage', name: 'Storage'}
@@ -24,7 +26,7 @@ var app = angular.module('monitorNodes', [
                     selectedOption: {id: 'compute', name: 'Storage'}
                 };
 
-                this.regionEntries  = {
+                self.regionEntries  = {
                     availableOptions: [
                         {id: 'Boston', name: 'Boston'},
                         {id: 'Seattle', name: 'Seattle'},
@@ -33,7 +35,7 @@ var app = angular.module('monitorNodes', [
                     selectedOption: [{id: 'Boston', name: 'Boston'}]
                 };
 
-                this.duringEntries  = {
+                self.duringEntries  = {
                     availableOptions: [
                         {id: '1h', name: 'Last hour'},
                         {id: '6h', name: 'Last 6 hours'},
@@ -42,8 +44,14 @@ var app = angular.module('monitorNodes', [
                         {id: 'w', name: 'Last week'},
                         {id: 'm', name: 'Last month'}
                     ],
-                    selectedOption: {id: '1h', name: 'Last hour'}
+                    selectedOption: {id: '1h', name: 'Last hour'},
+                    link: function(scope, element, attrs, ctrl) {
+                        $timeout(function() {
+                            element.selectpicker();
+                        });
+                    }
                 };
+
 
                 function initController() {
                     NodesService.GetNodesBy('1h','compute',['Boston','Boston'])
@@ -54,7 +62,7 @@ var app = angular.module('monitorNodes', [
                         parseNodesByAz(data);
                     });
                 }
-                self.refresh = function refresh(nodeType,objectRegions,during) {
+                self.updateNodes = function refresh(nodeType,objectRegions,during) {
 
                     var regions = []
                     jQuery.each(objectRegions,function (i,region) {
@@ -66,7 +74,7 @@ var app = angular.module('monitorNodes', [
                     NodesService.GetNodesBy(during, nodeType,regions).then(function (data) {
                         parseNodes(data);
                     });
-                    NodesService.GetStackedServicesBy(during, nodeType,regions).then(function (data) {
+                    NodesService.GetNodesAzBy(during, nodeType,regions).then(function (data) {
                         parseNodesByAz(data);
                     });
                 }
@@ -111,5 +119,21 @@ var app = angular.module('monitorNodes', [
 
                     self.azones = azones;
                 }
+
         }]
     });
+
+app.directive('selectMonitorNodesGroup', selectDirective);
+
+function selectDirective($timeout) {
+    return {
+        restrict: 'E',
+        templateUrl: 'monitor/monitor-nodes/select.template.html',
+
+        link: function (scope, element) {
+            $timeout(function () {
+                $('.selectpicker').selectpicker();
+            });
+        }
+    }
+}

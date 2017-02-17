@@ -1,22 +1,31 @@
 
 'use strict';
 
-var app = angular.module("openStackApp",['ngResource', 'ngRoute','monitorNodes', 'services.service','nodes.service']) ;
+var app = angular.module("openStackApp",
+    ['ngResource', 'ngRoute', 'services.service','nodes.service',
+        'refreshDashboard', 'monitorComponent','dashboardLayout']) ;
 
 app.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
-        $locationProvider.html5Mode(true);
+
         $routeProvider.
         when('/', {
-            template: 'index.html',
+            template: '<monitor-nodes></monitor-nodes>',
 
         }).
-        when('/stackedBars', {
-            templateUrl: 'stacked_bar.html',
-            controller: 'StackedBarController'
-        })
+        when('/nodes', {
+            template: '<monitor-nodes></monitor-nodes>',
+
+        }).
+        when('/services', {
+            template: '<monitor-services></monitor-services>',
+
+        }).
+
+        otherwise('/');
     }
 ]);
+
 /*
 app.factory('nodesBy', function ($resource){
     return $resource('/services/getNodesBy');
@@ -172,6 +181,7 @@ app.controller('NodesController', ['$scope','nodesBy','nodesAzBy','servicesBy',
     }
 ]);
 
+ */
 app.controller('StackedBarController', ['$scope','$compile','stackedServicesBy',
     function($scope,$compile,stackedServicesBy) {
         $scope.showGraphs = function(logEntries,region,during){
@@ -328,4 +338,3 @@ app.controller('StackedBarController', ['$scope','$compile','stackedServicesBy',
     }
 ]);
 
-*/

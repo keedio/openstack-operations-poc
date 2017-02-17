@@ -5,9 +5,9 @@
 'use strict';
 
 var app = angular.module('nodes.service', ['ngResource']);
-    app.factory('NodesService',[ '$resource','$http','$q', Service]);
+    app.factory('NodesService',[  '$http','$q', Service]);
 
-    function Service($resource,$http,$q) {
+    function Service($http,$q) {
         var service = {};
 
         service.GetNodesBy = GetNodesBy;
