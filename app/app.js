@@ -3,25 +3,24 @@
 
 var app = angular.module("openStackApp",
     ['ngResource', 'ngRoute', 'services.service','nodes.service',
-        'refreshDashboard', 'monitorComponent','dashboardLayout']) ;
+        'refreshDashboard', 'monitorComponent','dashboardLayout','stackedServices']) ;
 
 app.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
 
         $routeProvider.
         when('/', {
-            template: '<monitor-nodes></monitor-nodes>',
+            template: '<monitor-component></monitor-component>',
 
         }).
-        when('/nodes', {
-            template: '<monitor-nodes></monitor-nodes>',
+        when('/index', {
+            template: '<monitor-component></monitor-component>',
 
         }).
-        when('/services', {
-            template: '<monitor-services></monitor-services>',
+        when('/stacked_bars', {
+            template: '<stacked-services></stacked-services>',
 
         }).
-
         otherwise('/');
     }
 ]);
@@ -181,11 +180,10 @@ app.controller('NodesController', ['$scope','nodesBy','nodesAzBy','servicesBy',
     }
 ]);
 
- */
 app.controller('StackedBarController', ['$scope','$compile','stackedServicesBy',
     function($scope,$compile,stackedServicesBy) {
-        $scope.showGraphs = function(logEntries,region,during){
-            stackedServicesBy.query({"during": during, "nodeType": logEntries, "region": region},
+        $scope.showGraphs = function(region,during){
+            stackedServicesBy.query({"during": during,  "region": region},
                  function(data){
                     parseData(data);
                     createChart(during);
@@ -338,3 +336,4 @@ app.controller('StackedBarController', ['$scope','$compile','stackedServicesBy',
     }
 ]);
 
+*/

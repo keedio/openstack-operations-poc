@@ -1,5 +1,5 @@
 var cassandra=require("cassandra-driver");
-var client =new cassandra.Client({'contactPoints':['127.0.0.1'],keyspace:'redhatpoc'});
+var client =new cassandra.Client({'contactPoints':['10.129.135.121'],keyspace:'redhatpoc'});
 var Q = require('q');
 
 var service = {};

@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">
+        <a href="#index" class="navbar-brand">
             <img class="navbar-brand-icon" src="/assets/img/logo-alt.svg" alt=""><img class="navbar-brand-name" src="/assets/img/brand-alt.svg" alt="PatternFly Enterprise Application">
         </a>
     </div>
@@ -30,17 +30,17 @@
     </nav>
 </nav>
 <div class="nav-pf-vertical nav-pf-vertical-with-sub-menus nav-pf-persistent-secondary">
-    <ul class="list-group">
-        <li class="list-group-item active">
-            <a href="index.html">
+    <ul class="list-group" id="verticalList">
+        <li ng-class="$ctrl.itemClass">
+            <a id="monitorItem" href="#index" ng-click="$ctrl.setCssClass('monitor')">
                 <span class="fa fa-dashboard active" data-toggle="tooltip" title="" data-original-title="Dashboard"></span>
-                <span class="list-group-item-value">Monitor</span>
+                <span class="list-group-item-value">Status</span>
             </a>
         </li>
-        <li class="list-group-item">
-            <a href="/stackedBars">
+        <li  ng-class="$ctrl.stackedClass" id="liStackedBars">
+            <a id="stacked_barsItem" href="#stacked_bars" ng-click="$ctrl.setCssClass('stacked')">
                 <span class="fa fa-shield" data-toggle="tooltip" title="" data-original-title="Dolor"></span>
-                <span class="list-group-item-value">Stacked Bar</span>
+                <span class="list-group-item-value">Logs</span>
 
             </a>
         </li>

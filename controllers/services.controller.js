@@ -7,7 +7,7 @@ var servicesService = require('../services/services.service');
 
 
 router.get('/getServicesBy', getServicesBy);
-router.get('/stackedServices', stackedServices);
+router.get('/getStackedServicesBy', getStackedServicesBy);
 
 
 module.exports = router;
@@ -28,9 +28,9 @@ function getServicesBy(req, res) {
         });
 }
 
-function stackedServices(req, res) {
+function getStackedServicesBy(req, res) {
 
-    servicesService.stackedServices(req.query.during ,req.query.region)
+    servicesService.getStackedServicesBy(req.query.during ,req.query.region)
         .then(function (data) {
             if (data)
                 res.send(data);

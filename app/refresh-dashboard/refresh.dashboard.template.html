@@ -19,10 +19,12 @@
         function refreshDashboard(){
             initTime = 60;
            var scope =  angular.element($('#refreshDiv')).scope();
-
-           $('#liNodes').attr('class') == 'active'?
-               scope.refreshNodes($('#logNodesEntry').val(), $('#regionNodesEntry').val(), $('#duringNodesEntry').val()) :
-               scope.refreshServices ($('#duringServicesEntry').val() );
+           if(  $('#liStackedBars').hasClass('active'))
+               scope.refreshGraph ($('#duringStackedEntry').val(),  $('#regionStackedEntry').val());
+           else
+               $('#liNodes').attr('class') == 'active'?
+                   scope.refreshNodes($('#logNodesEntry').val(), $('#regionNodesEntry').val(), $('#duringNodesEntry').val()) :
+                   scope.refreshServices ($('#duringServicesEntry').val() );
 
         }
     });

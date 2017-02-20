@@ -23,8 +23,12 @@ var app = angular.module('services.service', ['ngResource']);
             }).then(handleSuccess, handleError);
         }
 
-        function GetStackedServicesBy() {
-            return $http.get('/services/getNodesAzBy').then(handleSuccess, handleError);
+        function GetStackedServicesBy(during,region) {
+            return  $http({
+                url: '/services/getStackedServicesBy',
+                method: "GET",
+                params: {during: during, region: region}
+            }).then(handleSuccess, handleError);
         }
 
         function handleSuccess(res) {

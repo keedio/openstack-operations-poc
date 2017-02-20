@@ -23,8 +23,8 @@ app.component('monitorServices',{
                     {id: '6h', name: 'Last 6 hours'},
                     {id: '12h', name: 'Last 12 hours'},
                     {id: '24h', name: 'Last day'},
-                    {id: 'w', name: 'Last week'},
-                    {id: 'm', name: 'Last month'}
+                    {id: '1w', name: 'Last week'},
+                    {id: '1m', name: 'Last month'}
                 ],
                 selectedOption: {id: '1h', name: 'Last hour'},
                 link: function(scope, element, attrs, ctrl) {
@@ -37,39 +37,13 @@ app.component('monitorServices',{
 
             function initController() {
                 ServicesService.GetServicesBy('1h').then(function (data) {
-                    parseServices(data);
+                    self.services =  parseServices(data);
                 });
             }
             self.updateServices = function refresh(during) {
                 ServicesService.GetServicesBy(during).then(function (data) {
-                    parseServices(data);
+                    self.services =  parseServices(data);
                 });
-            }
-            function parseServices (data){
-                var services = [];
-                var sortedKeys = Object.keys(data[0].result).sort();
-                var serviceName= "", regionName = "";
-                for (var i = 0; i < sortedKeys.length; i++){
-                    var key = sortedKeys[i];
-                    var name = key.split(".");
-                    var value = data[0].result[key];
-
-                    if (name[0] != serviceName){
-                        serviceName = name[0];
-                        regionName = name[1];
-                        services.push ({"name":name[0], "regions":[] }) ;
-                        services[services.length-1].regions.push ({"name":name[1], "info":0, "warning":0, "error":0}) ;
-                    }
-
-                    else if (name[1] != regionName){
-                        regionName = name[1];
-                        services[services.length-1].regions.push ({"name":name[1], "info":0, "warning":0, "error":0}) ;
-                    }
-
-                    name[2] == "ERROR" ? services[services.length-1].regions[services[services.length-1].regions.length-1].error = value : name[2] == "INFO" ? services[services.length-1].regions[services[services.length-1].regions.length-1].info = value : services[services.length-1].regions[services[services.length-1].regions.length-1].warning = value;
-                }
-
-                self.services = services;
             }
 
         }]
@@ -89,3 +63,9 @@ function selectDirective($timeout) {
         }
     }
 }
+
+app.filter('capitalize', function() {
+    return function(input) {
+        return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+});

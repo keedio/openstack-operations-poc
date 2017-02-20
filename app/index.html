@@ -75,6 +75,7 @@
 
     <!-- application scripts -->
     <script src="app.js"></script>
+    <script src="assets/js/util.data.js"></script>
     <script src="_layout/layout.component.js"></script>
     <script src="app-services/nodes.service.js"></script>
     <script src="app-services/services.service.js"></script>
@@ -82,6 +83,7 @@
     <script src="refresh-dashboard/refresh.dashboard.component.js"></script>
     <script src="monitor/monitor-services/monitor-services.component.js"></script>
     <script src="monitor/monitor.component.js"></script>
+    <script src="stacked-bars/stacked-services/stacked-services.component.js"></script>
 
 </head>
 
@@ -94,7 +96,7 @@
         <li class="active" role="presentation" id="liNodes"><a href="#nodes" data-toggle="tab">Node Logs</a>
 
         </li>
-        <li><a href= "#services" data-toggle="tab" role="presentation" id="liServices">Service Logs</a>
+        <li role="presentation" id="liServices"><a href= "#services" data-toggle="tab" >Service Logs</a>
 
         </li>
 
@@ -110,12 +112,14 @@
         $('[data-toggle="tooltip"]').tooltip();
 
         $('#tabbedList a').click(function (e) {
-            if($(this).parent('li').hasClass('active')){
-                $( $(this).attr('href') ).hide();
+            e.preventDefault();
+            if($('#liNodes').hasClass('active')){
+                $('#nodes').css('display','none');
+                $('#services').css('display','block');
             }
             else {
-
-                $(this).tab('show');
+                $('#services').css('display','none');
+                $('#nodes').css('display','block');
             }
         });
 

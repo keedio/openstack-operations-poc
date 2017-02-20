@@ -3,41 +3,11 @@
         <div class="col-sm-12" style="padding: 10px 0px 10px 0px">
             <form class="toolbar-pf-actions">
                 <div class="form-group" style="padding-left: 0px">
-                    <select-monitor-services-group></select-monitor-services-group>
+                    <select-stacked-services-group></select-stacked-services-group>
                 </div>
             </form>
         </div><!-- /col -->
     </div><!-- /row -->
 </div>
 <div class="panel-group" id="accordion-services">
-    <div class="panel panel-default" ng-repeat="service in $ctrl.services">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse"  data-parent="#accordion-markup" data-target= {{"#"+service.name}} class="collapsed">
-                    {{service.name}}
-                </a>
-            </h4>
-        </div>
-        <div id="{{service.name}}" class="panel-collapse collapse">
-            <div class="panel-body">
-                <div class="row row-cards-pf">
-                    <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="regionService in service.regions">
-                        <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                            <h2 class="card-pf-title">
-                                {{regionService.name}}
-                            </h2>
-                            <div class="card-pf-body">
-                                <p class="card-pf-aggregate-status-notifications">
-                                    <span class="card-pf-aggregate-status-notification"><a><span class="pficon pficon-error-circle-o"></span> {{regionService.error}}</a></span>
-                                    <span class="card-pf-aggregate-status-notification"><a><span class="pficon pficon-warning-triangle-o"></span> {{regionService.warning}}</a></span>
-                                    <span class="card-pf-aggregate-status-notification"><a><span class="pficon pficon-ok"></span></a> {{regionService.info}}</span>
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div><!-- /row -->
-            </div>
-        </div>
-    </div>
 </div>

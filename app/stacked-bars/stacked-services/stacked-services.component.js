@@ -4,18 +4,28 @@
 
 'use strict';
 
-var app = angular.module('monitorServices', [
+var app = angular.module('stackedServices', [
     'ngRoute',
     'services.service'
 ]);
 
-app.component('monitorServices',{
-    templateUrl: 'monitor/monitor-services/monitor-services.template.html',
-    controller: ['ServicesService',
-        function MonitorServicesController (ServicesService) {
+app.component('stackedServices',{
+    templateUrl: 'stacked-bars/stacked-services/stacked-services.template.html',
+    controller: ['ServicesService','$compile',
+        function StackedServicesController (ServicesService,$compile) {
             var self = this;
 
             initController();
+
+            self.regionEntries  = {
+                availableOptions: [
+                    {id: 'boston', name: 'Boston'},
+                    {id: 'seattle', name: 'Seattle'},
+                    {id: 'dallas', name: 'Dallas'},
+                    {id: 'all', name: 'All regions'}
+                ],
+                selectedOption: {id: 'all', name: 'All regions'}
+            };
 
             self.duringEntries  = {
                 availableOptions: [
@@ -23,64 +33,40 @@ app.component('monitorServices',{
                     {id: '6h', name: 'Last 6 hours'},
                     {id: '12h', name: 'Last 12 hours'},
                     {id: '24h', name: 'Last day'},
-                    {id: 'w', name: 'Last week'},
-                    {id: 'm', name: 'Last month'}
+                    {id: '1w', name: 'Last week'},
+                    {id: '1m', name: 'Last month'}
                 ],
-                selectedOption: {id: '1h', name: 'Last hour'},
-                link: function(scope, element, attrs, ctrl) {
-                    $timeout(function() {
-                        element.selectpicker();
-                    });
-                }
+                selectedOption: {id: '1h', name: 'Last hour'}
             };
 
 
             function initController() {
-                ServicesService.GetServicesBy('1h').then(function (data) {
-                    parseServices(data);
+                ServicesService.GetStackedServicesBy('1h','all').then(function (data) {
+                    self.stackedServices = parseData(data);
+                    createChart( self,'1h',$compile);
                 });
             }
-            self.updateServices = function refresh(during) {
-                ServicesService.GetServicesBy(during).then(function (data) {
-                    parseServices(data);
+            self.updateGraph = function refresh(during,region) {
+                ServicesService.GetStackedServicesBy(during,region).then(function (data) {
+                    self.stackedServices = parseData(data);
+                    createChart(self, during,$compile);
                 });
             }
-            function parseServices (data){
-                var services = [];
-                var sortedKeys = Object.keys(data[0].result).sort();
-                var serviceName= "", regionName = "";
-                for (var i = 0; i < sortedKeys.length; i++){
-                    var key = sortedKeys[i];
-                    var name = key.split(".");
-                    var value = data[0].result[key];
 
-                    if (name[0] != serviceName){
-                        serviceName = name[0];
-                        regionName = name[1];
-                        services.push ({"name":name[0], "regions":[] }) ;
-                        services[services.length-1].regions.push ({"name":name[1], "info":0, "warning":0, "error":0}) ;
-                    }
-
-                    else if (name[1] != regionName){
-                        regionName = name[1];
-                        services[services.length-1].regions.push ({"name":name[1], "info":0, "warning":0, "error":0}) ;
-                    }
-
-                    name[2] == "ERROR" ? services[services.length-1].regions[services[services.length-1].regions.length-1].error = value : name[2] == "INFO" ? services[services.length-1].regions[services[services.length-1].regions.length-1].info = value : services[services.length-1].regions[services[services.length-1].regions.length-1].warning = value;
-                }
-
-                self.services = services;
-            }
 
         }]
 });
 
-app.directive('selectMonitorServicesGroup', selectDirective);
+/*
+*
+* */
+
+app.directive('selectStackedServicesGroup', selectDirective);
 
 function selectDirective($timeout) {
     return {
         restrict: 'E',
-        templateUrl: 'monitor/monitor-services/select.template.html',
+        templateUrl: 'stacked-bars/stacked-services/select.template.html',
 
         link: function (scope, element) {
             $timeout(function () {
@@ -89,3 +75,15 @@ function selectDirective($timeout) {
         }
     }
 }
+
+app.filter('capitalize', function() {
+    return function(input) {
+        return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+});
+
+app.filter('formalizeAzs', function() {
+    return function(input) {
+        return 'Availability Zone '+ input.substr(2);
+    }
+});
