@@ -38,7 +38,10 @@ app.component('stackedServices',{
                 ],
                 selectedOption: {id: '1h', name: 'Last hour'}
             };
-
+            $('#tabbedList').removeAttr("style");
+            $('#refreshDiv').removeAttr("style");
+            $('#liNodes').css('display','none');
+            $('#liServices').addClass('active');
 
             function initController() {
                 ServicesService.GetStackedServicesBy('1h','all').then(function (data) {

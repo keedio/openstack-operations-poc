@@ -34,6 +34,10 @@ app.component('monitorServices',{
                 }
             };
 
+            $('#tabbedList').removeAttr("style");
+            $('#refreshDiv').removeAttr("style");
+            $('#liNodes').removeAttr("style");
+            $('#liServices').removeClass('active');
 
             function initController() {
                 ServicesService.GetServicesBy('1h').then(function (data) {

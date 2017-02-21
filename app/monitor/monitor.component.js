@@ -10,5 +10,10 @@ var app = angular.module('monitorComponent', [
 ]);
 
 app.component('monitorComponent',{
-    templateUrl: 'monitor/monitor.template.html'
+    templateUrl: 'monitor/monitor.template.html',
+    controller:[ function () {
+        $('#tabbedList').removeAttr("style");
+        $('#refreshDiv').removeAttr("style");
+        $('#liNodes').removeAttr("style");
+    }]
 });

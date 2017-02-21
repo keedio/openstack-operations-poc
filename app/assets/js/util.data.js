@@ -82,8 +82,8 @@ function parseData(data){
             services.push ({"name":name[0], "dataInf":['Info' ],  "dataError":['Error'],  "dataWar":['Warning']});
         }
 
-        name[1] == "ERROR" ? services[services.length-1].dataError.push(value) :
-            name[1] == "INFO" ? services[services.length-1].dataInf.push(value):
+        name[2] == "ERROR" ? services[services.length-1].dataError.push(value) :
+            name[2] == "INFO" ? services[services.length-1].dataInf.push(value):
                 services[services.length-1].dataWar.push(value);
     }
 

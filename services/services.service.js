@@ -1,8 +1,7 @@
 /**
  * Created by davidsantamaria on 16/2/17.
  */
-var cassandra=require("cassandra-driver");
-var client =new cassandra.Client({'contactPoints':['10.129.135.121'],keyspace:'redhatpoc'});
+var client = require('./../cassandra.config.js');
 var Q = require('q');
 
 var service = {};
@@ -29,8 +28,8 @@ function getServicesBy(during){
 function getStackedServicesBy(during,region){
     var deferred = Q.defer();
     var tf = (new Date().getHours()*60) + new Date().getMinutes();
-    var query =  region == "all" ? "select group_and_count3(service,loglevel," + tf + ") as result from stack_services  where  id = '" + during + "'"
-                :"select group_and_count3(service,loglevel," + tf + ") as result from stack_services where id = '" + during + "' and service in ('Keystone', 'Nova', 'Pacemaker', 'Neutron')  and loglevel in ('INFO','WARN','ERROR') and region = '"+ region + "'" ;
+    var query =  region == "all" ? "select stack_services_grouping(id, service,loglevel, timeframe) as result from stack_services  where  id = '" + during + "' and timeframe = " + tf + " ALLOW FILTERING"
+                :"select stack_services_grouping(id, service,loglevel, timeframe) as result from stack_services where id = '" + during + "' and timeframe = " + tf + " and service in ('Keystone', 'Nova', 'Pacemaker', 'Neutron', 'Cinder','Glance')  and loglevel in ('INFO','WARN','ERROR') and region = '"+ region + "' ALLOW FILTERING" ;
     client.execute(query, function (err, result) {
         if (err) {
             console.log(query, "No results");

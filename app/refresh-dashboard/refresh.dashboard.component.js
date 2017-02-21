@@ -9,9 +9,10 @@ var app = angular.module('refreshDashboard', [
 
 app.component('refreshDashboard',{
     templateUrl: 'refresh-dashboard/refresh.dashboard.template.html',
-    controller: ['NodesService','ServicesService','$scope','$compile',
-        function RefreshDashboardController (NodesService, ServicesService,$scope,$compile) {
+    controller: ['NodesService','ServicesService','$scope','$compile','$location',
+        function RefreshDashboardController (NodesService, ServicesService,$scope,$compile,$location) {
             var self = this;
+
             $scope.refreshNodes = function(nodeType,objectRegions,during) {
 
                     var regions = []

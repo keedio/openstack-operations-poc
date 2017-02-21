@@ -1,5 +1,4 @@
-var cassandra=require("cassandra-driver");
-var client =new cassandra.Client({'contactPoints':['10.129.135.121'],keyspace:'redhatpoc'});
+var client = require('./../cassandra.config.js');
 var Q = require('q');
 
 var service = {};

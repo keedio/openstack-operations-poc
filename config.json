@@ -1,6 +1,0 @@
-﻿{
-    "contactPoints": "['127.0.0.1']",
-    "apiUrl": "http://localhost:3000/api",
-    "secret": "Keedio"
-
-}

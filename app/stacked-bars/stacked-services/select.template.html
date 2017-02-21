@@ -1,8 +1,10 @@
 <div class="form-group" style="padding-left: 0px" >
     <span>Log Entries For: </span>
+    &nbsp;
      <select class="selectpicker"  pf-select ng-model="$ctrl.regionEntries.selectedOption"  ng-options="option.name for option in $ctrl.regionEntries.availableOptions track by option.id"  id="regionStackedEntry" ng-change="$ctrl.updateGraph($ctrl.duringEntries.selectedOption.id, $ctrl.regionEntries.selectedOption.id)"></select>
 </div>
 <div class="form-group">
     <span>During: </span>
+    &nbsp;
     <select class="selectpicker"  pf-select ng-model="$ctrl.duringEntries.selectedOption"  ng-options="option.name for option in $ctrl.duringEntries.availableOptions track by option.id" id="duringStackedEntry" ng-change="$ctrl.updateGraph($ctrl.duringEntries.selectedOption.id, $ctrl.regionEntries.selectedOption.id )"></select>
 </div>

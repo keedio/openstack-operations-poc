@@ -18,7 +18,7 @@ var app = angular.module('nodes.service', ['ngResource']);
 
         function GetNodesBy(during, nodeType,regions) {
             return $http({
-                url: '/services/getNodesBy',
+                url: '/nodes/getNodesBy',
                 method: "GET",
                 params: {during: during, nodeType: nodeType, regions: regions}
             }).then(handleSuccess, handleError);
@@ -28,7 +28,7 @@ var app = angular.module('nodes.service', ['ngResource']);
 
         function GetNodesAzBy(during, nodeType,regions) {
             return $http({
-                url: '/services/getNodesAzBy',
+                url: '/nodes/getNodesAzBy',
                 method: "GET",
                 params: {during: during, nodeType: nodeType, regions: regions}
             }).then(handleSuccess, handleError);

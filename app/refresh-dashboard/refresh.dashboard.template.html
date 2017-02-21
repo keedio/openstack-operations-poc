@@ -1,4 +1,4 @@
-<div class="actions pull-right" id="refreshDiv" >
+<div class="actions pull-right" id="refreshDiv">
     <a href="" id="refreshLink"><span class="pficon pficon-refresh"></span> Refresh Results &nbsp; <span id="refreshTimer">60</span></a>
 </div>
 
@@ -21,7 +21,7 @@
            var scope =  angular.element($('#refreshDiv')).scope();
            if(  $('#liStackedBars').hasClass('active'))
                scope.refreshGraph ($('#duringStackedEntry').val(),  $('#regionStackedEntry').val());
-           else
+           else if ( $('#liMonitor').hasClass('active'))
                $('#liNodes').attr('class') == 'active'?
                    scope.refreshNodes($('#logNodesEntry').val(), $('#regionNodesEntry').val(), $('#duringNodesEntry').val()) :
                    scope.refreshServices ($('#duringServicesEntry').val() );

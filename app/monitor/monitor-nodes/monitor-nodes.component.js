@@ -9,7 +9,7 @@ var app = angular.module('monitorNodes', [
     'nodes.service'
 ]);
 
-    app.component('monitorNodes',{
+app.component('monitorNodes',{
         templateUrl: 'monitor/monitor-nodes/monitor-nodes.template.html',
         controller: ['NodesService',
             function MonitorNodesController (NodesService) {
@@ -61,6 +61,8 @@ var app = angular.module('monitorNodes', [
                     NodesService.GetNodesAzBy('1h','compute',['Boston','Boston']).then(function (data) {
                         self.azones = parseNodesByAz(data);
                     });
+
+
                 }
                 self.updateNodes = function refresh(nodeType,objectRegions,during) {
 
