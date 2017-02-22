@@ -77,9 +77,9 @@ function parseData(data){
         var name = key.split(".");
         var value = data[0].result[key];
 
-        if (name[0] != serviceName){
-            serviceName = name[0];
-            services.push ({"name":name[0], "dataInf":['Info' ],  "dataError":['Error'],  "dataWar":['Warning']});
+        if (name[1] != serviceName){
+            serviceName = name[1];
+            services.push ({"name":name[1], "dataInf":['Info' ],  "dataError":['Error'],  "dataWar":['Warning']});
         }
 
         name[2] == "ERROR" ? services[services.length-1].dataError.push(value) :
@@ -136,7 +136,9 @@ function createChart( self, during,$compile){
                 '#4ABDAC',
             ]
         };
-        c3.generate(config);
+
+        var chart = c3.generate(config);
+        chart.flush();
 
     });
 }

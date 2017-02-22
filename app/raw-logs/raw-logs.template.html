@@ -9,51 +9,47 @@
                         <span>Service: </span>
                     </div>
                     <div class="col-sm-8" style="padding-left: 0px;">
-                        <select class="selectpicker" pf-select ng-model="$ctrl.regionEntries.selectedOption"
-                                ng-options="option.name for option in $ctrl.regionEntries.availableOptions track by option.id"
-                                multiple
-                                ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id)"></select>
+                        <select class="selectpicker" pf-select ng-model="$ctrl.logLevel.selectedOption"
+                                ng-options="option.name disable when option.id == -1  for  option in $ctrl.logLevel.availableOptions track by option.id"
+                                multiple></select>
                         <div class="col-sm-12"><br/></div>
-                        <select class="selectpicker" pf-select ng-model="$ctrl.regionEntries.selectedOption"
-                                ng-options="option.name for option in $ctrl.regionEntries.availableOptions track by option.id"
-                                multiple
-                                ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id)"></select>
+                        <select class="selectpicker" pf-select ng-model="$ctrl.servicesEntries.selectedOption"
+                                ng-options="option.name disable when option.id == -1  for  option in $ctrl.servicesEntries.availableOptions track by option.id"
+                                multiple></select>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="col-sm-4">
-                        <span>Log Level: </span>
+                        <span>Node Type: </span>
+                        &nbsp;
                         <div class="col-sm-12"><br/></div>
-                        <span>Service: </span>
+                        <span>Region: </span>
                     </div>
                     <div class="col-sm-8" style="padding-left-left: 0px;">
-                        <select class="selectpicker" pf-select ng-model="$ctrl.regionEntries.selectedOption"
-                                ng-options="option.name for option in $ctrl.regionEntries.availableOptions track by option.id"
-                                multiple
-                                ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id)"></select>
+                        <select class="selectpicker" pf-select ng-model="$ctrl.nodeType.selectedOption"
+                                ng-options="option.name disable when option.id == -1  for  option in $ctrl.nodeType.availableOptions track by option.id"
+                                multiple></select>
                         <div class="col-sm-12"><br/></div>
                         <select class="selectpicker" pf-select ng-model="$ctrl.regionEntries.selectedOption"
-                                ng-options="option.name for option in $ctrl.regionEntries.availableOptions track by option.id"
-                                multiple
-                                ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id)"></select>
+                                ng-options="option.name disable when option.id == -1  for option in $ctrl.regionEntries.availableOptions track by option.id"
+                                multiple></select>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="col-sm-4">
-                        <span>Log Level: </span>
+                        <span>Payload: </span>
                         <div class="col-sm-12"><br/></div>
-                        <span>Service: </span>
+                        <span>Date: </span>
                     </div>
                     <div class="col-sm-8" style="padding-left: 0px;">
-                        <select class="selectpicker" pf-select ng-model="$ctrl.regionEntries.selectedOption"
-                                ng-options="option.name for option in $ctrl.regionEntries.availableOptions track by option.id"
-                                multiple
-                                ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id)"></select>
+                        <input type="text" class="form-control" ng-model="$ctrl.payLoad">
                         <div class="col-sm-12"><br/></div>
-                        <select class="selectpicker" pf-select ng-model="$ctrl.regionEntries.selectedOption"
-                                ng-options="option.name for option in $ctrl.regionEntries.availableOptions track by option.id"
-                                multiple
-                                ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id)"></select>
+                        <div class="input-daterange input-group">
+                            <input type="text" class="form-control bootstrap-datepicker" id ="datepickerFrom" name="start" readonly ng-model="$ctrl.dateFrom">
+                            <span class="input-group-addon">to</span>
+                            <input type="text" class="form-control bootstrap-datepicker" id="datepickerTo" name="end" readonly ng-model="$ctrl.dateTo">
+                        </div>
+
                     </div>
                 </div>
 
@@ -100,8 +96,24 @@
 </div>
 <div class="container-fluid">
     <div class="list-group list-view-pf list-view-pf-view">
+        <form class="content-view-pf-pagination  clearfix" style="border:0px;" ng-show=" $ctrl.rawlogs.length > 0 ">
+
+            <div class="form-group">
+                <span><span class="pagination-pf-items-current">1-10</span> of <span class="pagination-pf-items-total"> {{$ctrl.rawlogs.length }}</span></span>
+                <ul class="pagination pagination-pf-back">
+
+                    <li class="disabled" ><a ng-click="$ctrl.previous()" title="Previous Page"><span class="i fa fa-angle-left"></span></a></li>
+                </ul>
+                <label for="-page" class="sr-only">Current Page</label>
+                <input class="pagination-pf-page" type="text" value="1" id="-page">
+                <span>of <span class="pagination-pf-pages"> {{$ctrl.rawlogs.length }}</span></span>
+                <ul class="pagination pagination-pf-forward">
+                    <li><a ng-click="$ctrl.next()" title="Next Page"><span class="i fa fa-angle-right"></span></a></li>
+                </ul>
+            </div>
+        </form>
         <div class="list-group-item" ng-repeat="log in $ctrl.rawlogs">
-            <div class="list-group-item-header" id="mierda">
+            <div class="list-group-item-header">
                 <div class="list-view-pf-expand">
                     <span class="fa fa-angle-right"></span>
                 </div>
@@ -143,3 +155,20 @@
 
 </div>
 </div>
+<script>
+
+    // Initialize Boostrap-Datepicker
+    $('.input-datepicker, .input-group.date, .bootstrap-datepicker-inline').datepicker({
+        autoclose: true,
+        orientation: "top auto",
+        todayBtn: "linked",
+        todayHighlight: true
+    });
+    $('.input-daterange').datepicker({
+        autoclose: true,
+        todayBtn: "linked",
+        todayHighlight: true
+    });
+
+
+</script>

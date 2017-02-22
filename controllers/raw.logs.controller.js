@@ -12,7 +12,7 @@ module.exports = router;
 
 
 function getRawLogsBy(req, res) {
-    rawLogServices.getRawLogsBy()
+    rawLogServices.getRawLogsBy(req.query.filters, req.query.pageState)
         .then(function (data) {
             if (data)
                 res.send(data);

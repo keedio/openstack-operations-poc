@@ -14,10 +14,11 @@ function Service($http,$q) {
 
     return service;
 
-    function GetRawLogsBy() {
+    function GetRawLogsBy(filters, pageState) {
         return $http({
             url: '/rawlogs/getrawlogsBy',
-            method: "GET"
+            method: "GET",
+            params : {filters: filters, pageState: pageState}
         }).then(handleSuccess, handleError);
 
 

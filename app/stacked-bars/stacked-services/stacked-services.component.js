@@ -50,6 +50,7 @@ app.component('stackedServices',{
                 });
             }
             self.updateGraph = function refresh(during,region) {
+                $('#accordion-services').html('');
                 ServicesService.GetStackedServicesBy(during,region).then(function (data) {
                     self.stackedServices = parseData(data);
                     createChart(self, during,$compile);

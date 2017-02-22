@@ -27,9 +27,9 @@ function getServicesBy(during){
 
 function getStackedServicesBy(during,region){
     var deferred = Q.defer();
-    var tf = (new Date().getHours()*60) + new Date().getMinutes();
-    var query =  region == "all" ? "select stack_services_grouping(id, service,loglevel, timeframe) as result from stack_services  where  id = '" + during + "' and timeframe = " + tf + " ALLOW FILTERING"
-                :"select stack_services_grouping(id, service,loglevel, timeframe) as result from stack_services where id = '" + during + "' and timeframe = " + tf + " and service in ('Keystone', 'Nova', 'Pacemaker', 'Neutron', 'Cinder','Glance')  and loglevel in ('INFO','WARN','ERROR') and region = '"+ region + "' ALLOW FILTERING" ;
+    var query =  region == "all" ? "select stack_services_grouping(id, service,loglevel, timeframe) as result from stack_services  where  id = '" + during + "' "
+                :"select stack_services_grouping(id, service,loglevel, timeframe) as result from stack_services where id = '" + during + "'  and service in ('Keystone', 'Nova', 'Pacemaker', 'Neutron', 'Cinder','Glance')  and loglevel in ('INFO','WARN','ERROR') and region = '"+ region + "'"  ;
+
     client.execute(query, function (err, result) {
         if (err) {
             console.log(query, "No results");

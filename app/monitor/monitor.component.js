@@ -15,5 +15,6 @@ app.component('monitorComponent',{
         $('#tabbedList').removeAttr("style");
         $('#refreshDiv').removeAttr("style");
         $('#liNodes').removeAttr("style");
+        $('#liNodes').addClass("active");
     }]
 });
