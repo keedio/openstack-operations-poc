@@ -10,10 +10,10 @@ service.getRawLogsBy = getRawLogsBy;
 
 module.exports = service;
 
-function getRawLogsBy(filters, pageState){
+function getRawLogsBy(filters, pageState, fetchSize){
     var deferred = Q.defer();
     var query = generateLuceneQuery(filters);
-    var options = pageState == undefined ? { prepare : true, fetchSize : 10 } : { pageState : pageState ,prepare : true, fetchSize : 10 };
+    var options = pageState == undefined ? { prepare : true, fetchSize : fetchSize } : { pageState : pageState ,prepare : true, fetchSize : 10 };
     var rows = [];
     client.eachRow(query, "" ,options, function (n, row) {
         rows.push(row);

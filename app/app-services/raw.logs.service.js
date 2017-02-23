@@ -10,7 +10,7 @@ function Service($http,$q) {
 
 
     service.GetRawLogsBy = GetRawLogsBy;
-
+    service.ExportRawLogs = ExportRawLogs;
 
     return service;
 
@@ -23,6 +23,16 @@ function Service($http,$q) {
 
 
     }
+
+    function ExportRawLogs(filters) {
+        return $http({
+            url: '/rawlogs/exportRawLogs',
+            method: "GET",
+            params : {filters: filters},
+            responseType: 'arraybuffer'
+        }).then(handleSuccess, handleError);
+    }
+
     function handleSuccess(res) {
         return res.data;
     }

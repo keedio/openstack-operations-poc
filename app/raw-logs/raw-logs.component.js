@@ -133,6 +133,15 @@ app.component('rawLogs',{
 
             }
 
+            self.export = function  () {
+                var filters = serializeForm();
+                RawLogsService.ExportRawLogs(filters).then(function ( report) {
+                    var blob = new Blob([report], {type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+                    var objectUrl = URL.createObjectURL(blob);
+                    window.open(objectUrl);
+                });
+            }
+
             function splitSelectedOtions(data) {
 
                 var array = []
