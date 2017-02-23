@@ -56,35 +56,39 @@ app.component('rawLogs',{
             self.payLoad = "";
             self.dateFrom = "";
             self.dateTo = "";
-            self.actualPageState = undefined;
-            self.lastPageState = undefined;
 
+            self.pageStates = [];
+            self.actualIndex = 0;
             self.getRawLogsBy = function  () {
-
 
                 RawLogsService.GetRawLogsBy(serializeForm(), undefined).then(function (data) {
                     self.rawlogs =  data.result;
-                    self.actualPageState = data.pageState;
-                    self.lastPageState = data.pageState;
+                    self.pageStates = [];
+                    self.pageStates.push(undefined);
+                    self.actualIndex = 1;
+                    self.pageStates.push(data.pageState);
                 });
             }
 
             self.next = function () {
 
-                RawLogsService.GetRawLogsBy(serializeForm(), self.actualPageState).then(function (data) {
+                RawLogsService.GetRawLogsBy(serializeForm(), self.pageStates[self.actualIndex]).then(function (data) {
                     self.rawlogs =  data.result;
-                    self.lastPageState = self.actualPageState;
-                    self.actualPageState = data.pageState;
+                    if(self.pageStates.indexOf(data.pageState) == -1) {
+                        self.pageStates.push(data.pageState);
+
+                    }
+                    self.actualIndex += 1;
+
                 });
 
             }
 
             self.previous = function () {
 
-                RawLogsService.GetRawLogsBy(serializeForm(), self.lastPageState).then(function (data) {
+                RawLogsService.GetRawLogsBy(serializeForm(), self.pageStates[self.actualIndex-2]).then(function (data) {
                     self.rawlogs =  data.result;
-                    self.lastPageState = self.actualPageState;
-                    self.actualPageState = data.pageState;
+                    self.actualIndex -= 1;
                 });
 
             }

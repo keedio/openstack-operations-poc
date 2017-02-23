@@ -97,16 +97,12 @@
 <div class="container-fluid">
     <div class="list-group list-view-pf list-view-pf-view">
         <form class="content-view-pf-pagination  clearfix" style="border:0px;" ng-show=" $ctrl.rawlogs.length > 0 ">
-
             <div class="form-group">
-                <span><span class="pagination-pf-items-current">1-10</span> of <span class="pagination-pf-items-total"> {{$ctrl.rawlogs.length }}</span></span>
+                <span><span class="pagination-pf-items-current">Page </span> <span class="pagination-pf-items-total"> {{$ctrl.actualIndex }}</span></span>
                 <ul class="pagination pagination-pf-back">
 
-                    <li class="disabled" ><a ng-click="$ctrl.previous()" title="Previous Page"><span class="i fa fa-angle-left"></span></a></li>
+                    <li  ng-show="$ctrl.actualIndex > 1"><a ng-click="$ctrl.previous()" title="Previous Page" ><span class="i fa fa-angle-left"></span></a></li>
                 </ul>
-                <label for="-page" class="sr-only">Current Page</label>
-                <input class="pagination-pf-page" type="text" value="1" id="-page">
-                <span>of <span class="pagination-pf-pages"> {{$ctrl.rawlogs.length }}</span></span>
                 <ul class="pagination pagination-pf-forward">
                     <li><a ng-click="$ctrl.next()" title="Next Page"><span class="i fa fa-angle-right"></span></a></li>
                 </ul>
