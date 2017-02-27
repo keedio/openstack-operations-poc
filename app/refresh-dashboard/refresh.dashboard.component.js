@@ -32,7 +32,7 @@ app.component('refreshDashboard',{
                 }
             $scope.refreshServices = function refresh(during) {
                 ServicesService.GetServicesBy(during).then(function (data) {
-                    self.services = parseServices(data);
+                    //self.services = parseServices(data);
                     $rootScope.$emit('refreshServices', data);
                 });
             }
@@ -40,6 +40,7 @@ app.component('refreshDashboard',{
                 ServicesService.GetStackedServicesBy(during,region).then(function (data) {
                     self.stackedServices = parseData(data);
                     createChart(self, during,$compile);
+                    
                 });
             }
 
