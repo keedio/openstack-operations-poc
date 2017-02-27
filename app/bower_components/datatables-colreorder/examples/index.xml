@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="0">
 
-<title lib="ColReorder">ColReorder examples</title>
+	<title lib="ColReorder">ColReorder examples</title>
 
-<js lib="jquery" />
-<info><![CDATA[
+	<js lib="jquery" />
+	<info><![CDATA[
 
 ColReorder adds the ability for the end user to click and drag column headers to reorder a table as they see fit, to DataTables. Key features include:
 

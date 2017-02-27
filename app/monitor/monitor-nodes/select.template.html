@@ -1,15 +1,21 @@
-<div class="form-group" style="padding-left: 0px" >
-    <span>Log Entries For: </span>
-    &nbsp;
-    <select  class="selectpicker"  pf-select ng-model="$ctrl.logEntries.selectedOption" id="logNodesEntry" ng-options="option.name for option in $ctrl.logEntries.availableOptions track by option.id" ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id)"></select>
+<div class="form-group" style="padding-left: 0px">
+	<span>Log Entries For: </span> &nbsp; <select class="selectpicker"
+		pf-select ng-model="$ctrl.logEntries.selectedOption"
+		id="logNodesEntry"
+		ng-options="option.name for option in $ctrl.logEntries.availableOptions track by option.id"
+		ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id)"></select>
 </div>
 <div class="form-group">
-    <span>View By Region: </span>
-    &nbsp;
-    <select class="selectpicker"  pf-select ng-model="$ctrl.regionEntries.selectedOption" id="regionNodesEntry" ng-options="option.name for option in $ctrl.regionEntries.availableOptions track by option.id" multiple ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id)"></select>
+	<span>View By Region: </span> &nbsp; <select class="selectpicker"
+		pf-select ng-model="$ctrl.regionEntries.selectedOption"
+		id="regionNodesEntry"
+		ng-options="option.name for option in $ctrl.regionEntries.availableOptions track by option.id"
+		multiple
+		ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id)"></select>
 </div>
 <div class="form-group">
-    <span>During: </span>
-    &nbsp;
-    <select class="selectpicker"  pf-select ng-model="$ctrl.duringEntries.selectedOption" id="duringNodesEntry" ng-options="option.name for option in $ctrl.duringEntries.availableOptions track by option.id" ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id )"></select>
+	<span>During: </span> &nbsp; <select class="selectpicker" pf-select
+		ng-model="$ctrl.duringEntries.selectedOption" id="duringNodesEntry"
+		ng-options="option.name for option in $ctrl.duringEntries.availableOptions track by option.id"
+		ng-change="$ctrl.updateNodes($ctrl.logEntries.selectedOption.id, $ctrl.regionEntries.selectedOption, $ctrl.duringEntries.selectedOption.id )"></select>
 </div>

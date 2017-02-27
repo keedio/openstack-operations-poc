@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="3">
 
-<css lib="datatables colvis" />
-<js lib="jquery datatables colvis">
+	<css lib="datatables colvis" />
+	<js lib="jquery datatables colvis">
 <![CDATA[
 $(document).ready(function() {
 	$('#example').DataTable( {
@@ -13,11 +13,11 @@ $(document).ready(function() {
 	} );
 } );
 ]]>
-</js>
+	</js>
 
-<title lib="ColVis">Custom button text</title>
+	<title lib="ColVis">Custom button text</title>
 
-<info><![CDATA[
+	<info><![CDATA[
 
 You may wish to use your own text in the ColVis button - this is done by making use of the `buttonText` initialisation option, as shown in this example.
 

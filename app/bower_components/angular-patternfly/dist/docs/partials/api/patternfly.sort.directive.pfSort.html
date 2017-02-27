@@ -1,35 +1,87 @@
-<a href="https://github.com/patternfly/angular-patternfly/edit/master/src/sort/sort-directive.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/patternfly/angular-patternfly/blob/aed2484/src/sort/sort-directive.js#L148" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">pfSort</code>
-<div><span class="hint">directive in module <code ng:non-bindable="">patternfly.sort</code>
-</span>
-</div>
+<a
+	href="https://github.com/patternfly/angular-patternfly/edit/master/src/sort/sort-directive.js"
+	class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a>
+<a
+	href="https://github.com/patternfly/angular-patternfly/blob/aed2484/src/sort/sort-directive.js#L148"
+	class="view-source"><i class="icon-eye-open"> </i>View source</a>
+<h1>
+	<code ng:non-bindable="">pfSort</code>
+	<div>
+		<span class="hint">directive in module <code ng:non-bindable="">patternfly.sort</code>
+		</span>
+	</div>
 </h1>
-<div><h2 id="description">Description</h2>
-<div class="description"><div class="patternfly-sort-directive-page patternfly-sort-directive-pfsort-page"><p>Directive for a  sort component
-<br><br></p>
-</div></div>
-<h2 id="usage">Usage</h2>
-<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY pf-sort
+<div>
+	<h2 id="description">Description</h2>
+	<div class="description">
+		<div
+			class="patternfly-sort-directive-page patternfly-sort-directive-pfsort-page">
+			<p>
+				Directive for a sort component <br>
+				<br>
+			</p>
+		</div>
+	</div>
+	<h2 id="usage">Usage</h2>
+	<div class="usage">
+		as attribute
+		<pre class="prettyprint linenums">&lt;ANY pf-sort
      config="{object}"&gt;
    ...
 &lt;/ANY&gt;</pre>
-<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>config</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="patternfly-sort-directive-page patternfly-sort-directive-pfsort-page"><p>configuration settings for the sort:<br/></p>
-<ul style='list-style-type: none'>
-<li>.fields          - (Array) List of sortable fields containing:
-<ul style='list-style-type: none'>
-<li>.id          - (String) Unique Id for the sort field
-<li>.title       - (String) The title to display for the sort field
-<li>.sortType    - (String) The sort type, &#39;alpha&#39; or &#39;numeric&#39;
-</ul>
-<li>.currentField   - (Object) Currently selected field
-<li>.isAscending - (boolean) Current sort direction is ascending. True for ascending, False for descending
-<li>.onSortChange - ( function(sortId, sortDirection ) Function to call when the current sort params change
-</ul></div></td></tr></tbody></table></div>
-<h2 id="example">Example</h2>
-<div class="example"><div class="patternfly-sort-directive-page patternfly-sort-directive-pfsort-page"><h4 id="example_source">Source</h4>
-<div source-edit="patternfly.sort" source-edit-deps="angular.js script.js" source-edit-html="index.html-55" source-edit-css="" source-edit-js="script.js-56" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
-<div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-55" ng-html-wrap-loaded="patternfly.sort angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-55">
+		<h4 id="usage_parameters">Parameters</h4>
+		<table class="variables-matrix table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Param</th>
+					<th>Type</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>config</td>
+					<td><a href="" class="label type-hint type-hint-object">object</a></td>
+					<td><div
+							class="patternfly-sort-directive-page patternfly-sort-directive-pfsort-page">
+							<p>
+								configuration settings for the sort:<br />
+							</p>
+							<ul style='list-style-type: none'>
+								<li>.fields - (Array) List of sortable fields containing:
+									<ul style='list-style-type: none'>
+										<li>.id - (String) Unique Id for the sort field
+										<li>.title - (String) The title to display for the sort
+											field
+										<li>.sortType - (String) The sort type, &#39;alpha&#39;
+											or &#39;numeric&#39;
+									</ul>
+								<li>.currentField - (Object) Currently selected field
+								<li>.isAscending - (boolean) Current sort direction is
+									ascending. True for ascending, False for descending
+								<li>.onSortChange - ( function(sortId, sortDirection )
+									Function to call when the current sort params change
+							</ul>
+						</div></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<h2 id="example">Example</h2>
+	<div class="example">
+		<div
+			class="patternfly-sort-directive-page patternfly-sort-directive-pfsort-page">
+			<h4 id="example_source">Source</h4>
+			<div source-edit="patternfly.sort"
+				source-edit-deps="angular.js script.js"
+				source-edit-html="index.html-55" source-edit-css=""
+				source-edit-js="script.js-56" source-edit-json=""
+				source-edit-unit="" source-edit-scenario=""></div>
+			<div class="tabbable">
+				<div class="tab-pane" title="index.html">
+					<pre class="prettyprint linenums" ng-set-text="index.html-55"
+						ng-html-wrap-loaded="patternfly.sort angular.js script.js"></pre>
+					<script type="text/ng-template" id="index.html-55">
   <div ng-controller="ViewCtrl" class="row example-container">
     <div class="col-md-12">
       <div pf-sort id="exampleSort" config="sortConfig"></div>
@@ -55,10 +107,10 @@
     </div>
   </div>
 </script>
-</div>
-<div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-56"></pre>
-<script type="text/ng-template" id="script.js-56">
+				</div>
+				<div class="tab-pane" title="script.js">
+					<pre class="prettyprint linenums" ng-set-text="script.js-56"></pre>
+					<script type="text/ng-template" id="script.js-56">
   angular.module('patternfly.sort').controller('ViewCtrl', ['$scope',
     function ($scope) {
       $scope.items = [
@@ -153,8 +205,12 @@
     }
   ]);
 </script>
-</div>
-</div><h4 id="example_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="patternfly.sort" ng-set-html="index.html-55" ng-eval-javascript="script.js-56"></div>
-</div></div>
+				</div>
+			</div>
+			<h4 id="example_demo">Demo</h4>
+			<div class="well doc-example-live animate-container"
+				ng-embed-app="patternfly.sort" ng-set-html="index.html-55"
+				ng-eval-javascript="script.js-56"></div>
+		</div>
+	</div>
 </div>

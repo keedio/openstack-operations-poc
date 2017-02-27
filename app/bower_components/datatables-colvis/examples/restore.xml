@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="11">
 
-<css lib="datatables colvis" />
-<js lib="jquery datatables colvis">
+	<css lib="datatables colvis" />
+	<js lib="jquery datatables colvis">
 <![CDATA[
 $(document).ready(function() {
 	$('#example').DataTable( {
@@ -18,11 +18,11 @@ $(document).ready(function() {
 	} );
 } );
 ]]>
-</js>
+	</js>
 
-<title lib="ColVis">Restore / show all</title>
+	<title lib="ColVis">Restore / show all</title>
 
-<info><![CDATA[
+	<info><![CDATA[
 
 This demo of ColVis shows its ability to add "Restore", "Show all" and "Show none" buttons to the list of column visibility options. This is done with the `restore`, `showAll` and `showNone` options which can be enabled individually if needed.
 

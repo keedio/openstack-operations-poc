@@ -5,7 +5,9 @@
 		"./bin/prettify.min.css",
 		"./bin/prettify.min.js"
 	],
-	"dependencies": {},
+	"dependencies": {
+		
+	},
 	"ignore": [
 		"closure-compiler",
 		"js-modules",

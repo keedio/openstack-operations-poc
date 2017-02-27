@@ -1,48 +1,52 @@
 <nav class="navbar navbar-pf-vertical">
-    <div class="navbar-header">
-        <a href="#index" class="navbar-brand">
-            <img class="navbar-brand-icon" src="/assets/img/logo-alt.svg" alt=""><img class="navbar-brand-name" src="/assets/img/brand-alt.svg" alt="PatternFly Enterprise Application">
-        </a>
-    </div>
-    <nav class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li><a href="#" target="_blank" class="nav-item-iconic nav-item-iconic-new-window"><span title="Launch" class="fa fa-external-link"></span></a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right navbar-iconic">
-            <li class="dropdown">
-                <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <span>Administrator | EVM 41 demomasterA</span> &nbsp;
-                    <span title="Username" class="fa pficon-user"> </span>
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li><a href="#">Preferences</a></li>
-                    <li><a href="#">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+	<div class="navbar-header">
+		<a href="#index" class="navbar-brand"> <img
+			class="navbar-brand-icon" src="/assets/img/logo-alt.svg" alt=""><img
+			class="navbar-brand-name" src="/assets/img/brand-alt.svg"
+			alt="PatternFly Enterprise Application">
+		</a>
+	</div>
+	<nav class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="#" target="_blank"
+				class="nav-item-iconic nav-item-iconic-new-window"><span
+					title="Launch" class="fa fa-external-link"></span></a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right navbar-iconic">
+			<li class="dropdown"><a class="dropdown-toggle nav-item-iconic"
+				id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="true"> <span>Administrator | EVM 41
+						demomasterA</span> &nbsp; <span title="Username" class="fa pficon-user">
+				</span> <span class="caret"></span>
+			</a>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+					<li><a href="#">Preferences</a></li>
+					<li><a href="#">Logout</a></li>
+				</ul></li>
+		</ul>
+	</nav>
 </nav>
-<div class="nav-pf-vertical nav-pf-vertical-with-sub-menus nav-pf-persistent-secondary">
-    <ul class="list-group" id="verticalList">
-        <li ng-class="$ctrl.menuClass('index')" id="liMonitor">
-            <a id="monitorItem" href="#index" >
-                <span class="fa fa-dashboard active" data-toggle="tooltip" title="" data-original-title="Status"></span>
-                <span class="list-group-item-value">Status</span>
-            </a>
-        </li>
-        <li  ng-class="$ctrl.menuClass('stacked_bars')" id="liStackedBars">
-            <a id="stacked_barsItem" href="#stacked_bars" >
-                <span class="fa fa-shield" data-toggle="tooltip" title="" data-original-title="Logs"></span>
-                <span class="list-group-item-value">Logs</span>
+<div
+	class="nav-pf-vertical nav-pf-vertical-with-sub-menus nav-pf-persistent-secondary">
+	<ul class="list-group" id="verticalList">
+		<li ng-class="$ctrl.menuClass('index')" id="liMonitor"><a
+			id="monitorItem" href="#index"> <span
+				class="fa fa-dashboard active" data-toggle="tooltip" title=""
+				data-original-title="Status"></span> <span
+				class="list-group-item-value">Status</span>
+		</a></li>
+		<li ng-class="$ctrl.menuClass('stacked_bars')" id="liStackedBars">
+			<a id="stacked_barsItem" href="#stacked_bars"> <span
+				class="fa fa-shield" data-toggle="tooltip" title=""
+				data-original-title="Logs"></span> <span
+				class="list-group-item-value">Logs</span>
 
-            </a>
-        </li>
-        <li  ng-class="$ctrl.menuClass('rawlogs')">
-            <a href="#rawlogs"  >
-                <span class="pficon pficon-image" data-toggle="tooltip" title="" data-original-title="Raw Logs"></span>
-                <span class="list-group-item-value">Raw Logs</span>
-            </a>
-        </li>
-    </ul>
+		</a>
+		</li>
+		<li ng-class="$ctrl.menuClass('rawlogs')"><a href="#rawlogs">
+				<span class="pficon pficon-image" data-toggle="tooltip" title=""
+				data-original-title="Raw Logs"></span> <span
+				class="list-group-item-value">Raw Logs</span>
+		</a></li>
+	</ul>
 </div>

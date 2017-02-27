@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="1">
 
-<css lib="datatables colreorder" />
-<js lib="jquery datatables colreorder">
+	<css lib="datatables colreorder" />
+	<js lib="jquery datatables colreorder">
 <![CDATA[
 $(document).ready(function() {
 	$('#example').DataTable( {
@@ -10,11 +10,11 @@ $(document).ready(function() {
 	} );
 } );
 ]]>
-</js>
+	</js>
 
-<title lib="ColReorder">Basic initialisation</title>
+	<title lib="ColReorder">Basic initialisation</title>
 
-<info><![CDATA[
+	<info><![CDATA[
 
 This example shows the basic use case of the ColReorder plug-in. With ColReorder enabled for a table, the user has the ability to click and drag any table header cell, and drop it where they wish the column to be inserted. The insert point is shown visually, and the column reordering is done as soon as the mouse button is released.
 

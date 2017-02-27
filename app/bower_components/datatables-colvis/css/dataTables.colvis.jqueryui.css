@@ -1,6 +1,4 @@
-
-button.ColVis_Button,
-ul.ColVis_collection li {
+button.ColVis_Button, ul.ColVis_collection li {
 	padding: 0.5em;
 }
 
@@ -33,7 +31,6 @@ div.ColVis_collectionBackground {
 	background-color: black;
 	z-index: 1100;
 }
-
 
 div.ColVis_catcher {
 	position: absolute;

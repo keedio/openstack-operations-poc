@@ -1,17 +1,39 @@
-<a href="https://github.com/patternfly/angular-patternfly/edit/master/src/views/listview/list-view-directive.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/patternfly/angular-patternfly/blob/aed2484/src/views/listview/list-view-directive.js#L422" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">pfListView</code>
-<div><span class="hint">directive in module <code ng:non-bindable="">patternfly.views</code>
-</span>
-</div>
+<a
+	href="https://github.com/patternfly/angular-patternfly/edit/master/src/views/listview/list-view-directive.js"
+	class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a>
+<a
+	href="https://github.com/patternfly/angular-patternfly/blob/aed2484/src/views/listview/list-view-directive.js#L422"
+	class="view-source"><i class="icon-eye-open"> </i>View source</a>
+<h1>
+	<code ng:non-bindable="">pfListView</code>
+	<div>
+		<span class="hint">directive in module <code ng:non-bindable="">patternfly.views</code>
+		</span>
+	</div>
 </h1>
-<div><h2 id="description">Description</h2>
-<div class="description"><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><p>Directive for rendering a list view.
-Pass a customScope object containing any scope variables/functions you need to access from the transcluded source, access these
-via &#39;customScope&#39; in your transcluded hmtl.
-<br><br>
-If using expanding rows, use a list-expanded-content element containing expandable content for each row.  Item data can be accessed inside list-expanded-content by using $parent.item.property.  For each item in the items array, the expansion can be disabled by setting disableRowExpansion to true on the item.</p>
-</div></div>
-<h2 id="usage">Usage</h2>
-<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY pf-list-view
+<div>
+	<h2 id="description">Description</h2>
+	<div class="description">
+		<div
+			class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+			<p>
+				Directive for rendering a list view. Pass a customScope object
+				containing any scope variables/functions you need to access from the
+				transcluded source, access these via &#39;customScope&#39; in your
+				transcluded hmtl. <br>
+				<br> If using expanding rows, use a list-expanded-content
+				element containing expandable content for each row. Item data can be
+				accessed inside list-expanded-content by using
+				$parent.item.property. For each item in the items array, the
+				expansion can be disabled by setting disableRowExpansion to true on
+				the item.
+			</p>
+		</div>
+	</div>
+	<h2 id="usage">Usage</h2>
+	<div class="usage">
+		as attribute
+		<pre class="prettyprint linenums">&lt;ANY pf-list-view
      items="{array}"
      config="{object}"
      action-buttons="{array}"
@@ -23,54 +45,187 @@ If using expanding rows, use a list-expanded-content element containing expandab
      custom-scope="{object}"&gt;
    ...
 &lt;/ANY&gt;</pre>
-<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>items</td><td><a href="" class="label type-hint type-hint-array">array</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><p>Array of items to display in the list view. If an item in the array has a &#39;rowClass&#39; field, the value of this field will be used as a class specified on the row (list-group-item).</p>
-</div></td></tr><tr><td>config</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><p>Configuration settings for the list view:</p>
-<ul style='list-style-type: none'>
-<li>.showSelectBox          - (boolean) Show item selection boxes for each item, default is true
-<li>.selectItems            - (boolean) Allow row selection, default is false
-<li>.dlbClick               - (boolean) Handle double clicking (item remains selected on a double click). Default is false.
-<li>.dragEnabled            - (boolean) Enable drag and drop. Default is false.
-<li>.dragEnd                - ( function() ) Function to call when the drag operation ended, default is none
-<li>.dragMoved              - ( function() ) Function to call when the drag operation moved an element, default is none
-<li>.dragStart              - ( function(item) ) Function to call when the drag operation started, default is none
-<li>.multiSelect            - (boolean) Allow multiple row selections, selectItems must also be set, not applicable when dblClick is true. Default is false
-<li>.useExpandingRows       - (boolean) Allow row expansion for each list item.
-<li>.selectionMatchProp     - (string) Property of the items to use for determining matching, default is &#39;uuid&#39;
-<li>.selectedItems          - (array) Current set of selected items
-<li>.checkDisabled          - ( function(item) ) Function to call to determine if an item is disabled, default is none
-<li>.onCheckBoxChange       - ( function(item) ) Called to notify when a checkbox selection changes, default is none
-<li>.onSelect               - ( function(item, event) ) Called to notify of item selection, default is none
-<li>.onSelectionChange      - ( function(items) ) Called to notify when item selections change, default is none
-<li>.onClick                - ( function(item, event) ) Called to notify when an item is clicked, default is none
-<li>.onDblClick             - ( function(item, event) ) Called to notify when an item is double clicked, default is none
-</ul></div></td></tr><tr><td>actionButtons</td><td><a href="" class="label type-hint type-hint-array">array</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><p>List of action buttons in each row</p>
-<ul style='list-style-type: none'>
-  <li>.name - (String) The name of the action, displayed on the button
-  <li>.title - (String) Optional title, used for the tooltip
-  <li>.class - (String) Optional class to add to the action button
-  <li>.include - (String) Optional include src for the button. Used for custom button layouts (icons, dropdowns, etc)
-  <li>.includeClass - (String) Optional class to set on the include src div (only relevant when include is set).
-  <li>.actionFn - (function(action)) Function to invoke when the action selected
-</ul></div></td></tr><tr><td>enableButtonForItemFn</td><td><a href="" class="label type-hint type-hint-function">function (action, item)</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><p>function(action, item) Used to enabled/disable an action button based on the current item</p>
-</div></td></tr><tr><td>menuActions</td><td><a href="" class="label type-hint type-hint-array">array</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><p>List of actions for dropdown menu in each row</p>
-<ul style='list-style-type: none'>
-  <li>.name - (String) The name of the action, displayed on the button
-  <li>.title - (String) Optional title, used for the tooltip
-  <li>.actionFn - (function(action)) Function to invoke when the action selected
-  <li>.isVisible - (Boolean) set to false to hide the action
-  <li>.isDisabled - (Boolean) set to true to disable the action
-  <li>.isSeparator - (Boolean) set to true if this is a placeholder for a separator rather than an action
-</ul></div></td></tr><tr><td>hideMenuForItemFn</td><td><a href="" class="label type-hint type-hint-function">function (item)</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><p>function(item) Used to hide all menu actions for a particular item</p>
-</div></td></tr><tr><td>menuClassForItemFn</td><td><a href="" class="label type-hint type-hint-function">function (item)</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><p>function(item) Used to specify a class for an item&#39;s dropdown kebab</p>
-</div></td></tr><tr><td>updateMenuActionForItemFn</td><td><a href="" class="label type-hint type-hint-function">function (action, item)</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><p>function(action, item) Used to update a menu action based on the current item</p>
-</div></td></tr><tr><td>customScope</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><p>Object containing any variables/functions used by the transcluded html, access via customScope.<xxx></p>
-</div></td></tr></tbody></table></div>
-<h2 id="example">Example</h2>
-<div class="example"><div class="patternfly-views-directive-page patternfly-views-directive-pflistview-page"><h4 id="example_source">Source</h4>
-<div source-edit="patternfly.views" source-edit-deps="angular.js patternfly.utils script.js" source-edit-html="index.html-67" source-edit-css="" source-edit-js="script.js-68" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
-<div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-67" ng-html-wrap-loaded="patternfly.views angular.js patternfly.utils script.js"></pre>
-<script type="text/ng-template" id="index.html-67">
+		<h4 id="usage_parameters">Parameters</h4>
+		<table class="variables-matrix table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Param</th>
+					<th>Type</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>items</td>
+					<td><a href="" class="label type-hint type-hint-array">array</a></td>
+					<td><div
+							class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+							<p>Array of items to display in the list view. If an item in
+								the array has a &#39;rowClass&#39; field, the value of this
+								field will be used as a class specified on the row
+								(list-group-item).</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>config</td>
+					<td><a href="" class="label type-hint type-hint-object">object</a></td>
+					<td><div
+							class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+							<p>Configuration settings for the list view:</p>
+							<ul style='list-style-type: none'>
+								<li>.showSelectBox - (boolean) Show item selection boxes
+									for each item, default is true
+								<li>.selectItems - (boolean) Allow row selection, default
+									is false
+								<li>.dlbClick - (boolean) Handle double clicking (item
+									remains selected on a double click). Default is false.
+								<li>.dragEnabled - (boolean) Enable drag and drop. Default
+									is false.
+								<li>.dragEnd - ( function() ) Function to call when the
+									drag operation ended, default is none
+								<li>.dragMoved - ( function() ) Function to call when the
+									drag operation moved an element, default is none
+								<li>.dragStart - ( function(item) ) Function to call when
+									the drag operation started, default is none
+								<li>.multiSelect - (boolean) Allow multiple row selections,
+									selectItems must also be set, not applicable when dblClick is
+									true. Default is false
+								<li>.useExpandingRows - (boolean) Allow row expansion for
+									each list item.
+								<li>.selectionMatchProp - (string) Property of the items to
+									use for determining matching, default is &#39;uuid&#39;
+								<li>.selectedItems - (array) Current set of selected items
+								
+								<li>.checkDisabled - ( function(item) ) Function to call to
+									determine if an item is disabled, default is none
+								<li>.onCheckBoxChange - ( function(item) ) Called to notify
+									when a checkbox selection changes, default is none
+								<li>.onSelect - ( function(item, event) ) Called to notify
+									of item selection, default is none
+								<li>.onSelectionChange - ( function(items) ) Called to
+									notify when item selections change, default is none
+								<li>.onClick - ( function(item, event) ) Called to notify
+									when an item is clicked, default is none
+								<li>.onDblClick - ( function(item, event) ) Called to
+									notify when an item is double clicked, default is none
+							</ul>
+						</div></td>
+				</tr>
+				<tr>
+					<td>actionButtons</td>
+					<td><a href="" class="label type-hint type-hint-array">array</a></td>
+					<td><div
+							class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+							<p>List of action buttons in each row</p>
+							<ul style='list-style-type: none'>
+								<li>.name - (String) The name of the action, displayed on
+									the button
+								<li>.title - (String) Optional title, used for the tooltip
+								
+								<li>.class - (String) Optional class to add to the action
+									button
+								<li>.include - (String) Optional include src for the
+									button. Used for custom button layouts (icons, dropdowns, etc)
+								
+								<li>.includeClass - (String) Optional class to set on the
+									include src div (only relevant when include is set).
+								<li>.actionFn - (function(action)) Function to invoke when
+									the action selected
+							</ul>
+						</div></td>
+				</tr>
+				<tr>
+					<td>enableButtonForItemFn</td>
+					<td><a href="" class="label type-hint type-hint-function">function
+							(action, item)</a></td>
+					<td><div
+							class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+							<p>function(action, item) Used to enabled/disable an action
+								button based on the current item</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>menuActions</td>
+					<td><a href="" class="label type-hint type-hint-array">array</a></td>
+					<td><div
+							class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+							<p>List of actions for dropdown menu in each row</p>
+							<ul style='list-style-type: none'>
+								<li>.name - (String) The name of the action, displayed on
+									the button
+								<li>.title - (String) Optional title, used for the tooltip
+								
+								<li>.actionFn - (function(action)) Function to invoke when
+									the action selected
+								<li>.isVisible - (Boolean) set to false to hide the action
+								
+								<li>.isDisabled - (Boolean) set to true to disable the
+									action
+								<li>.isSeparator - (Boolean) set to true if this is a
+									placeholder for a separator rather than an action
+							</ul>
+						</div></td>
+				</tr>
+				<tr>
+					<td>hideMenuForItemFn</td>
+					<td><a href="" class="label type-hint type-hint-function">function
+							(item)</a></td>
+					<td><div
+							class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+							<p>function(item) Used to hide all menu actions for a
+								particular item</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>menuClassForItemFn</td>
+					<td><a href="" class="label type-hint type-hint-function">function
+							(item)</a></td>
+					<td><div
+							class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+							<p>function(item) Used to specify a class for an item&#39;s
+								dropdown kebab</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>updateMenuActionForItemFn</td>
+					<td><a href="" class="label type-hint type-hint-function">function
+							(action, item)</a></td>
+					<td><div
+							class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+							<p>function(action, item) Used to update a menu action based
+								on the current item</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>customScope</td>
+					<td><a href="" class="label type-hint type-hint-object">object</a></td>
+					<td><div
+							class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+							<p>
+								Object containing any variables/functions used by the
+								transcluded html, access via customScope.
+								<xxx>
+							</p>
+						</div></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<h2 id="example">Example</h2>
+	<div class="example">
+		<div
+			class="patternfly-views-directive-page patternfly-views-directive-pflistview-page">
+			<h4 id="example_source">Source</h4>
+			<div source-edit="patternfly.views"
+				source-edit-deps="angular.js patternfly.utils script.js"
+				source-edit-html="index.html-67" source-edit-css=""
+				source-edit-js="script.js-68" source-edit-json=""
+				source-edit-unit="" source-edit-scenario=""></div>
+			<div class="tabbable">
+				<div class="tab-pane" title="index.html">
+					<pre class="prettyprint linenums" ng-set-text="index.html-67"
+						ng-html-wrap-loaded="patternfly.views angular.js patternfly.utils script.js"></pre>
+					<script type="text/ng-template" id="index.html-67">
   <div ng-controller="ViewCtrl" class="row example-container">
     <div class="col-md-12 list-view-container">
       <div pf-list-view class="example-list-view" id="exampleListView"
@@ -187,10 +342,10 @@ If using expanding rows, use a list-expanded-content element containing expandab
     </div>
   </div>
 </script>
-</div>
-<div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-68"></pre>
-<script type="text/ng-template" id="script.js-68">
+				</div>
+				<div class="tab-pane" title="script.js">
+					<pre class="prettyprint linenums" ng-set-text="script.js-68"></pre>
+					<script type="text/ng-template" id="script.js-68">
 angular.module('patternfly.views').controller('ViewCtrl', ['$scope', '$templateCache',
     function ($scope, $templateCache) {
       $scope.eventText = '';
@@ -434,8 +589,12 @@ angular.module('patternfly.views').controller('ViewCtrl', ['$scope', '$templateC
     }
   ]);
 </script>
-</div>
-</div><h4 id="example_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="patternfly.views" ng-set-html="index.html-67" ng-eval-javascript="script.js-68"></div>
-</div></div>
+				</div>
+			</div>
+			<h4 id="example_demo">Demo</h4>
+			<div class="well doc-example-live animate-container"
+				ng-embed-app="patternfly.views" ng-set-html="index.html-67"
+				ng-eval-javascript="script.js-68"></div>
+		</div>
+	</div>
 </div>

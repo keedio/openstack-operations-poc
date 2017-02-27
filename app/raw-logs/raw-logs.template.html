@@ -1,148 +1,184 @@
 <div class="container-fluid">
-    <div class="row toolbar-pf">
-        <form>
-            <div class="col-sm-12">
-                <div class="col-sm-4">
-                    <div class="col-sm-4">
-                        <span>Log Level: <br/></span>
-                        <div class="col-sm-12"><br/></div>
+	<div class="row toolbar-pf">
+		<form>
+			<div class="col-sm-12">
+				<div class="col-sm-4">
+					<div class="col-sm-4">
+						<span>Log Level: <br /></span>
+						<div class="col-sm-12">
+							<br />
+						</div>
 
-                        <span>Service: </span>
-                    </div>
-                    <div class="col-sm-8" style="padding-left: 0px;">
-                        <select class="selectpicker"  ng-model="$ctrl.logLevel.selectedOption" id="loglevelSelect"
-                                ng-options="option.name disable when option.id == -1  for  option in $ctrl.logLevel.availableOptions track by option.id"
-                                multiple></select>
-                        <div class="col-sm-12"><br/></div>
-                        <select class="selectpicker" pf-select ng-model="$ctrl.servicesEntries.selectedOption" id="serviceSelect"
-                                ng-options="option.name disable when option.id == -1  for  option in $ctrl.servicesEntries.availableOptions track by option.id"
-                                multiple></select>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="col-sm-4">
-                        <span>Node Type: <br/> </span>
-                        <div class="col-sm-12"><br/></div>
-                        <span>Region: </span>
-                    </div>
-                    <div class="col-sm-8" style="padding-left-left: 0px;">
-                        <select class="selectpicker" pf-select ng-model="$ctrl.nodeType.selectedOption" id="node_typeSelect"
-                                ng-options="option.name disable when option.id == -1  for  option in $ctrl.nodeType.availableOptions track by option.id"
-                                multiple></select>
-                        <div class="col-sm-12"><br/></div>
-                        <select class="selectpicker" pf-select ng-model="$ctrl.regionEntries.selectedOption" id="regionSelect"
-                                ng-options="option.name disable when option.id == -1  for option in $ctrl.regionEntries.availableOptions track by option.id"
-                                multiple></select>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="col-sm-4">
-                        <span>Payload: <br/></span>
-                        <div class="col-sm-12"><br/></div>
+						<span>Service: </span>
+					</div>
+					<div class="col-sm-8" style="padding-left: 0px;">
+						<select class="selectpicker"
+							ng-model="$ctrl.logLevel.selectedOption" id="loglevelSelect"
+							ng-options="option.name disable when option.id == -1  for  option in $ctrl.logLevel.availableOptions track by option.id"
+							multiple></select>
+						<div class="col-sm-12">
+							<br />
+						</div>
+						<select class="selectpicker" pf-select
+							ng-model="$ctrl.servicesEntries.selectedOption"
+							id="serviceSelect"
+							ng-options="option.name disable when option.id == -1  for  option in $ctrl.servicesEntries.availableOptions track by option.id"
+							multiple></select>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="col-sm-4">
+						<span>Node Type: <br />
+						</span>
+						<div class="col-sm-12">
+							<br />
+						</div>
+						<span>Region: </span>
+					</div>
+					<div class="col-sm-8" style="padding-left-left: 0px;">
+						<select class="selectpicker" pf-select
+							ng-model="$ctrl.nodeType.selectedOption" id="node_typeSelect"
+							ng-options="option.name disable when option.id == -1  for  option in $ctrl.nodeType.availableOptions track by option.id"
+							multiple></select>
+						<div class="col-sm-12">
+							<br />
+						</div>
+						<select class="selectpicker" pf-select
+							ng-model="$ctrl.regionEntries.selectedOption" id="regionSelect"
+							ng-options="option.name disable when option.id == -1  for option in $ctrl.regionEntries.availableOptions track by option.id"
+							multiple></select>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="col-sm-4">
+						<span>Payload: <br /></span>
+						<div class="col-sm-12">
+							<br />
+						</div>
 
-                        <span>Log Date: </span>
-                    </div>
-                    <div class="col-sm-8" style="padding-left: 0px;">
-                        <input type="text" class="form-control" ng-model="$ctrl.payLoad" id="payLoad">
-                        <div class="col-sm-12"><br/></div>
-                        <div class="input-daterange input-group">
-                            <input type="text" class="form-control bootstrap-datepicker" id ="datepickerFrom" name="start" readonly ng-model="$ctrl.dateFrom">
-                            <span class="input-group-addon">to</span>
-                            <input type="text" class="form-control bootstrap-datepicker" id="datepickerTo" name="end" readonly ng-model="$ctrl.dateTo">
-                        </div>
+						<span>Log Date: </span>
+					</div>
+					<div class="col-sm-8" style="padding-left: 0px;">
+						<input type="text" class="form-control" ng-model="$ctrl.payLoad"
+							id="payLoad">
+						<div class="col-sm-12">
+							<br />
+						</div>
+						<div class="input-daterange input-group">
+							<input type="text" class="form-control bootstrap-datepicker"
+								id="datepickerFrom" name="start" readonly
+								ng-model="$ctrl.dateFrom"> <span
+								class="input-group-addon">to</span> <input type="text"
+								class="form-control bootstrap-datepicker" id="datepickerTo"
+								name="end" readonly ng-model="$ctrl.dateTo">
+						</div>
 
-                    </div>
-                </div>
+					</div>
+				</div>
 
-            </div><!-- /col -->
-            <div class="col-sm-12">
-            <div class="row toolbar-pf-results">
-                <div class="col-sm-12">
-                    <h5>Active filters:</h5>
-                    <ul class="list-inline" ng-repeat="filter in $ctrl.activeFilters">
-                        <li>
-                    <span class="label label-info">
-                      {{filter.name | capitalize}}:  {{filter.values}}
-                      <a href="" ng-show="$ctrl.activeFilters.length > 1"><span class="pficon pficon-close" ng-click="$ctrl.removeFilter(filter.name )"></span></a>
-                    </span>
-                        </li>
-                    </ul>
-                    <div class="toolbar-pf-action-right" style="padding-top: 5px;">
-                        <div class="form-group toolbar-pf-find">
-                            <button class="btn btn-link btn-find" type="button" ng-click="$ctrl.getRawLogsBy()">
-                                <span class="fa fa-search"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div><!-- /col -->
-            </div><!-- /row -->
-        </div>
-        </form>
+			</div>
+			<!-- /col -->
+			<div class="col-sm-12">
+				<div class="row toolbar-pf-results">
+					<div class="col-sm-12">
+						<h5>Active filters:</h5>
+						<ul class="list-inline" ng-repeat="filter in $ctrl.activeFilters">
+							<li><span class="label label-info"> {{filter.name |
+									capitalize}}: {{filter.values}} <a href=""
+									ng-show="$ctrl.activeFilters.length > 1"><span
+										class="pficon pficon-close"
+										ng-click="$ctrl.removeFilter(filter.name )"></span></a>
+							</span></li>
+						</ul>
+						<div class="toolbar-pf-action-right" style="padding-top: 5px;">
+							<div class="form-group toolbar-pf-find">
+								<button class="btn btn-link btn-find" type="button"
+									ng-click="$ctrl.getRawLogsBy()">
+									<span class="fa fa-search"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<!-- /col -->
+				</div>
+				<!-- /row -->
+			</div>
+		</form>
 
-    </div><!-- /row -->
+	</div>
+	<!-- /row -->
 </div>
 <div class="container-fluid">
-    <div class="list-group list-view-pf list-view-pf-view">
-        <form class="content-view-pf-pagination  clearfix" style="border:0px;" ng-show=" $ctrl.rawlogs.length > 0 ">
-           <div class="form-group">
-               <h5> Export all: &nbsp; </h5>
-               <span>
-                   <a href="" ng-click="$ctrl.export()"><span class="pficon-export"></span></a>
-               </span>
-           </div>
-            <div class="form-group">
-                <span><span class="pagination-pf-items-current">Page </span> <span class="pagination-pf-items-total"> {{$ctrl.actualIndex }}</span></span>
-                <ul class="pagination pagination-pf-back">
+	<div class="list-group list-view-pf list-view-pf-view">
+		<form class="content-view-pf-pagination  clearfix"
+			style="border: 0px;" ng-show=" $ctrl.rawlogs.length > 0 ">
+			<div class="form-group">
+				<h5>Export all: &nbsp;</h5>
+				<span> <a href="" ng-click="$ctrl.export()"><span
+						class="pficon-export"></span></a>
+				</span>
+			</div>
+			<div class="form-group">
+				<span><span class="pagination-pf-items-current">Page </span>
+					<span class="pagination-pf-items-total"> {{$ctrl.actualIndex
+						}}</span></span>
+				<ul class="pagination pagination-pf-back">
 
-                    <li  ng-show="$ctrl.actualIndex > 1"><a ng-click="$ctrl.previous()" title="Previous Page" ><span class="i fa fa-angle-left"></span></a></li>
-                </ul>
-                <ul class="pagination pagination-pf-forward">
-                    <li><a ng-click="$ctrl.next()" title="Next Page"><span class="i fa fa-angle-right"></span></a></li>
-                </ul>
-            </div>
-        </form>
-        <div class="list-group-item" ng-repeat="log in $ctrl.rawlogs">
-            <div class="list-group-item-header">
-                <div class="list-view-pf-expand">
-                    <span class="fa fa-angle-right"></span>
-                </div>
-                <div class="list-view-pf-main-info" id="wrapper">
-                    <div class="list-view-pf-body">
-                        <div class="list-view-pf-description">
-                            <div class="list-group-item-text" style=" white-space: nowrap;overflow: hidden;text-overflow: ellipsis; padding-top: 7px;">
-                                <span>{{log}}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-group-item-container container-fluid hidden">
-                <div class="close">
-                    <span class="pficon pficon-close"></span>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <dl class="dl-horizontal">
-                            <dt>Log Level</dt>
-                            <dd> <a ><span ng-class="$ctrl.loglevelClass(log.loglevel)"></span>{{azRegion.error}}</a></dd>
-                            <dt>Date</dt>
-                            <dd> {{log.log_ts}}</dd>
-                            <dt>Service</dt>
-                            <dd> {{log.service | capitalize}}</dd>
-                            <dt>Region</dt>
-                            <dd> {{log.region | capitalize}}</dd>
-                            <dt>Node Type</dt>
-                            <dd> {{log.node_type | capitalize}}</dd>
-                            <dt>Pay Load</dt>
-                            <dd>  {{log.payload}}</dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-        </div>
+					<li ng-show="$ctrl.actualIndex > 1"><a
+						ng-click="$ctrl.previous()" title="Previous Page"><span
+							class="i fa fa-angle-left"></span></a></li>
+				</ul>
+				<ul class="pagination pagination-pf-forward">
+					<li><a ng-click="$ctrl.next()" title="Next Page"><span
+							class="i fa fa-angle-right"></span></a></li>
+				</ul>
+			</div>
+		</form>
+		<div class="list-group-item" ng-repeat="log in $ctrl.rawlogs">
+			<div class="list-group-item-header">
+				<div class="list-view-pf-expand">
+					<span class="fa fa-angle-right"></span>
+				</div>
+				<div class="list-view-pf-main-info" id="wrapper">
+					<div class="list-view-pf-body">
+						<div class="list-view-pf-description">
+							<div class="list-group-item-text"
+								style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-top: 7px;">
+								<span>{{log}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="list-group-item-container container-fluid hidden">
+				<div class="close">
+					<span class="pficon pficon-close"></span>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<dl class="dl-horizontal">
+							<dt>Log Level</dt>
+							<dd>
+								<a><span ng-class="$ctrl.loglevelClass(log.loglevel)"></span>{{azRegion.error}}</a>
+							</dd>
+							<dt>Date</dt>
+							<dd>{{log.log_ts}}</dd>
+							<dt>Service</dt>
+							<dd>{{log.service | capitalize}}</dd>
+							<dt>Region</dt>
+							<dd>{{log.region | capitalize}}</dd>
+							<dt>Node Type</dt>
+							<dd>{{log.node_type | capitalize}}</dd>
+							<dt>Pay Load</dt>
+							<dd>{{log.payload}}</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
-</div>
+	</div>
 </div>
 <script>
 

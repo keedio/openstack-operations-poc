@@ -1,21 +1,43 @@
-<a href="https://github.com/patternfly/angular-patternfly/edit/master/src/notification/notification-drawer.directive.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/patternfly/angular-patternfly/blob/aed2484/src/notification/notification-drawer.directive.js#L474" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">pfNotificationDrawer</code>
-<div><span class="hint">directive in module <code ng:non-bindable="">patternfly.notification</code>
-</span>
-</div>
+<a
+	href="https://github.com/patternfly/angular-patternfly/edit/master/src/notification/notification-drawer.directive.js"
+	class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a>
+<a
+	href="https://github.com/patternfly/angular-patternfly/blob/aed2484/src/notification/notification-drawer.directive.js#L474"
+	class="view-source"><i class="icon-eye-open"> </i>View source</a>
+<h1>
+	<code ng:non-bindable="">pfNotificationDrawer</code>
+	<div>
+		<span class="hint">directive in module <code ng:non-bindable="">patternfly.notification</code>
+		</span>
+	</div>
 </h1>
-<div><h2 id="description">Description</h2>
-<div class="description"><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Directive for rendering a notification drawer. This provides a common mechanism to handle how the notification
-drawer should look and behave without mandating the look of the notification group heading or notification body.
-<br><br>
-An array of notification groups must be passed to create each group in the drawer. Each notification
-group must include an array of notifications to be shown for that group, the array MUST be called &#39;notifications&#39;.
-You must provide the source for the heading, sub-heading, and notification body to show the content you desire for each.
-Pass a customScope object containing any scope variables/functions you need to access from the included source, access these
-via hanlders.<your handler> in your included source.
-<br><br></p>
-</div></div>
-<h2 id="usage">Usage</h2>
-<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY pf-notification-drawer
+<div>
+	<h2 id="description">Description</h2>
+	<div class="description">
+		<div
+			class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+			<p>
+				Directive for rendering a notification drawer. This provides a
+				common mechanism to handle how the notification drawer should look
+				and behave without mandating the look of the notification group
+				heading or notification body. <br>
+				<br> An array of notification groups must be passed to create
+				each group in the drawer. Each notification group must include an
+				array of notifications to be shown for that group, the array MUST be
+				called &#39;notifications&#39;. You must provide the source for the
+				heading, sub-heading, and notification body to show the content you
+				desire for each. Pass a customScope object containing any scope
+				variables/functions you need to access from the included source,
+				access these via hanlders.
+				<your handler> in your included source. <br>
+				<br>
+			</p>
+		</div>
+	</div>
+	<h2 id="usage">Usage</h2>
+	<div class="usage">
+		as attribute
+		<pre class="prettyprint linenums">&lt;ANY pf-notification-drawer
      drawer-hidden="{boolean}"
      allow-expand="{boolean}"
      draw-expanded="{boolean}"
@@ -31,26 +53,153 @@ via hanlders.<your handler> in your included source.
      custom-scope="{object}"&gt;
    ...
 &lt;/ANY&gt;</pre>
-<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>drawerHidden</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Flag if the drawer is currently hidden</p>
-</div></td></tr><tr><td>allowExpand</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Flag if the drawer can be expanded. Optional, default: false</p>
-</div></td></tr><tr><td>drawExpanded</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Flag if the drawer is expanded (only valid if allowExpand is true). Optional, default: false</p>
-</div></td></tr><tr><td>drawerTitle</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Title to display for the drawer (leaving this blank will remove the provided expand capability)</p>
-</div></td></tr><tr><td>notificationGroups</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Array of notification groups to add to the drawer</p>
-</div></td></tr><tr><td>actionButtonTitle</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Text for the lower action button of the drawer (optional, if not specified there will be no action button)</p>
-</div></td></tr><tr><td>actionButtonCallback</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>function(notificationGroup) Callback method for action button for each group, the notificationGroup is passed (Optional)</p>
-</div></td></tr><tr><td>titleInclude</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Include src for the title area for the notification drawer, use this to customize the drawer title area</p>
-</div></td></tr><tr><td>headingInclude</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Include src for the heading area for each notification group, access the group via notificationGroup</p>
-</div></td></tr><tr><td>subheadingInclude</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Include src for the sub-heading area for each notification group, access the group via notificationGroup</p>
-</div></td></tr><tr><td>notificationBodyInclude</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Include src for the notification body for each notification, access the notification via notification</p>
-</div></td></tr><tr><td>notificationFooterInclude</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Include src for the notification footer for each notification, access the notification via notification</p>
-</div></td></tr><tr><td>customScope</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><p>Object containing any variables/functions used by the included src, access via customScope.<xxx></p>
-</div></td></tr></tbody></table></div>
-<h2 id="example">Example</h2>
-<div class="example"><div class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page"><h4 id="example_source">Source</h4>
-<div source-edit="patternfly.notification" source-edit-deps="angular.js patternfly.utils patternfly.filters patternfly.sort patternfly.views script.js" source-edit-html="index.html-43 heading.html subheading.html notification-footer.html notification-body.html" source-edit-css="" source-edit-js="script.js-44" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
-<div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-43" ng-html-wrap-loaded="patternfly.notification angular.js patternfly.utils patternfly.filters patternfly.sort patternfly.views script.js"></pre>
-<script type="text/ng-template" id="index.html-43">
+		<h4 id="usage_parameters">Parameters</h4>
+		<table class="variables-matrix table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Param</th>
+					<th>Type</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>drawerHidden</td>
+					<td><a href="" class="label type-hint type-hint-boolean">boolean</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Flag if the drawer is currently hidden</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>allowExpand</td>
+					<td><a href="" class="label type-hint type-hint-boolean">boolean</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Flag if the drawer can be expanded. Optional, default:
+								false</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>drawExpanded</td>
+					<td><a href="" class="label type-hint type-hint-boolean">boolean</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Flag if the drawer is expanded (only valid if allowExpand
+								is true). Optional, default: false</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>drawerTitle</td>
+					<td><a href="" class="label type-hint type-hint-string">string</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Title to display for the drawer (leaving this blank will
+								remove the provided expand capability)</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>notificationGroups</td>
+					<td><a href="" class="label type-hint type-hint-object">object</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Array of notification groups to add to the drawer</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>actionButtonTitle</td>
+					<td><a href="" class="label type-hint type-hint-string">string</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Text for the lower action button of the drawer (optional,
+								if not specified there will be no action button)</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>actionButtonCallback</td>
+					<td><a href="" class="label type-hint type-hint-function">function</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>function(notificationGroup) Callback method for action
+								button for each group, the notificationGroup is passed
+								(Optional)</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>titleInclude</td>
+					<td><a href="" class="label type-hint type-hint-string">string</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Include src for the title area for the notification
+								drawer, use this to customize the drawer title area</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>headingInclude</td>
+					<td><a href="" class="label type-hint type-hint-string">string</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Include src for the heading area for each notification
+								group, access the group via notificationGroup</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>subheadingInclude</td>
+					<td><a href="" class="label type-hint type-hint-string">string</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Include src for the sub-heading area for each notification
+								group, access the group via notificationGroup</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>notificationBodyInclude</td>
+					<td><a href="" class="label type-hint type-hint-string">string</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Include src for the notification body for each
+								notification, access the notification via notification</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>notificationFooterInclude</td>
+					<td><a href="" class="label type-hint type-hint-string">string</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>Include src for the notification footer for each
+								notification, access the notification via notification</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td>customScope</td>
+					<td><a href="" class="label type-hint type-hint-object">object</a></td>
+					<td><div
+							class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+							<p>
+								Object containing any variables/functions used by the included
+								src, access via customScope.
+								<xxx>
+							</p>
+						</div></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<h2 id="example">Example</h2>
+	<div class="example">
+		<div
+			class="patternfly-notification-directive-page patternfly-notification-directive-pfnotificationdrawer-page">
+			<h4 id="example_source">Source</h4>
+			<div source-edit="patternfly.notification"
+				source-edit-deps="angular.js patternfly.utils patternfly.filters patternfly.sort patternfly.views script.js"
+				source-edit-html="index.html-43 heading.html subheading.html notification-footer.html notification-body.html"
+				source-edit-css="" source-edit-js="script.js-44" source-edit-json=""
+				source-edit-unit="" source-edit-scenario=""></div>
+			<div class="tabbable">
+				<div class="tab-pane" title="index.html">
+					<pre class="prettyprint linenums" ng-set-text="index.html-43"
+						ng-html-wrap-loaded="patternfly.notification angular.js patternfly.utils patternfly.filters patternfly.sort patternfly.views script.js"></pre>
+					<script type="text/ng-template" id="index.html-43">
   <div ng-controller="DrawerCtrl" class="row example-container">
     <div class="col-md-12 pre-demo-text">
       <label>Click the notifications indicator to show the Notification Drawer: </label>
@@ -83,31 +232,33 @@ via hanlders.<your handler> in your included source.
     </div>
   </div>
 </script>
-</div>
-<div class="tab-pane" title="heading.html">
-<pre class="prettyprint linenums" ng-set-text="heading.html"></pre>
-<script type="text/ng-template" id="heading.html">
+				</div>
+				<div class="tab-pane" title="heading.html">
+					<pre class="prettyprint linenums" ng-set-text="heading.html"></pre>
+					<script type="text/ng-template" id="heading.html">
   {{notificationGroup.heading}}
 </script>
-</div>
-<div class="tab-pane" title="subheading.html">
-<pre class="prettyprint linenums" ng-set-text="subheading.html"></pre>
-<script type="text/ng-template" id="subheading.html">
+				</div>
+				<div class="tab-pane" title="subheading.html">
+					<pre class="prettyprint linenums" ng-set-text="subheading.html"></pre>
+					<script type="text/ng-template" id="subheading.html">
   {{notificationGroup.subHeading}}
 </script>
-</div>
-<div class="tab-pane" title="notification-footer.html">
-<pre class="prettyprint linenums" ng-set-text="notification-footer.html"></pre>
-<script type="text/ng-template" id="notification-footer.html">
+				</div>
+				<div class="tab-pane" title="notification-footer.html">
+					<pre class="prettyprint linenums"
+						ng-set-text="notification-footer.html"></pre>
+					<script type="text/ng-template" id="notification-footer.html">
   <a class="btn btn-link btn-block" role="button" ng-click="customScope.clearAll(notificationGroup)">
     <span class="pficon pficon-close"></span>
     <span> Clear All</span>
   </a>
 </script>
-</div>
-<div class="tab-pane" title="notification-body.html">
-<pre class="prettyprint linenums" ng-set-text="notification-body.html"></pre>
-<script type="text/ng-template" id="notification-body.html">
+				</div>
+				<div class="tab-pane" title="notification-body.html">
+					<pre class="prettyprint linenums"
+						ng-set-text="notification-body.html"></pre>
+					<script type="text/ng-template" id="notification-body.html">
   <div ng-if="!drawerExpanded">
     <div class="dropdown pull-right dropdown-kebab-pf" ng-if="notification.actions && notification.actions.length > 0">
       <button class="btn btn-link dropdown-toggle" type="button" id="dropdownKebabRight" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -162,10 +313,10 @@ via hanlders.<your handler> in your included source.
     </div>
   </div>
 </script>
-</div>
-<div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-44"></pre>
-<script type="text/ng-template" id="script.js-44">
+				</div>
+				<div class="tab-pane" title="script.js">
+					<pre class="prettyprint linenums" ng-set-text="script.js-44"></pre>
+					<script type="text/ng-template" id="script.js-44">
   angular.module('patternfly.notification').controller('DrawerCtrl', ['$scope',
     function ($scope) {
       var currentTime = (new Date()).getTime();
@@ -505,8 +656,12 @@ via hanlders.<your handler> in your included source.
     }
   ]);
 </script>
-</div>
-</div><h4 id="example_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="patternfly.notification" ng-set-html="index.html-43" ng-eval-javascript="script.js-44"></div>
-</div></div>
+				</div>
+			</div>
+			<h4 id="example_demo">Demo</h4>
+			<div class="well doc-example-live animate-container"
+				ng-embed-app="patternfly.notification" ng-set-html="index.html-43"
+				ng-eval-javascript="script.js-44"></div>
+		</div>
+	</div>
 </div>

@@ -9,8 +9,8 @@ var app = angular.module('refreshDashboard', [
 
 app.component('refreshDashboard',{
     templateUrl: 'refresh-dashboard/refresh.dashboard.template.html',
-    controller: ['NodesService','ServicesService','$scope','$compile','$location',
-        function RefreshDashboardController (NodesService, ServicesService,$scope,$compile,$location) {
+    controller: ['NodesService','ServicesService','$scope','$compile','$rootScope',
+        function RefreshDashboardController (NodesService, ServicesService,$scope,$compile,$rootScope) {
             var self = this;
 
             $scope.refreshNodes = function(nodeType,objectRegions,during) {
@@ -22,16 +22,18 @@ app.component('refreshDashboard',{
                     });
                     if (regions.length ==1) regions.push(regions[0]);
 
-                    NodesService.GetNodesBy(during, nodeType,regions).then(function (data) {
-                        self.regions = parseNodes(data);
+                    NodesService.GetNodesBy(during, nodeType,regions).then(function (data) {                    	
+                    	$rootScope.$emit('refreshRegions', data);
                     });
                     NodesService.GetNodesAzBy(during, nodeType,regions).then(function (data) {
-                        self.azones = parseNodesByAz(data);
+                        //self.azones = parseNodesByAz(data);
+                        $rootScope.$emit('refreshAzones', data);
                     });
                 }
             $scope.refreshServices = function refresh(during) {
                 ServicesService.GetServicesBy(during).then(function (data) {
                     self.services = parseServices(data);
+                    $rootScope.$emit('refreshServices', data);
                 });
             }
             $scope.refreshGraph = function refresh(during,region) {

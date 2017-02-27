@@ -1,3 +1,6 @@
 <span>Log Entries For: </span>
 &nbsp;
-<select class="selectpicker"  pf-select ng-model="$ctrl.duringEntries.selectedOption" id="duringServicesEntry" ng-options="option.name for option in $ctrl.duringEntries.availableOptions track by option.id" ng-change="$ctrl.updateServices($ctrl.duringEntries.selectedOption.id )"></select>
+<select class="selectpicker" pf-select
+	ng-model="$ctrl.duringEntries.selectedOption" id="duringServicesEntry"
+	ng-options="option.name for option in $ctrl.duringEntries.availableOptions track by option.id"
+	ng-change="$ctrl.updateServices($ctrl.duringEntries.selectedOption.id )"></select>

@@ -1,72 +1,80 @@
-    <div class="container-fluid">
-        <div class="row toolbar-pf" style="background: initial">
-            <div class="col-sm-12" style="padding: 10px 0px 10px 0px">
-                <form class="toolbar-pf-actions">
-                    <select-monitor-nodes-group></select-monitor-nodes-group>
-                </form>
-            </div><!-- /col -->
-        </div><!-- /row -->
-    </div>
-    <div class="panel-group" id="accordion-nodes" >
-        <div class="panel panel-default">
-            <div class="panel-heading" >
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion-markup" data-target= "#collapseAllregions">
-                        All Regions
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseAllregions" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    <div class="row row-cards-pf">
-                        <!-- Important:  if you need to nest additional .row within a .row.row-cards-pf, do *not* use .row-cards-pf on the nested .row  -->
-                        <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="region in $ctrl.regions">
-                            <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                <h2 class="card-pf-title">
-                                    {{region.name| capitalize}}
-                                </h2>
-                                <div class="card-pf-body">
-                                    <p class="card-pf-aggregate-status-notifications">
-                                        <span class="card-pf-aggregate-status-notification"><a ><span class="pficon pficon-error-circle-o"></span>{{region.error}}</a></span>
-                                        <span class="card-pf-aggregate-status-notification"><a ><span class="pficon pficon-warning-triangle-o"></span>{{region.warning}}</a></span>
-                                        <span class="card-pf-aggregate-status-notification"><a><span class="pficon pficon-ok"></span></a>{{region.info}}</span>
-                                    </p>
-                                </div>
-                            </div>
 
-                        </div>
-                    </div><!-- /row -->
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default" ng-repeat="az in $ctrl.azones">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion-markup" data-target=  {{"#"+az.name}} class="collapsed">
-                        {{az.name | capitalize}}
-                    </a>
-                </h4>
-            </div>
-            <div id= {{az.name}} class="panel-collapse collapse">
-                <div class="panel-body">
-                    <div class="row row-cards-pf">
-                        <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="azRegion in az.regions">
-                            <div class="card-pf card-pf-accented card-pf-aggregate-status">
-                                <h2 class="card-pf-title">
-                                    {{azRegion.name | formalizeAzs}}
-                                </h2>
-                                <div class="card-pf-body">
-                                    <p class="card-pf-aggregate-status-notifications">
-                                        <span class="card-pf-aggregate-status-notification"><a ><span class="pficon pficon-error-circle-o"></span>{{azRegion.error}}</a></span>
-                                        <span class="card-pf-aggregate-status-notification"><a><span class="pficon pficon-warning-triangle-o"></span>{{azRegion.warning}}</a></span>
-                                        <span class="card-pf-aggregate-status-notification"><a><span class="pficon pficon-ok"></span></a>{{azRegion.info}}</span>
-                                    </p>
-                                </div>
-                            </div>
+<div class="container-fluid">
+	<div class="row toolbar-pf" style="background: initial">
+		<div class="col-sm-12" style="padding: 10px 0px 10px 0px">
+			<form class="toolbar-pf-actions">
+				<select-monitor-nodes-group></select-monitor-nodes-group>
+			</form>
+		</div>
+		<!-- /col -->
+	</div>
+	<!-- /row -->
+</div>
+<div class="panel-group" id="accordion-nodes">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion-markup"
+					data-target="#collapseAllregions"> All Regions </a>
+			</h4>
+		</div>
+		<div id="collapseAllregions" class="panel-collapse collapse in">
+			<div class="panel-body">
+				<div class="row row-cards-pf">
+					<!-- Important:  if you need to nest additional .row within a .row.row-cards-pf, do *not* use .row-cards-pf on the nested .row  -->
+					<div class="col-xs-12 col-sm-6 col-md-3"
+						ng-repeat="region in $ctrl.regions">
+						<div class="card-pf card-pf-accented card-pf-aggregate-status">
+							<h2 class="card-pf-title">{{region.name| capitalize}}</h2>
+							<div class="card-pf-body">
+								<p class="card-pf-aggregate-status-notifications">
+									<span class="card-pf-aggregate-status-notification"><a><span
+											class="pficon pficon-error-circle-o"></span>{{region.error}}</a></span>
+									<span class="card-pf-aggregate-status-notification"><a><span
+											class="pficon pficon-warning-triangle-o"></span>{{region.warning}}</a></span>
+									<span class="card-pf-aggregate-status-notification"><a><span
+											class="pficon pficon-ok"></span></a>{{region.info}}</span>
+								</p>
+							</div>
+						</div>
 
-                        </div>
-                    </div><!-- /row -->
-                </div>
-            </div>
-        </div>
-    </div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default" ng-repeat="az in $ctrl.azones">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion-markup"
+					data-target={{ "#"+az.name}} class="collapsed"> {{az.name |
+					capitalize}} </a>
+			</h4>
+		</div>
+		<div id={{az.name}} class="panel-collapse collapse">
+			<div class="panel-body">
+				<div class="row row-cards-pf">
+					<div class="col-xs-12 col-sm-6 col-md-3"
+						ng-repeat="azRegion in az.regions">
+						<div class="card-pf card-pf-accented card-pf-aggregate-status">
+							<h2 class="card-pf-title">{{azRegion.name | formalizeAzs}}</h2>
+							<div class="card-pf-body">
+								<p class="card-pf-aggregate-status-notifications">
+									<span class="card-pf-aggregate-status-notification"><a><span
+											class="pficon pficon-error-circle-o"></span>{{azRegion.error}}</a></span>
+									<span class="card-pf-aggregate-status-notification"><a><span
+											class="pficon pficon-warning-triangle-o"></span>{{azRegion.warning}}</a></span>
+									<span class="card-pf-aggregate-status-notification"><a><span
+											class="pficon pficon-ok"></span></a>{{azRegion.info}}</span>
+								</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+		</div>
+	</div>
+</div>

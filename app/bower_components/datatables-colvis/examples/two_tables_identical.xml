@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<dt-example table-type="html-office-edin|html-office-london" table-id="" order="10">
+<dt-example table-type="html-office-edin|html-office-london"
+	table-id="" order="10">
 
-<css lib="datatables colvis" />
-<js lib="jquery datatables colvis">
+	<css lib="datatables colvis" />
+	<js lib="jquery datatables colvis">
 <![CDATA[
 $(document).ready(function() {
 	var tables = $('table.display').DataTable( {
@@ -20,11 +21,11 @@ $(document).ready(function() {
 	$( colvis.button() ).insertAfter('div.info');
 } );
 ]]>
-</js>
+	</js>
 
-<title lib="ColVis">Two tables with shared controls</title>
+	<title lib="ColVis">Two tables with shared controls</title>
 
-<info><![CDATA[
+	<info><![CDATA[
 
 This example shows how the DataTables API can be used with ColVis to use a single ColVis control to effect other tables. This is done by applying ColVis to the first table and then listening for the `dt-event column-visibility` event and updating all other tables when triggered.
 

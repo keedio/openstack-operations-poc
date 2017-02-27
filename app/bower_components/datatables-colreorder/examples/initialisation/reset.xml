@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="8">
 
-<css lib="datatables colreorder" />
-<js lib="jquery datatables colreorder">
+	<css lib="datatables colreorder" />
+	<js lib="jquery datatables colreorder">
 <![CDATA[
 
 $(document).ready(function() {
@@ -18,11 +18,11 @@ $(document).ready(function() {
 } );
 
 ]]>
-</js>
+	</js>
 
-<title lib="ColReorder">Reset ordering API</title>
+	<title lib="ColReorder">Reset ordering API</title>
 
-<info><![CDATA[
+	<info><![CDATA[
 
 One useful control option to present the end user when using ColReorder is the ability to reset the column ordering to that which was found in the HTML. This can be done by calling the `cr-api colReorder.reset()` method.
 
@@ -30,9 +30,10 @@ This example shows that method being triggered from a button click. To demonstra
 
 ]]></info>
 
-<demo-html>
-	<button id="reset">Reset to original HTML order</button>
-	<br/><br/>
-</demo-html>
+	<demo-html>
+		<button id="reset">Reset to original HTML order</button>
+		<br />
+		<br />
+	</demo-html>
 
 </dt-example>

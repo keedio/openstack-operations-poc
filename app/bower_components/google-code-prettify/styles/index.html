@@ -1,8 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<html><head>
+<html>
+<head>
 <title>Prettify Themes Gallery</title>
 <style type="text/css">
-iframe { width: 100%; border-style: none; margin: 0; padding: 0 }
+iframe {
+	width: 100%;
+	border-style: none;
+	margin: 0;
+	padding: 0
+}
 </style>
 <script>
 var allThemes = [
@@ -39,15 +45,17 @@ function adjustChildIframeSize(themeName, width, height) {
 </head>
 
 <body>
-<noscript>This page requires JavaScript</noscript>
+	<noscript>This page requires JavaScript</noscript>
 
-<h1>Gallery of themes for
-<a href="http://code.google.com/p/google-code-prettify/">code prettify</a></h1>
-<p>
-Click on a theme name for a link to the file in revision control.
-Print preview this page to see how the themes work on the printed page.
-</p>
-<script>(function () {
+	<h1>
+		Gallery of themes for <a
+			href="http://code.google.com/p/google-code-prettify/">code
+			prettify</a>
+	</h1>
+	<p>Click on a theme name for a link to the file in revision
+		control. Print preview this page to see how the themes work on the
+		printed page.</p>
+	<script>(function () {
   // Produce an iframe per theme.
   // We pass the threme name to the iframe via its URI query, and
   // it loads prettify and the theme CSS, and calls back to this page
@@ -86,4 +94,5 @@ Print preview this page to see how the themes work on the printed page.
   }
 })()</script>
 
-</body></html>
+</body>
+</html>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="6">
 
-<css lib="datatables colreorder" />
-<js lib="jquery datatables colreorder">
+	<css lib="datatables colreorder" />
+	<js lib="jquery datatables colreorder">
 <![CDATA[
 $(document).ready(function() {
 	var table = $('#example').DataTable();
@@ -10,11 +10,11 @@ $(document).ready(function() {
 	new $.fn.dataTable.ColReorder( table );
 } );
 ]]>
-</js>
+	</js>
 
-<title lib="ColReorder">Initialisation using `new`</title>
+	<title lib="ColReorder">Initialisation using `new`</title>
 
-<info><![CDATA[
+	<info><![CDATA[
 
 As well as providing the option to be initialised through the `cr-init colReorder`, ColReorder can also be added to a DataTable using direct initialisation - `new $.fn.dataTable.ColReorder();` as shown in this example. Options can be passed in as the second parameter for the constructor.
 
