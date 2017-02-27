@@ -68,24 +68,28 @@ function parseServices (data){
 
     return services;
 }
-function parseData(data){
+function parseData(rowdata){
     var services = [];
-    var sortedKeys = Object.keys(data[0].result).sort();
-    var  serviceName = "";
-    for (var i = 0; i < sortedKeys.length; i++){
-        var key = sortedKeys[i];
-        var name = key.split(".");
-        var value = data[0].result[key];
+    jQuery.each(rowdata, function (i, data) {
+        var sortedKeys = Object.keys(data[0].result);
+        var  serviceName = "";
+        for (var i = 0; i < sortedKeys.length; i++){
+            var key = sortedKeys[i];
+            var name = key.split(".");
+            var value = data[0].result[key];
 
-        if (name[1] != serviceName){
-            serviceName = name[1];
-            services.push ({"name":name[1], "dataInf":['Info' ],  "dataError":['Error'],  "dataWar":['Warning']});
+            if (name[1] != serviceName){
+                serviceName = name[1];
+                services.push ({"name":name[1], "dataInf":['Info'],  "dataError":['Error'],  "dataWar":['Warning']});
+
+            }
+
+            name[2] == "ERROR" ? services[services.length-1].dataError.push(value) :
+                name[2] == "INFO" ? services[services.length-1].dataInf.push(value):
+                    services[services.length-1].dataWar.push(value);
         }
 
-        name[2] == "ERROR" ? services[services.length-1].dataError.push(value) :
-            name[2] == "INFO" ? services[services.length-1].dataInf.push(value):
-                services[services.length-1].dataWar.push(value);
-    }
+    });
 
     return services;
 }
@@ -105,6 +109,10 @@ function createChart( self, during,$compile){
         var element = angular.element(div);
         $compile(element)(self);
         angular.element('#accordion-services').append(element);
+
+        if(service.dataError.length == 1) service.dataError.push(0);
+        if(service.dataWar.length == 1) service.dataWar.push(0);
+        if(service.dataInf.length == 1) service.dataInf.push(0);
 
         var config = {};
         config.bindto = '#'+divID;

@@ -7,4 +7,6 @@
     <span>During: </span>
     &nbsp;
     <select class="selectpicker"  pf-select ng-model="$ctrl.duringEntries.selectedOption"  ng-options="option.name for option in $ctrl.duringEntries.availableOptions track by option.id" id="duringStackedEntry" ng-change="$ctrl.updateGraph($ctrl.duringEntries.selectedOption.id, $ctrl.regionEntries.selectedOption.id )"></select>
+    &nbsp;&nbsp;
+  <span class="spinner spinner-sm spinner-inline" ng-show="$ctrl.loading"></span>
 </div>

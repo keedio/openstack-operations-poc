@@ -15,8 +15,7 @@ app.component('rawLogs',{
         function RawLogsController (RawLogsService) {
             var self = this;
 
-            $('#tabbedList').css('display','none');
-            $('#refreshDiv').css('display','none');
+
 
             self.nodeType  = {
                 availableOptions: [
@@ -59,6 +58,10 @@ app.component('rawLogs',{
             self.pageStates = [];
             self.actualIndex = 0;
             self.activeFilters= {};
+
+            $('#tabbedList').css('display','none');
+            $('#refreshDiv').css('display','none');
+            $('.selectpicker').selectpicker('refresh');
 
             self.getRawLogsBy = function  () {
                 var filters = serializeForm();

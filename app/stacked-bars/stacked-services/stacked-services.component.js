@@ -17,6 +17,8 @@ app.component('stackedServices',{
 
             initController();
 
+            self.loading = false;
+
             self.regionEntries  = {
                 availableOptions: [
                     {id: 'boston', name: 'Boston'},
@@ -44,19 +46,24 @@ app.component('stackedServices',{
             $('#liServices').addClass('active');
 
             function initController() {
+                self.loading = true;
                 ServicesService.GetStackedServicesBy('1h','all').then(function (data) {
                     self.stackedServices = parseData(data);
                     createChart( self,'1h',$compile);
+                    self.loading = false;
                 });
+
             }
             self.updateGraph = function refresh(during,region) {
                 $('#accordion-services').html('');
+                self.loading = true;
                 ServicesService.GetStackedServicesBy(during,region).then(function (data) {
                     self.stackedServices = parseData(data);
                     createChart(self, during,$compile);
+                    self.loading = false;
                 });
-            }
 
+            }
 
         }]
 });

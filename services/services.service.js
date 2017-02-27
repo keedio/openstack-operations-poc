@@ -27,16 +27,27 @@ function getServicesBy(during){
 
 function getStackedServicesBy(during,region){
     var deferred = Q.defer();
-    var query =  region == "all" ? "select stack_services_grouping(id, service,loglevel, timeframe) as result from stack_services  where  id = '" + during + "' "
-                :"select stack_services_grouping(id, service,loglevel, timeframe) as result from stack_services where id = '" + during + "'  and service in ('Keystone', 'Nova', 'Pacemaker', 'Neutron', 'Cinder','Glance')  and loglevel in ('INFO','WARN','ERROR') and region = '"+ region + "'"  ;
+    var asyncCalls = [];
+    var dataRows = [];
+    for(var serv in services){
+        var query =  region == "all" ? "select stack_services_grouping(id, service,loglevel, timeframe) as result from stack_services  where  id = '" + during + "' and service = '"+ services[serv] + "'"
+            :"select stack_services_grouping(id, service,loglevel, timeframe) as result from stack_services where id = '" + during + "'  and service = '"+ services[serv] + "'  and loglevel in ('INFO','WARN','ERROR') and region = '"+ region + "'"  ;
 
-    client.execute(query, function (err, result) {
-        if (err) {
-            console.log(query, "No results");
-            deferred.resolve();
-        } else
-            deferred.resolve(result.rows);
+        var async =   client.execute(query, '', { prepare: true })
+                .then(result => {
+                dataRows.push(result.rows);
+        });
+
+        asyncCalls.push(async);
+
+    }
+    // espera a que todas las llamadas async hayan terminado
+   return  Q.all(asyncCalls).then(function(result) {
+        deferred.resolve(dataRows);
+        return deferred.promise;
     });
-    return deferred.promise;
-};
 
+
+}
+
+var services = ['Keystone', 'Nova', 'Pacemaker', 'Neutron', 'Cinder','Glance'];
