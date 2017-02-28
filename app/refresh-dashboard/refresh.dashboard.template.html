@@ -5,7 +5,6 @@
 
 <script>
     $(document).ready(function() {
-
         var initTime = 60;
         var timer = setInterval(function () {
             initTime --;
@@ -15,7 +14,9 @@
         },1000);
 
         $('#refreshLink').on('click',function(){
-            refreshDashboard();
+        	activeDivs = $('#accordion-nodes').find('.panel-collapse.collapse.in');
+        	console.log($('#accordion-nodes').find('.panel-collapse.collapse.in'));
+            refreshDashboard();           
         });
         function refreshDashboard(){
             initTime = 60;

@@ -95,33 +95,42 @@ app.component('monitorNodes', {
 			};
 
 			$rootScope.$on('refreshRegions', function(event, args) {
-				self.regions = parseNodes(args);
+				
+				self.regions = parseNodes(args);			
+				
 			});
 			$rootScope.$on('refreshAzones', function(event, args) {
 				self.azones = parseNodesByAz(args);
 			});
 		
 			function initController() {
-				NodesService.GetNodesBy('1h', 'compute', [ 'Boston', 'Boston' ])
+				NodesService.GetNodesBy('1h', 'compute', [ 'boston', 'boston' ])
 					.then(function(data) {
 						self.regions = parseNodes(data);
 
 					});
-				NodesService.GetNodesAzBy('1h', 'compute', [ 'Boston', 'Boston' ]).then(function(data) {
+				NodesService.GetNodesAzBy('1h', 'compute', [ 'boston', 'boston' ]).then(function(data) {
 					self.azones = parseNodesByAz(data);
 				});
 
 
 			}
 			self.updateNodes = function refresh(nodeType, objectRegions, during) {
-
+				
+				if(objectRegions.length == 0){
+					self.regions = undefined;
+					self.azones = undefined;
+					return;
+				} 
+				
 				var regions = []
+				activeDivs = $('#accordion-nodes').find('.panel-collapse.collapse.in');
 				jQuery.each(objectRegions, function(i, region) {
 					if (region.id != undefined) regions.push(region.id)
 					else regions.push(region)
 				});
 				if (regions.length == 1) regions.push(regions[0]);
-
+				 
 				NodesService.GetNodesBy(during, nodeType, regions).then(function(data) {
 					self.regions = parseNodes(data);
 				});
@@ -129,7 +138,10 @@ app.component('monitorNodes', {
 					self.azones = parseNodesByAz(data);
 				});
 			}
-		} ]
+			self.asignCollapseClass = function (az){				
+				return activeDivs != undefined &&  activeDivs.filter ((i,div) => div.id == az).length > 0 ? 'panel-collapse collapse in': 'panel-collapse collapse';			
+			}
+	} ]
 });
 
 app.directive('selectMonitorNodesGroup', selectDirective);

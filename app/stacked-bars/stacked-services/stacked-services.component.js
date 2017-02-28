@@ -11,8 +11,8 @@ var app = angular.module('stackedServices', [
 
 app.component('stackedServices',{
     templateUrl: 'stacked-bars/stacked-services/stacked-services.template.html',
-    controller: ['ServicesService','$compile',
-        function StackedServicesController (ServicesService,$compile) {
+    controller: ['ServicesService','$compile','$rootScope',
+        function StackedServicesController (ServicesService,$compile,$rootScope) {
             var self = this;
 
             initController();
@@ -54,12 +54,29 @@ app.component('stackedServices',{
                 });
 
             }
+            
+			$rootScope.$on('refreshCharts', function(event, data) {
+			
+				if (charts.length == 0 ){                		
+            		self.stackedServices = parseData(data);
+                    createChart(self, self.duringEntries.selectedOption.id,$compile);
+            	}else
+            		setUpCharts(parseData(data));
+			});
+			
             self.updateGraph = function refresh(during,region) {
-                $('#accordion-services').html('');
+               
                 self.loading = true;
                 ServicesService.GetStackedServicesBy(during,region).then(function (data) {
-                    self.stackedServices = parseData(data);
-                    createChart(self, during,$compile);
+                	               	
+                	/*if (charts.length == 0 ){                		
+                		self.stackedServices = parseData(data);
+                        createChart(self, during,$compile);
+                	}else
+                		setUpChartsByDuring(parseData(data), during);*/
+                	
+                	self.stackedServices = parseData(data);
+                  	createChart( self,during,$compile);               
                     self.loading = false;
                 });
 

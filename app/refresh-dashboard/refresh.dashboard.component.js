@@ -38,9 +38,7 @@ app.component('refreshDashboard',{
             }
             $scope.refreshGraph = function refresh(during,region) {
                 ServicesService.GetStackedServicesBy(during,region).then(function (data) {
-                    self.stackedServices = parseData(data);
-                    createChart(self, during,$compile);
-                    
+                	 $rootScope.$emit('refreshCharts', data);                    
                 });
             }
 

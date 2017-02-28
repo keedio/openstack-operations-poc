@@ -1,6 +1,8 @@
 /**
  * Created by davidsantamaria on 20/2/17.
  */
+var charts = [];
+var activeDivs = undefined;
 
 function parseNodes(data){
     var regions = [];
@@ -90,11 +92,12 @@ function parseData(rowdata){
         }
 
     });
-
+    services = services.sort(function(a,b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);} );
     return services;
 }
 function createChart( self, during,$compile){
     $('#accordion-services').html('');
+    charts = [];
     jQuery.each(self.stackedServices, function (i,service) {
         var divID = 'graph'+ service.name;
         var div = '<div class="panel panel-default">'  +
@@ -147,7 +150,7 @@ function createChart( self, during,$compile){
 
         var chart = c3.generate(config);
         chart.flush();
-
+        charts.push(chart);
     });
 }
 function generateChartLabels (during){
@@ -167,11 +170,11 @@ function generateChartLabels (during){
         case '24h':
             return [formatDateDay(new Date().setHours(new Date().getHours()-24)), '' ,'','','','',formatDateHour(new Date().setHours(new Date().getHours()-18)), '' ,'','','','', formatDateHour(new Date().setHours(new Date().getHours()-12)),
                 '' ,'','','','',formatDateHour(new Date().setHours(new Date().getHours()-6)), '' ,'','','','',formatDateDay(date)];
-        case 'w':
+        case '1w':
             return [formatDateDay(new Date().setDate(new Date().getDate()-7)),formatDateDay(new Date().setDate(new Date().getDate()-6)),formatDateDay(new Date().setDate(new Date().getDate()-5)),
                 formatDateDay(new Date().setDate(new Date().getDate()-4)), formatDateDay(new Date().setDate(new Date().getDate()-3)),
                 formatDateDay(new Date().setDate(new Date().getDate()-2)),formatDateDay(new Date().setDate(new Date().getDate()-1)),formatDateDay(date)];
-        case 'm':
+        case '1m':
             return [formatDateDay(new Date().setMonth(new Date().getMonth()-1)), '' ,'','','',formatDateDay(new Date().setDate(new Date().getDate()-25)),'', '' ,'','',formatDateDay(new Date().setDate(new Date().getDate()-20)),'','',
                 '' ,'',formatDateDay(new Date().setDate(new Date().getDate()-15)),'','','', '' ,formatDateDay(new Date().setDate(new Date().getDate()-10)),'','','','',formatDateDay(new Date().setDate(new Date().getDate()-5)),'',
                 '','','',formatDateDay(date)];
@@ -189,4 +192,45 @@ function formatDateDay(date){
     var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
     var month =  date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth()
     return month + '/' + day;
+}
+function setUpCharts(services){
+	
+	if(services.length == 0 ){
+		charts = [];
+		$('#accordion-services').html('');
+		return;
+	}
+	charts.forEach(function(chart, i) {
+		
+		if(services[i].dataError.length == 1) services[i].dataError.push(0);
+	    if(services[i].dataWar.length == 1) services[i].dataWar.push(0);
+	    if(services[i].dataInf.length == 1) services[i].dataInf.push(0);	
+	    
+		chart.load({
+	        columns: [services[i].dataError, services[i].dataWar,services[i].dataInf]
+	    });
+	});
+}
+function setUpChartsByDuring(services, during){
+	
+	if(services.length == 0 ){
+		charts = [];
+		$('#accordion-services').html('');
+		return;
+	}
+	
+	charts.forEach(function(chart, i) {
+		
+		if(services[i].dataError.length == 1) services[i].dataError.push(0);
+        if(services[i].dataWar.length == 1) services[i].dataWar.push(0);
+        if(services[i].dataInf.length == 1) services[i].dataInf.push(0);
+        
+		chart.load({
+	        columns: [services[i].dataError, services[i].dataWar,services[i].dataInf],
+	        categories : generateChartLabels (during)
+	    });
+		
+		
+		
+});
 }
