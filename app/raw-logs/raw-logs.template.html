@@ -1,108 +1,7 @@
 <div class="container-fluid">
 	<div class="row toolbar-pf">
 		<form>
-			<div class="col-sm-12">
-				<div class="col-sm-4">
-					<div class="col-sm-4">
-						<span>Log Level: <br /></span>
-						<div class="col-sm-12">
-							<br />
-						</div>
-
-						<span>Service: </span>
-					</div>
-					<div class="col-sm-8" style="padding-left: 0px;">
-						<select class="selectpicker"
-							ng-model="$ctrl.logLevel.selectedOption" id="loglevelSelect"
-							ng-options="option.name disable when option.id == -1  for  option in $ctrl.logLevel.availableOptions track by option.id"
-							multiple></select>
-						<div class="col-sm-12">
-							<br />
-						</div>
-						<select class="selectpicker" pf-select
-							ng-model="$ctrl.servicesEntries.selectedOption"
-							id="serviceSelect"
-							ng-options="option.name disable when option.id == -1  for  option in $ctrl.servicesEntries.availableOptions track by option.id"
-							multiple></select>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-4">
-						<span>Node Type: <br />
-						</span>
-						<div class="col-sm-12">
-							<br />
-						</div>
-						<span>Region: </span>
-					</div>
-					<div class="col-sm-8" style="padding-left-left: 0px;">
-						<select class="selectpicker" pf-select
-							ng-model="$ctrl.nodeType.selectedOption" id="node_typeSelect"
-							ng-options="option.name disable when option.id == -1  for  option in $ctrl.nodeType.availableOptions track by option.id"
-							multiple></select>
-						<div class="col-sm-12">
-							<br />
-						</div>
-						<select class="selectpicker" pf-select
-							ng-model="$ctrl.regionEntries.selectedOption" id="regionSelect"
-							ng-options="option.name disable when option.id == -1  for option in $ctrl.regionEntries.availableOptions track by option.id"
-							multiple></select>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-4">
-						<span>Payload: <br /></span>
-						<div class="col-sm-12">
-							<br />
-						</div>
-
-						<span>Log Date: </span>
-					</div>
-					<div class="col-sm-8" style="padding-left: 0px;">
-						<input type="text" class="form-control" ng-model="$ctrl.payLoad"
-							id="payLoad">
-						<div class="col-sm-12">
-							<br />
-						</div>
-						<div class="input-daterange input-group">
-							<input type="text" class="form-control bootstrap-datepicker"
-								id="datepickerFrom" name="start" readonly
-								ng-model="$ctrl.dateFrom"> <span
-								class="input-group-addon">to</span> <input type="text"
-								class="form-control bootstrap-datepicker" id="datepickerTo"
-								name="end" readonly ng-model="$ctrl.dateTo">
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-			<!-- /col -->
-			<div class="col-sm-12">
-				<div class="row toolbar-pf-results">
-					<div class="col-sm-12">
-						<h5>Active filters:</h5>
-						<ul class="list-inline" ng-repeat="filter in $ctrl.activeFilters">
-							<li><span class="label label-info"> {{filter.name |
-									capitalize}}: {{filter.values}} <a href=""
-									ng-show="$ctrl.activeFilters.length > 1"><span
-										class="pficon pficon-close"
-										ng-click="$ctrl.removeFilter(filter.name )"></span></a>
-							</span></li>
-						</ul>
-						<div class="toolbar-pf-action-right" style="padding-top: 5px;">
-							<div class="form-group toolbar-pf-find">
-								<button class="btn btn-link btn-find" type="button"
-									ng-click="$ctrl.getRawLogsBy()">
-									<span class="fa fa-search"></span>
-								</button>
-							</div>
-						</div>
-					</div>
-					<!-- /col -->
-				</div>
-				<!-- /row -->
-			</div>
+			<select-raw-logs-group></select-raw-logs-group>
 		</form>
 
 	</div>
@@ -182,6 +81,7 @@
 </div>
 <script>
 
+	
     // Initialize Boostrap-Datepicker
     $('.input-datepicker, .input-group.date, .bootstrap-datepicker-inline').datepicker({
         autoclose: true,

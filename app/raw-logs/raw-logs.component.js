@@ -49,7 +49,6 @@ app.component('rawLogs',{
                     {id: 'Nova', name: 'Nova'},
                     {id: 'Pacemaker', name: 'Pacemaker'},
                     {id: 'Storage', name: 'Storage'},
-
                 ]
             };
             self.payLoad = "";
@@ -61,7 +60,7 @@ app.component('rawLogs',{
 
             $('#tabbedList').css('display','none');
             $('#refreshDiv').css('display','none');
-            $('.selectpicker').selectpicker('refresh');
+          
 
             self.getRawLogsBy = function  () {
                 var filters = serializeForm();
@@ -175,3 +174,18 @@ app.component('rawLogs',{
 
         }]
 });
+
+app.directive('selectRawLogsGroup', selectDirective);
+
+function selectDirective($timeout) {
+	return {
+		restrict : 'E',
+		templateUrl : 'raw-logs/select.template.html',
+
+		link : function(scope, element) {
+			$timeout(function() {
+				$('.selectpicker').selectpicker();
+			});
+		}
+	}
+}
