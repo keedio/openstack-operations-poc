@@ -70,9 +70,16 @@ app.component('monitorServices', {
 				});
 			}
 			self.updateServices = function refresh(during) {
+				activeDivs = $('#monitorNodes').find('.panel-collapse.collapse.in');
 				ServicesService.GetServicesBy(during).then(function(data) {
 					self.services = parseServices(data);
 				});
+			}
+			self.asignCollapseClass = function (service){				
+				return activeDivs != undefined &&  activeDivs.filter ((i,div) => div.id == service).length > 0 ? 'panel-collapse collapse in': 'panel-collapse collapse';			
+			}
+			self.asignCollapseIconClass = function (service){				
+				return activeDivs != undefined &&  activeDivs.filter ((i,div) => div.id == service).length > 0 ? 'ng-binding': 'collapsed';			
 			}
 
 		} ]

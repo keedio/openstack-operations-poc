@@ -42,12 +42,12 @@
         <div class="panel panel-default" ng-repeat="az in $ctrl.azones">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion-markup" data-target=  {{"#"+az.name}} class="collapsed">
+                    <a data-toggle="collapse" data-parent="#accordion-markup" data-target=  {{"#"+az.name}}  ng-class="$ctrl.asignCollapseIconClass(az.name)">
                         {{az.name | capitalize}}
                     </a>
                 </h4>
             </div>
-            <div id= {{az.name}} class="panel-collapse collapse">
+            <div id= {{az.name}} ng-class="$ctrl.asignCollapseClass(az.name)">
                 <div class="panel-body">
                     <div class="row row-cards-pf">
                         <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="azRegion in az.regions">

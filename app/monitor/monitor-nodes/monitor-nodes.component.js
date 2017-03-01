@@ -124,7 +124,8 @@ app.component('monitorNodes', {
 				} 
 				
 				var regions = []
-				activeDivs = $('#accordion-nodes').find('.panel-collapse.collapse.in');
+				activeDivs = $('#monitorNodes').find('.panel-collapse.collapse.in');
+				
 				jQuery.each(objectRegions, function(i, region) {
 					if (region.id != undefined) regions.push(region.id)
 					else regions.push(region)
@@ -140,6 +141,9 @@ app.component('monitorNodes', {
 			}
 			self.asignCollapseClass = function (az){				
 				return activeDivs != undefined &&  activeDivs.filter ((i,div) => div.id == az).length > 0 ? 'panel-collapse collapse in': 'panel-collapse collapse';			
+			}
+			self.asignCollapseIconClass = function (az){				
+				return activeDivs != undefined &&  activeDivs.filter ((i,div) => div.id == az).length > 0 ? 'ng-binding': 'collapsed';			
 			}
 	} ]
 });

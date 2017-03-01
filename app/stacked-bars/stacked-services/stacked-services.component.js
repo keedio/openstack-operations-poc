@@ -67,13 +67,8 @@ app.component('stackedServices',{
             self.updateGraph = function refresh(during,region) {
                
                 self.loading = true;
+                activeDivs = $('#accordion-services').find('.panel-collapse.collapse.in');
                 ServicesService.GetStackedServicesBy(during,region).then(function (data) {
-                	               	
-                	/*if (charts.length == 0 ){                		
-                		self.stackedServices = parseData(data);
-                        createChart(self, during,$compile);
-                	}else
-                		setUpChartsByDuring(parseData(data), during);*/
                 	
                 	self.stackedServices = parseData(data);
                   	createChart( self,during,$compile);               

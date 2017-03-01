@@ -103,9 +103,9 @@ function createChart( self, during,$compile){
         var div = '<div class="panel panel-default">'  +
             ' <div class="panel-heading">'  +
             '<h4 class="panel-title">'  +
-            '<a data-toggle="collapse"  data-parent="#accordion-markup" data-target="#'+divID+'" class="collapsed">'  +
+            '<a data-toggle="collapse"  data-parent="#accordion-markup" data-target="#'+divID+'" class="'+asignChartCollapseIconClass (divID)+'">'  +
             '' + service.name + '</a> </h4></div>'+
-            ' <div id="'+divID+'" class="panel-collapse collapse">'  +
+            ' <div id="'+divID+'" class="'+asignChartCollapseClass (divID)+'">'  +
             '<div class="panel-body">'  +
             '<div class="row row-cards-pf">'  +
             '<div class="col-xs-12 col-sm-6"> </div></div></div> </div> </div> </div>';
@@ -233,4 +233,10 @@ function setUpChartsByDuring(services, during){
 		
 		
 });
+}
+function asignChartCollapseClass (service){				
+	return activeDivs != undefined &&  activeDivs.filter ((i,div) => div.id == service).length > 0 ? 'panel-collapse collapse in': 'panel-collapse collapse';			
+}
+function asignChartCollapseIconClass (service){				
+	return activeDivs != undefined &&  activeDivs.filter ((i,div) => div.id == service).length > 0 ? 'ng-binding': 'collapsed';			
 }
