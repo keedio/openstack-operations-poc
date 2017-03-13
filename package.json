@@ -2,6 +2,7 @@
 	"name": "openstack-operations-poc",
 	"private": true,
 	"version": "0.1.0",	
+	"main": "server.js",
 	"scripts": {
 	    "postinstall": "bower cache clean && bower install",
 	    "start": "node server.js"
