@@ -2,6 +2,10 @@
 	"name": "openstack-operations-poc",
 	"private": true,
 	"version": "0.1.0",	
+	"scripts": {
+	    "postinstall": "bower cache clean && bower install",
+	    "start": "node server.js"
+	 },
 	"devDependencies": {
 		"bower": "^1.7.7",
 		"http-server": "^0.9.0",
@@ -16,6 +20,7 @@
 		"angular-ui-router": "^0.4.2",
 		"cassandra-driver": "^3.2.0",
 		"node-excel-export": "^1.2.0", 
-		"express": "^4.14.1" 
+		"express": "^4.14.1",
+		"bower": "1.8.0"
 	}
 }
