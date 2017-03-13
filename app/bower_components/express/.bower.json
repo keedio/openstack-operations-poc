@@ -1,15 +1,14 @@
 {
-	"name": "express",
-	"homepage": "https://github.com/strongloop/express",
-	"version": "4.14.1",
-	"_release": "4.14.1",
-	"_resolution": {
-		"type": "version",
-		"tag": "4.14.1",
-		"commit": "0437c513f2dbc8d1dfc5a3e35fe35182bd3a671e"
-	},
-	"_source": "https://github.com/strongloop/express.git",
-	"_target": "^4.14.1",
-	"_originalSource": "express",
-	"_direct": true
+  "name": "express",
+  "homepage": "https://github.com/strongloop/express",
+  "version": "4.15.2",
+  "_release": "4.15.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "4.15.2",
+    "commit": "d43b074f0b3b56a91f240e62798c932ba104b79a"
+  },
+  "_source": "https://github.com/strongloop/express.git",
+  "_target": "^4.14.1",
+  "_originalSource": "express"
 }

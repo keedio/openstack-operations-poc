@@ -1,110 +1,40 @@
-<a
-	href="https://github.com/patternfly/angular-patternfly/edit/master/src/views/cardview/card-view-directive.js"
-	class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a>
-<a
-	href="https://github.com/patternfly/angular-patternfly/blob/aed2484/src/views/cardview/card-view-directive.js#L194"
-	class="view-source"><i class="icon-eye-open"> </i>View source</a>
-<h1>
-	<code ng:non-bindable="">pfCardView</code>
-	<div>
-		<span class="hint">directive in module <code ng:non-bindable="">patternfly.views</code>
-		</span>
-	</div>
+<a href="https://github.com/patternfly/angular-patternfly/edit/master/src/views/cardview/card-view-directive.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/patternfly/angular-patternfly/blob/cd75239/src/views/cardview/card-view-directive.js#L194" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">pfCardView</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">patternfly.views</code>
+</span>
+</div>
 </h1>
-<div>
-	<h2 id="description">Description</h2>
-	<div class="description">
-		<div
-			class="patternfly-views-directive-page patternfly-views-directive-pfcardview-page">
-			<p>
-				Directive for rendering cards in a view <br>
-				<br>
-			</p>
-		</div>
-	</div>
-	<h2 id="usage">Usage</h2>
-	<div class="usage">
-		as attribute
-		<pre class="prettyprint linenums">&lt;ANY pf-card-view
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="patternfly-views-directive-page patternfly-views-directive-pfcardview-page"><p>Directive for rendering cards in a view
+<br><br></p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY pf-card-view
      config="{object}"
      items="{Array}"&gt;
    ...
 &lt;/ANY&gt;</pre>
-		<h4 id="usage_parameters">Parameters</h4>
-		<table class="variables-matrix table table-bordered table-striped">
-			<thead>
-				<tr>
-					<th>Param</th>
-					<th>Type</th>
-					<th>Details</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>config</td>
-					<td><a href="" class="label type-hint type-hint-object">object</a></td>
-					<td><div
-							class="patternfly-views-directive-page patternfly-views-directive-pfcardview-page">
-							<p>
-								configuration settings for the cards:<br />
-							</p>
-							<ul style='list-style-type: none'>
-								<li>.showSelectBox - (boolean) Show item selection boxes
-									for each item, default is true
-								<li>.selectItems - (boolean) Allow card selection, default
-									is false
-								<li>.dlbClick - (boolean) Handle double clicking (item
-									remains selected on a double click). Default is false.
-								<li>.multiSelect - (boolean) Allow multiple card
-									selections, selectItems must also be set, not applicable when
-									dblClick is true. Default is false
-								<li>.selectionMatchProp - (string) Property of the items to
-									use for determining matching, default is &#39;uuid&#39;
-								<li>.selectedItems - (array) Current set of selected items
-								
-								<li>.checkDisabled - ( function(item) ) Function to call to
-									determine if an item is disabled, default is none
-								<li>.onCheckBoxChange - ( function(item) ) Called to notify
-									when a checkbox selection changes, default is none
-								<li>.onSelect - ( function(item, event) ) Called to notify
-									of item selection, default is none
-								<li>.onSelectionChange - ( function(items) ) Called to
-									notify when item selections change, default is none
-								<li>.onClick - ( function(item, event) ) Called to notify
-									when an item is clicked, default is none
-								<li>.onDblClick - ( function(item, event) ) Called to
-									notify when an item is double clicked, default is none
-							</ul>
-						</div></td>
-				</tr>
-				<tr>
-					<td>items</td>
-					<td><a href="" class="label type-hint type-hint-array">Array</a></td>
-					<td><div
-							class="patternfly-views-directive-page patternfly-views-directive-pfcardview-page">
-							<p>
-								the data to be shown in the cards<br />
-							</p>
-						</div></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<h2 id="example">Example</h2>
-	<div class="example">
-		<div
-			class="patternfly-views-directive-page patternfly-views-directive-pfcardview-page">
-			<h4 id="example_source">Source</h4>
-			<div source-edit="patternfly.views"
-				source-edit-deps="angular.js patternfly.utils script.js"
-				source-edit-html="index.html-65" source-edit-css=""
-				source-edit-js="script.js-66" source-edit-json=""
-				source-edit-unit="" source-edit-scenario=""></div>
-			<div class="tabbable">
-				<div class="tab-pane" title="index.html">
-					<pre class="prettyprint linenums" ng-set-text="index.html-65"
-						ng-html-wrap-loaded="patternfly.views angular.js patternfly.utils script.js"></pre>
-					<script type="text/ng-template" id="index.html-65">
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>config</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pfcardview-page"><p>configuration settings for the cards:<br/></p>
+<ul style='list-style-type: none'>
+<li>.showSelectBox          - (boolean) Show item selection boxes for each item, default is true
+<li>.selectItems            - (boolean) Allow card selection, default is false
+<li>.dlbClick               - (boolean) Handle double clicking (item remains selected on a double click). Default is false.
+<li>.multiSelect            - (boolean) Allow multiple card selections, selectItems must also be set, not applicable when dblClick is true. Default is false
+<li>.selectionMatchProp     - (string) Property of the items to use for determining matching, default is &#39;uuid&#39;
+<li>.selectedItems          - (array) Current set of selected items
+<li>.checkDisabled          - ( function(item) ) Function to call to determine if an item is disabled, default is none
+<li>.onCheckBoxChange       - ( function(item) ) Called to notify when a checkbox selection changes, default is none
+<li>.onSelect               - ( function(item, event) ) Called to notify of item selection, default is none
+<li>.onSelectionChange      - ( function(items) ) Called to notify when item selections change, default is none
+<li>.onClick                - ( function(item, event) ) Called to notify when an item is clicked, default is none
+<li>.onDblClick             - ( function(item, event) ) Called to notify when an item is double clicked, default is none
+</ul></div></td></tr><tr><td>items</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="patternfly-views-directive-page patternfly-views-directive-pfcardview-page"><p>the data to be shown in the cards<br/></p>
+</div></td></tr></tbody></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="patternfly-views-directive-page patternfly-views-directive-pfcardview-page"><h4 id="example_source">Source</h4>
+<div source-edit="patternfly.views" source-edit-deps="angular.js patternfly.utils script.js" source-edit-html="index.html-65" source-edit-css="" source-edit-js="script.js-66" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-65" ng-html-wrap-loaded="patternfly.views angular.js patternfly.utils script.js"></pre>
+<script type="text/ng-template" id="index.html-65">
   <style>
     hr {
      display: block;
@@ -176,10 +106,10 @@
     </div>
   </div>
 </script>
-				</div>
-				<div class="tab-pane" title="script.js">
-					<pre class="prettyprint linenums" ng-set-text="script.js-66"></pre>
-					<script type="text/ng-template" id="script.js-66">
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-66"></pre>
+<script type="text/ng-template" id="script.js-66">
 angular.module('patternfly.views').controller('ViewCtrl', ['$scope',
 function ($scope) {
        $scope.eventText = '';
@@ -269,12 +199,8 @@ function ($scope) {
      }
 ]);
 </script>
-				</div>
-			</div>
-			<h4 id="example_demo">Demo</h4>
-			<div class="well doc-example-live animate-container"
-				ng-embed-app="patternfly.views" ng-set-html="index.html-65"
-				ng-eval-javascript="script.js-66"></div>
-		</div>
-	</div>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="patternfly.views" ng-set-html="index.html-65" ng-eval-javascript="script.js-66"></div>
+</div></div>
 </div>

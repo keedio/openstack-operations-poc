@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="1">
 
-	<css lib="datatables colvis" />
-	<js lib="jquery datatables colvis">
+<css lib="datatables colvis" />
+<js lib="jquery datatables colvis">
 <![CDATA[
 $(document).ready(function() {
 	$('#example').DataTable( {
@@ -10,11 +10,11 @@ $(document).ready(function() {
 	} );
 } );
 ]]>
-	</js>
+</js>
 
-	<title lib="ColVis">Basic initialisation</title>
+<title lib="ColVis">Basic initialisation</title>
 
-	<info><![CDATA[
+<info><![CDATA[
 
 ColVis is a plug-in for DataTables which presents a list of all columns to a user and allows them to select which ones they wish to be visible. Click the 'Show / hide columns' button to be presented with a list of columns in the table, and click the buttons to show and hide them as you wish.
 

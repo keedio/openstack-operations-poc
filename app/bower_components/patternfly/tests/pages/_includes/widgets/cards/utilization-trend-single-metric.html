@@ -1,16 +1,18 @@
 <div class="card-pf card-pf-utilization">
-	<h2 class="card-pf-title">Network</h2>
-	<div class="card-pf-body">
-		<p class="card-pf-utilization-details">
-			<span class="card-pf-utilization-card-details-count">200</span> <span
-				class="card-pf-utilization-card-details-description"> <span
-				class="card-pf-utilization-card-details-line-1">Available</span> <span
-				class="card-pf-utilization-card-details-line-2">of 1300 Gbps</span>
-			</span>
-		</p>
-		<div id="{{include.id1}}"></div>
-		<div class="chart-pf-sparkline" id="{{include.id2}}"></div>
-		<script>
+  <h2 class="card-pf-title">
+    Network
+  </h2>
+  <div class="card-pf-body">
+    <p class="card-pf-utilization-details">
+      <span class="card-pf-utilization-card-details-count">200</span>
+        <span class="card-pf-utilization-card-details-description">
+          <span class="card-pf-utilization-card-details-line-1">Available</span>
+          <span class="card-pf-utilization-card-details-line-2">of 1300 Gbps</span>
+        </span>
+    </p>
+    <div id="{{include.id1}}"></div>
+    <div class="chart-pf-sparkline" id="{{include.id2}}"></div>
+    <script>
       var c3ChartDefaults = $().c3ChartDefaults();
 
       var donutConfig = c3ChartDefaults.getDefaultDonutConfig('A');
@@ -54,5 +56,5 @@
 
       var chart2 = c3.generate(sparklineConfig);
     </script>
-	</div>
+  </div>
 </div>

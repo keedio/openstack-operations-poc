@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<dt-example table-type="html" table-class="display" order="3"
-	framework="bootstrap4">
+<dt-example table-type="html" table-class="display" order="3" framework="bootstrap4">
 
-	<css lib="datatables colreorder" />
-	<js lib="jquery datatables colreorder">
+<css lib="datatables colreorder"/>
+<js lib="jquery datatables colreorder">
 <![CDATA[
 
 $(document).ready(function() {
@@ -13,11 +12,11 @@ $(document).ready(function() {
 } );
 
 ]]>
-	</js>
+</js>
 
-	<title lib="ColReorder">Bootstrap 4 styling</title>
+<title lib="ColReorder">Bootstrap 4 styling</title>
 
-	<info><![CDATA[
+<info><![CDATA[
 
 This example shows DataTables and the ColReorder extension being used with [Bootstrap 4](http://getbootstrap.com) providing the styling. The DataTables / Bootstrap integration provides seamless integration for DataTables to be used in a Bootstrap 4 page.
 

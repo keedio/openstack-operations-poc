@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="5">
 
-	<css lib="datatables colvis" />
-	<js lib="jquery datatables colvis">
+<css lib="datatables colvis" />
+<js lib="jquery datatables colvis">
 <![CDATA[
 $(document).ready(function() {
 	$('#example').DataTable( {
@@ -15,11 +15,11 @@ $(document).ready(function() {
 	} );
 } );
 ]]>
-	</js>
+</js>
 
-	<title lib="ColVis">Column button callback</title>
+<title lib="ColVis">Column button callback</title>
 
-	<info><![CDATA[
+<info><![CDATA[
 
 By default ColVis will use the information in the `dt-tag th` cell for each column as the button name to use in ColVis, which might not always be what you want (for example you might has HTML in the cell that you don't want in the button). The `label` callback provides the ability to customise the label used for the button.
 

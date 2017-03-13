@@ -4,8 +4,7 @@
 	"version": "0.1.0",	
 	"main": "server.js",
 	"scripts": {
-	   "postinstall": "HOME=$OPENSHIFT_REPO_DIR bower install || bower install"  ,
-	    "start": "node server.js"
+		    "start": "node server.js"
 	 },
 	"dependencies": {
 		"angular-ui-router": "^0.4.2",

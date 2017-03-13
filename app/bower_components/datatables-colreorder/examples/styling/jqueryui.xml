@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<dt-example table-type="html" table-class="display" order="6"
-	framework="jqueryui">
+<dt-example table-type="html" table-class="display" order="6" framework="jqueryui">
 
-	<css lib="datatables colreorder" />
-	<js lib="jquery datatables colreorder">
+<css lib="datatables colreorder"/>
+<js lib="jquery datatables colreorder">
 <![CDATA[
 
 $(document).ready(function() {
@@ -13,11 +12,11 @@ $(document).ready(function() {
 } );
 
 ]]>
-	</js>
+</js>
 
-	<title lib="ColReorder">jQuery UI styling</title>
+<title lib="ColReorder">jQuery UI styling</title>
 
-	<info><![CDATA[
+<info><![CDATA[
 
 This example shows DataTables and ColReorder being used with [jQuery UI](http://jqueryui.com/) providing the base styling information.
 

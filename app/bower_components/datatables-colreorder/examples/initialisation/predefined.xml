@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="3">
 
-	<css lib="datatables colreorder" />
-	<js lib="jquery datatables colreorder">
+<css lib="datatables colreorder" />
+<js lib="jquery datatables colreorder">
 <![CDATA[
 
 $(document).ready(function() {
@@ -14,11 +14,11 @@ $(document).ready(function() {
 } );
 
 ]]>
-	</js>
+</js>
 
-	<title lib="ColReorder">Predefined column ordering</title>
+<title lib="ColReorder">Predefined column ordering</title>
 
-	<info><![CDATA[
+<info><![CDATA[
 
 ColReorder provides the ability to specify a column ordering which is not that of the HTML (which typically you will want) through the parameter `cr-init colReorder.order`. This is an array of integers with the column ordering you want.
 

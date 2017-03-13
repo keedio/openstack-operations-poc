@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="2">
 
-	<css lib="datatables colreorder" />
-	<js lib="jquery datatables colreorder">
+<css lib="datatables colreorder" />
+<js lib="jquery datatables colreorder">
 <![CDATA[
 
 $(document).ready(function() {
@@ -14,11 +14,11 @@ $(document).ready(function() {
 } );
 
 ]]>
-	</js>
+</js>
 
-	<title lib="ColReorder">Scrolling table</title>
+<title lib="ColReorder">Scrolling table</title>
 
-	<info><![CDATA[
+<info><![CDATA[
 
 This is a simple example to show ColReorder working with DataTables scrolling (`dt-init scrollY` and `dt-init scrollX`).
 

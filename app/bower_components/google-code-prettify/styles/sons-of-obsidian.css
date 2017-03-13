@@ -4,105 +4,115 @@
  * Alex Ford of CodeTunnel:
  * http://CodeTunnel.com/blog/post/71/google-code-prettify-obsidian-theme
  */
-.str {
-	color: #EC7600;
-}
 
-.kwd {
-	color: #93C763;
+.str
+{
+    color: #EC7600;
 }
-
-.com {
-	color: #66747B;
+.kwd
+{
+    color: #93C763;
 }
-
-.typ {
-	color: #678CB1;
+.com
+{
+    color: #66747B;
 }
-
-.lit {
-	color: #FACD22;
+.typ
+{
+    color: #678CB1;
 }
-
-.pun {
-	color: #F1F2F3;
+.lit
+{
+    color: #FACD22;
 }
-
-.pln {
-	color: #F1F2F3;
+.pun
+{
+    color: #F1F2F3;
 }
-
-.tag {
-	color: #8AC763;
+.pln
+{
+    color: #F1F2F3;
 }
-
-.atn {
-	color: #E0E2E4;
+.tag
+{
+    color: #8AC763;
 }
-
-.atv {
-	color: #EC7600;
+.atn
+{
+    color: #E0E2E4;
 }
-
-.dec {
-	color: purple;
+.atv
+{
+    color: #EC7600;
 }
-
-pre.prettyprint {
-	border: 0px solid #888;
+.dec
+{
+    color: purple;
 }
-
-ol.linenums {
-	margin-top: 0;
-	margin-bottom: 0;
+pre.prettyprint
+{
+    border: 0px solid #888;
 }
-
+ol.linenums
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .prettyprint {
-	background: #000;
+    background: #000;
 }
-
-li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
-	color: #555;
-	list-style-type: decimal;
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
+{
+    color: #555;
+    list-style-type: decimal;
 }
-
 li.L1, li.L3, li.L5, li.L7, li.L9 {
-	background: #111;
+    background: #111;
 }
-
-@media print {
-	.str {
-		color: #060;
-	}
-	.kwd {
-		color: #006;
-		font-weight: bold;
-	}
-	.com {
-		color: #600;
-		font-style: italic;
-	}
-	.typ {
-		color: #404;
-		font-weight: bold;
-	}
-	.lit {
-		color: #044;
-	}
-	.pun {
-		color: #440;
-	}
-	.pln {
-		color: #000;
-	}
-	.tag {
-		color: #006;
-		font-weight: bold;
-	}
-	.atn {
-		color: #404;
-	}
-	.atv {
-		color: #060;
-	}
+@media print
+{
+    .str
+    {
+        color: #060;
+    }
+    .kwd
+    {
+        color: #006;
+        font-weight: bold;
+    }
+    .com
+    {
+        color: #600;
+        font-style: italic;
+    }
+    .typ
+    {
+        color: #404;
+        font-weight: bold;
+    }
+    .lit
+    {
+        color: #044;
+    }
+    .pun
+    {
+        color: #440;
+    }
+    .pln
+    {
+        color: #000;
+    }
+    .tag
+    {
+        color: #006;
+        font-weight: bold;
+    }
+    .atn
+    {
+        color: #404;
+    }
+    .atv
+    {
+        color: #060;
+    }
 }

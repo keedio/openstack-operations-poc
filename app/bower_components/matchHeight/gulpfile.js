@@ -20,6 +20,7 @@ var ngrok = require('ngrok');
 var staticTransform = require('connect-static-transform');
 var pkg = require('./package.json');
 var extend = require('util')._extend;
+var exec = require('child_process').exec;
 var fs = require('fs');
 var buildDirectory = 'dist';
 var server;
@@ -35,11 +36,14 @@ gulp.task('release:push', function(callback) {
 
 gulp.task('release:push:github', function(callback) {
     return gulp.src([
-            'CHANGELOG.md', 
+            'CHANGELOG.md',
+            'LICENSE', 
             buildDirectory + '/jquery.matchHeight-min.js', 
             buildDirectory + '/jquery.matchHeight.js'
         ])
         .pipe(release({
+          owner: 'liabru',
+          repo: pkg.name,
           tag: pkg.version,
           name: 'jquery.matchHeight.js ' + pkg.version
         }));
@@ -234,7 +238,7 @@ var serve = function(isTest) {
                     next();
                 }
             },
-            open: isTest ? false : 'http://localhost:8000/test/page/stacked_bar.html',
+            open: isTest ? false : 'http://localhost:8000/test/page/test.html',
             directoryListing: true
         }));
 };

@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================= */
+
 .treeview .list-group-item {
 	cursor: pointer;
 }
@@ -40,12 +41,12 @@
 }
 
 .treeview span.image {
-	display: inline-block;
-	width: 12px;
-	height: 1.19em;
-	vertical-align: middle;
-	background-size: contain;
-	background-repeat: no-repeat;
-	margin-right: 5px;
-	line-height: 1em;
+  display: inline-block;
+  width: 12px;
+  height: 1.19em;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+  line-height: 1em;
 }

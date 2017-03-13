@@ -1,45 +1,24 @@
-<a
-	href="https://github.com/patternfly/angular-patternfly/edit/master/src/navigation/examples/vertical-navigation-basic.js"
-	class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a>
-<a
-	href="https://github.com/patternfly/angular-patternfly/blob/aed2484/src/navigation/examples/vertical-navigation-basic.js#L568"
-	class="view-source"><i class="icon-eye-open"> </i>View source</a>
-<h1>
-	<code ng:non-bindable="">pfVerticalNavigation - Basic</code>
-	<div>
-		<span class="hint">directive in module <code ng:non-bindable="">patternfly.navigation</code>
-		</span>
-	</div>
+<a href="https://github.com/patternfly/angular-patternfly/edit/master/src/navigation/examples/vertical-navigation-basic.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/patternfly/angular-patternfly/blob/cd75239/src/navigation/examples/vertical-navigation-basic.js#L568" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">pfVerticalNavigation - Basic</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">patternfly.navigation</code>
+</span>
+</div>
 </h1>
-<div>
-	<h2 id="description">Description</h2>
-	<div class="description">
-		<div
-			class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-			<p>
-				Directive for vertical navigation. This sets up the nav bar header
-				with the collapse button (hamburger) and the application brand image
-				(or text) as well as the vertical navigation bar containing the
-				navigation items. This directive supports primary, secondary, and
-				tertiary navigation with options to allow pinning of the secondary
-				and tertiary navigation menus as well as the option for persistent
-				secondary menus. <br>
-				<br> The remaining parts of the navbar header can be
-				transcluded. <br>
-				<br> Tha navigation items are marked active based on the
-				current location and the href value for the item. If not using
-				href&#39;s on the items to navigate, set
-				update-active-items-on-click to &quot;true&quot;. <br>
-				<br> This directive works in conjunction with the main content
-				container if the &#39;container-pf-nav-pf-vertical&#39; class
-				selector is added to the main content container.
-			</p>
-		</div>
-	</div>
-	<h2 id="usage">Usage</h2>
-	<div class="usage">
-		as attribute
-		<pre class="prettyprint linenums">&lt;ANY pf-vertical-navigation - -basic
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>Directive for vertical navigation. This sets up the nav bar header with the collapse button (hamburger) and the
+application brand image (or text) as well as the vertical navigation bar containing the navigation items. This
+directive supports primary, secondary, and tertiary navigation with options to allow pinning of the secondary and
+tertiary navigation menus as well as the option for persistent secondary menus.
+<br><br>
+The remaining parts of the navbar header can be transcluded.
+<br><br>
+Tha navigation items are marked active based on the current location and the href value for the item. If not using
+href&#39;s on the items to navigate, set update-active-items-on-click to &quot;true&quot;.
+<br><br>
+This directive works in conjunction with the main content container if the &#39;container-pf-nav-pf-vertical&#39; class
+selector is added to the main content container.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY pf-vertical-navigation - -basic
      brand-src="{string}"
      brand-alt="{string}"
      show-badges="{boolean}"
@@ -52,138 +31,35 @@
      ignore-mobile="{boolean}"&gt;
    ...
 &lt;/ANY&gt;</pre>
-		<h4 id="usage_parameters">Parameters</h4>
-		<table class="variables-matrix table table-bordered table-striped">
-			<thead>
-				<tr>
-					<th>Param</th>
-					<th>Type</th>
-					<th>Details</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>brandSrc</td>
-					<td><a href="" class="label type-hint type-hint-string">string</a></td>
-					<td><div
-							class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-							<p>src for brand image</p>
-						</div></td>
-				</tr>
-				<tr>
-					<td>brandAlt</td>
-					<td><a href="" class="label type-hint type-hint-string">string</a></td>
-					<td><div
-							class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-							<p>Text for product name when brand image is not available</p>
-						</div></td>
-				</tr>
-				<tr>
-					<td>showBadges</td>
-					<td><a href="" class="label type-hint type-hint-boolean">boolean</a></td>
-					<td><div
-							class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-							<p>Flag if badges are used on navigation items, default:
-								false</p>
-						</div></td>
-				</tr>
-				<tr>
-					<td>persistentSecondary</td>
-					<td><a href="" class="label type-hint type-hint-boolean">boolean</a></td>
-					<td><div
-							class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-							<p>Flag to use persistent secondary menus, default: false</p>
-						</div></td>
-				</tr>
-				<tr>
-					<td>hiddenIcons</td>
-					<td><a href="" class="label type-hint type-hint-boolean">boolean</a></td>
-					<td><div
-							class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-							<p>Flag to not show icons on the primary menu, default: false</p>
-						</div></td>
-				</tr>
-				<tr>
-					<td>items</td>
-					<td><a href="" class="label type-hint type-hint-array">array</a></td>
-					<td><div
-							class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-							<p>List of navigation items</p>
-							<ul style='list-style-type: none'>
-								<li>.title - (string) Name of item to be displayed on the
-									menu
-								<li>.iconClass - (string) Classes for icon to be shown on
-									the menu (ex. &quot;fa fa-dashboard&quot;)
-								<li>.href - (string) href link to navigate to on click
-								<li>.children - (array) Submenu items (same structure as
-									top level items)
-								<li>.badges - (array) Badges to display for the item,
-									badges with a zero count are not displayed.
-									<ul style='list-style-type: none'>
-										<li>.count - (number) Count to display in the badge
-										<li>.iconClass - (string) Class to use for showing an
-											icon before the count
-										<li>.tooltip - (string) Tooltip to display for the badge
-										
-										<li>.badgeClass: - (string) Additional class(es) to add
-											to the badge container
-									</ul>
-							</ul>
-						</div></td>
-				</tr>
-				<tr>
-					<td>navigateCallback</td>
-					<td><a href="" class="label type-hint type-hint-function">function</a></td>
-					<td><div
-							class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-							<p>function(item) Callback method invoked on a navigation
-								item click (one with no submenus)</p>
-						</div></td>
-				</tr>
-				<tr>
-					<td>itemClickCallback</td>
-					<td><a href="" class="label type-hint type-hint-function">function</a></td>
-					<td><div
-							class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-							<p>function(item) Callback method invoked on an item click</p>
-						</div></td>
-				</tr>
-				<tr>
-					<td>updateActiveItemsOnClick</td>
-					<td><a href="" class="label type-hint type-hint-boolean">boolean</a></td>
-					<td><div
-							class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-							<p>Flag if active items should be marked on click rather than
-								on navigation change, default: false</p>
-						</div></td>
-				</tr>
-				<tr>
-					<td>ignoreMobile</td>
-					<td><a href="" class="label type-hint type-hint-boolean">boolean</a></td>
-					<td><div
-							class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-							<p>Flag if mobile state should be ignored (use only if
-								absolutely necessary) default: false</p>
-						</div></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<h2 id="example">Example</h2>
-	<div class="example">
-		<div
-			class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page">
-			<h4 id="example_source">Source</h4>
-			<div source-edit="patternfly.navigation"
-				source-edit-deps="angular.js patternfly.utils patternfly.filters patternfly.sort patternfly.views script.js add_content.js hide-show.js"
-				source-edit-html="index.html-37" source-edit-css=""
-				source-edit-js="script.js-38 add_content.js hide-show.js"
-				source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
-			<div class="tabbable">
-				<div class="tab-pane" title="index.html">
-					<pre class="prettyprint linenums" ng-set-text="index.html-37"
-						ng-html-wrap-loaded="patternfly.navigation angular.js patternfly.utils patternfly.filters patternfly.sort patternfly.views script.js add_content.js hide-show.js"></pre>
-					<script type="text/ng-template" id="index.html-37">
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>brandSrc</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>src for brand image</p>
+</div></td></tr><tr><td>brandAlt</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>Text for product name when brand image is not available</p>
+</div></td></tr><tr><td>showBadges</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>Flag if badges are used on navigation items, default: false</p>
+</div></td></tr><tr><td>persistentSecondary</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>Flag to use persistent secondary menus, default: false</p>
+</div></td></tr><tr><td>hiddenIcons</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>Flag to not show icons on the primary menu, default: false</p>
+</div></td></tr><tr><td>items</td><td><a href="" class="label type-hint type-hint-array">array</a></td><td><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>List of navigation items</p>
+<ul style='list-style-type: none'>
+<li>.title          - (string) Name of item to be displayed on the menu
+<li>.iconClass      - (string) Classes for icon to be shown on the menu (ex. &quot;fa fa-dashboard&quot;)
+<li>.href           - (string) href link to navigate to on click
+<li>.children       - (array) Submenu items (same structure as top level items)
+<li>.badges         -  (array) Badges to display for the item, badges with a zero count are not displayed.
+  <ul style='list-style-type: none'>
+  <li>.count        - (number) Count to display in the badge
+  <li>.iconClass    - (string) Class to use for showing an icon before the count
+  <li>.tooltip      - (string) Tooltip to display for the badge
+  <li>.badgeClass:  - (string) Additional class(es) to add to the badge container
+  </ul>
+</ul></div></td></tr><tr><td>navigateCallback</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>function(item) Callback method invoked on a navigation item click (one with no submenus)</p>
+</div></td></tr><tr><td>itemClickCallback</td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>function(item) Callback method invoked on an item click</p>
+</div></td></tr><tr><td>updateActiveItemsOnClick</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>Flag if active items should be marked on click rather than on navigation change, default: false</p>
+</div></td></tr><tr><td>ignoreMobile</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><p>Flag if mobile state should be ignored (use only if absolutely necessary) default: false</p>
+</div></td></tr></tbody></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="patternfly-navigation-directive-page patternfly-navigation-directive-pfverticalnavigation-basic-page"><h4 id="example_source">Source</h4>
+<div source-edit="patternfly.navigation" source-edit-deps="angular.js patternfly.utils patternfly.filters patternfly.sort patternfly.views script.js add_content.js hide-show.js" source-edit-html="index.html-37" source-edit-css="" source-edit-js="script.js-38 add_content.js hide-show.js" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-37" ng-html-wrap-loaded="patternfly.navigation angular.js patternfly.utils patternfly.filters patternfly.sort patternfly.views script.js add_content.js hide-show.js"></pre>
+<script type="text/ng-template" id="index.html-37">
 <div>
   <button class="btn btn-primary" id="showVerticalNav" onclick="showVerticalNav">Show Vertical Navigation</button>
   <label class="example-info-text">This will display the vertical nav bar and some mock content over the content of this page.</label>
@@ -228,10 +104,10 @@
     </div>
   </div>
 </script>
-				</div>
-				<div class="tab-pane" title="script.js">
-					<pre class="prettyprint linenums" ng-set-text="script.js-38"></pre>
-					<script type="text/ng-template" id="script.js-38">
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-38"></pre>
+<script type="text/ng-template" id="script.js-38">
 angular.module('patternfly.navigation').controller('vertNavController', ['$scope',
   function ($scope) {
     $scope.navigationItems = [
@@ -463,10 +339,10 @@ angular.module('patternfly.navigation').controller('vertNavController', ['$scope
   }
 ]);
 </script>
-				</div>
-				<div class="tab-pane" title="add_content.js">
-					<pre class="prettyprint linenums" ng-set-text="add_content.js"></pre>
-					<script type="text/ng-template" id="add_content.js">
+</div>
+<div class="tab-pane" title="add_content.js">
+<pre class="prettyprint linenums" ng-set-text="add_content.js"></pre>
+<script type="text/ng-template" id="add_content.js">
   $(document).ready(function() {
     $("#includedContent")[0].innerHTML = '\
     <div class="row row-cards-pf"> \
@@ -700,10 +576,10 @@ angular.module('patternfly.navigation').controller('vertNavController', ['$scope
     ';
   });
 </script>
-				</div>
-				<div class="tab-pane" title="hide-show.js">
-					<pre class="prettyprint linenums" ng-set-text="hide-show.js"></pre>
-					<script type="text/ng-template" id="hide-show.js">
+</div>
+<div class="tab-pane" title="hide-show.js">
+<pre class="prettyprint linenums" ng-set-text="hide-show.js"></pre>
+<script type="text/ng-template" id="hide-show.js">
   $(document).ready(function() {
     $(document).on('click', '#showVerticalNav', function() {
       $(document.getElementById("verticalNavLayout")).removeClass("hidden");
@@ -713,12 +589,8 @@ angular.module('patternfly.navigation').controller('vertNavController', ['$scope
     });
   });
 </script>
-				</div>
-			</div>
-			<h4 id="example_demo">Demo</h4>
-			<div class="well doc-example-live animate-container"
-				ng-embed-app="patternfly.navigation" ng-set-html="index.html-37"
-				ng-eval-javascript="script.js-38 add_content.js hide-show.js"></div>
-		</div>
-	</div>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="patternfly.navigation" ng-set-html="index.html-37" ng-eval-javascript="script.js-38 add_content.js hide-show.js"></div>
+</div></div>
 </div>

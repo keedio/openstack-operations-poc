@@ -157,8 +157,8 @@ describe('res', function(){
     describe('with "headers" option', function () {
       it('should accept headers option', function (done) {
         var headers = {
-           'x-success': 'sent',
-           'x-other': 'done'
+          'x-success': 'sent',
+          'x-other': 'done'
         };
         var app = createApp(path.resolve(__dirname, 'fixtures/name.txt'), { headers: headers });
 
@@ -510,8 +510,8 @@ describe('res', function(){
     it('should accept headers option', function(done){
       var app = express();
       var headers = {
-         'x-success': 'sent',
-         'x-other': 'done'
+        'x-success': 'sent',
+        'x-other': 'done'
       };
 
       app.use(function(req, res){
@@ -613,7 +613,7 @@ describe('res', function(){
         var app = express();
 
         app.use(function(req, res){
-          res.sendfile(__dirname + '/fixtures/user.html');
+          res.sendfile(path.join(__dirname, '/fixtures/user.html'))
         });
 
         request(app)
@@ -718,7 +718,7 @@ describe('res', function(){
             , calls = 0;
 
           app.use(function(req, res){
-            res.sendfile(__dirname + '/fixtures/name.txt');
+            res.sendfile(path.join(__dirname, '/fixtures/name.txt'))
           });
 
           request(app)
@@ -730,19 +730,19 @@ describe('res', function(){
   })
 })
 
-  describe('.sendfile(path, options)', function () {
-    it('should pass options to send module', function (done) {
-      var app = express()
+describe('.sendfile(path, options)', function () {
+  it('should pass options to send module', function (done) {
+    var app = express()
 
-      app.use(function (req, res) {
-        res.sendfile(path.resolve(fixtures, 'name.txt'), { start: 0, end: 1 })
-      })
+    app.use(function (req, res) {
+      res.sendfile(path.resolve(fixtures, 'name.txt'), { start: 0, end: 1 })
+    })
 
-      request(app)
+    request(app)
       .get('/')
       .expect(200, 'to', done)
-    })
   })
+})
 
 function createApp(path, options, fn) {
   var app = express();

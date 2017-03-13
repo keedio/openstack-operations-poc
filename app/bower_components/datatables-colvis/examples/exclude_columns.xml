@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="html" order="4">
 
-	<css lib="datatables colvis" />
-	<js lib="jquery datatables colvis">
+<css lib="datatables colvis" />
+<js lib="jquery datatables colvis">
 <![CDATA[
 $(document).ready(function() {
 	$('#example').DataTable( {
@@ -13,11 +13,11 @@ $(document).ready(function() {
 	} );
 } );
 ]]>
-	</js>
+</js>
 
-	<title lib="ColVis">Exclude columns from list</title>
+<title lib="ColVis">Exclude columns from list</title>
 
-	<info><![CDATA[
+<info><![CDATA[
 
 It can at times be useful to exclude columns from being in the 'show / hide' list (for example if you have hidden information that the end user shouldn't be able to make visible. This can be done by the `exclude` ColVis configuration parameter when creating the DataTable. This is simply an array of integers, indicating which columns should be excluded. This example shows the first column being excluded.
 

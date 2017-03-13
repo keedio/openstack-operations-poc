@@ -1,22 +1,24 @@
 <div class="card-pf card-pf-utilization">
-	<div class="card-pf-heading">
-		<p class="card-pf-heading-details">Last 30 days</p>
-		<h2 class="card-pf-title">Utilization</h2>
-	</div>
-	<div class="card-pf-body">
-		<div class="row">
-			<div class="col-xs-12 col-sm-4 col-md-4">
-				<h3 class="card-pf-subtitle">CPU</h3>
-				<p class="card-pf-utilization-details">
-					<span class="card-pf-utilization-card-details-count">50</span> <span
-						class="card-pf-utilization-card-details-description"> <span
-						class="card-pf-utilization-card-details-line-1">Available</span> <span
-						class="card-pf-utilization-card-details-line-2">of 1000 MHz</span>
-					</span>
-				</p>
-				<div id="{{include.id3}}"></div>
-				<div class="chart-pf-sparkline" id="{{include.id4}}"></div>
-				<script>
+  <div class="card-pf-heading">
+    <p class="card-pf-heading-details">Last 30 days</p>
+    <h2 class="card-pf-title">
+      Utilization
+    </h2>
+  </div>
+  <div class="card-pf-body">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <h3 class="card-pf-subtitle">CPU</h3>
+        <p class="card-pf-utilization-details">
+          <span class="card-pf-utilization-card-details-count">50</span>
+            <span class="card-pf-utilization-card-details-description">
+              <span class="card-pf-utilization-card-details-line-1">Available</span>
+              <span class="card-pf-utilization-card-details-line-2">of 1000 MHz</span>
+            </span>
+        </p>
+        <div id="{{include.id3}}"></div>
+        <div class="chart-pf-sparkline" id="{{include.id4}}"></div>
+        <script>
           var donutConfig = $().c3ChartDefaults().getDefaultDonutConfig('A');
           donutConfig.bindto = '#{{include.id3}}';
           donutConfig.color =  {
@@ -57,19 +59,19 @@
           };
           var chart2 = c3.generate(sparklineConfig);
         </script>
-			</div>
-			<div class="col-xs-12 col-sm-4 col-md-4">
-				<h3 class="card-pf-subtitle">Memory</h3>
-				<p class="card-pf-utilization-details">
-					<span class="card-pf-utilization-card-details-count">256</span> <span
-						class="card-pf-utilization-card-details-description"> <span
-						class="card-pf-utilization-card-details-line-1">Available</span> <span
-						class="card-pf-utilization-card-details-line-2">of 432 GB</span>
-					</span>
-				</p>
-				<div id="{{include.id5}}"></div>
-				<div class="chart-pf-sparkline" id="{{include.id6}}"></div>
-				<script>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <h3 class="card-pf-subtitle">Memory</h3>
+        <p class="card-pf-utilization-details">
+          <span class="card-pf-utilization-card-details-count">256</span>
+            <span class="card-pf-utilization-card-details-description">
+              <span class="card-pf-utilization-card-details-line-1">Available</span>
+              <span class="card-pf-utilization-card-details-line-2">of 432 GB</span>
+            </span>
+        </p>
+        <div id="{{include.id5}}"></div>
+        <div class="chart-pf-sparkline" id="{{include.id6}}"></div>
+        <script>
           var donutConfig = $().c3ChartDefaults().getDefaultDonutConfig('A');
           donutConfig.bindto = '#{{include.id5}}';
           donutConfig.color =  {
@@ -110,20 +112,19 @@
           };
           var chart4 = c3.generate(sparklineConfig);
         </script>
-			</div>
-			<div class="col-xs-12 col-sm-4 col-md-4">
-				<h3 class="card-pf-subtitle">Network</h3>
-				<p class="card-pf-utilization-details">
-					<span class="card-pf-utilization-card-details-count">200</span> <span
-						class="card-pf-utilization-card-details-description"> <span
-						class="card-pf-utilization-card-details-line-1">Available</span> <span
-						class="card-pf-utilization-card-details-line-2">of 1300
-							Gbps</span>
-					</span>
-				</p>
-				<div id="{{include.id7}}"></div>
-				<div class="chart-pf-sparkline" id="{{include.id8}}"></div>
-				<script>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <h3 class="card-pf-subtitle">Network</h3>
+        <p class="card-pf-utilization-details">
+          <span class="card-pf-utilization-card-details-count">200</span>
+            <span class="card-pf-utilization-card-details-description">
+              <span class="card-pf-utilization-card-details-line-1">Available</span>
+              <span class="card-pf-utilization-card-details-line-2">of 1300 Gbps</span>
+            </span>
+        </p>
+        <div id="{{include.id7}}"></div>
+        <div class="chart-pf-sparkline" id="{{include.id8}}"></div>
+        <script>
           var donutConfig = $().c3ChartDefaults().getDefaultDonutConfig('A');
           donutConfig.bindto = '#{{include.id7}}';
           donutConfig.color =  {
@@ -164,7 +165,7 @@
           };
           var chart6 = c3.generate(sparklineConfig);
         </script>
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
 </div>

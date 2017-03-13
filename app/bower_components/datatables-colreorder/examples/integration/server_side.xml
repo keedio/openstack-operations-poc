@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <dt-example table-type="ssp" order="5">
 
-	<css lib="datatables colreorder" />
-	<js lib="jquery datatables colreorder">
+<css lib="datatables colreorder" />
+<js lib="jquery datatables colreorder">
 <![CDATA[
 
 $(document).ready(function() {
@@ -23,11 +23,11 @@ $(document).ready(function() {
 } );
 
 ]]>
-	</js>
+</js>
 
-	<title lib="ColReorder">Server-side processing</title>
+<title lib="ColReorder">Server-side processing</title>
 
-	<info><![CDATA[
+<info><![CDATA[
 
 Server-side processing can be exceptionally useful in DataTables when dealing with massive data sets, and ColReorder works with this as would be expected.
 
