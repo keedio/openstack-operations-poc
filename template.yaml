@@ -1,0 +1,86 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: openstack-nodejs-build
+  annotations:
+    description: Nodejs builder for openstack-poc
+    tags: logs,poc,openstack,node,patternfly
+
+parameters:
+- name: SOURCE_REPOSITORY_URL
+  description: URL of the Git repository Dockerfile
+  required: true
+  value: https://github.com/keedio/openstack-operations-poc.git
+- name: OBJECT_NAME_PREFIX
+  description: Name prefix for each object created
+  required: true
+  value: nodejs-openstack-poc
+
+objects:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: ${OBJECT_NAME_PREFIX}
+
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    name: ${OBJECT_NAME_PREFIX}
+  spec:
+    strategy:
+      type: Docker
+    source:
+      type: Git
+      git:
+        uri: ${SOURCE_REPOSITORY_URL}
+    output:
+      to:
+        kind: ImageStream
+        name: ${OBJECT_NAME_PREFIX}
+    triggers:
+    - type: ConfigChange
+
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    name: ${OBJECT_NAME_PREFIX}
+  spec:
+    replicas: 1
+    selector:
+      deploymentconfig: ${OBJECT_NAME_PREFIX}
+    template:
+      metadata:
+        labels:
+          deploymentconfig: ${OBJECT_NAME_PREFIX}
+      spec:
+        containers:
+        - name: nodejs
+          image: ${OBJECT_NAME_PREFIX}
+          volumeMounts:
+          - mountPath: /usr/src/openstack-poc
+            name: app-folder
+          ports:
+          - containerPort: 3000
+        volumes:
+        - name: app-folder
+          
+    triggers:
+    - type: ConfigChange
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+        - nodejs
+        from:
+          kind: ImageStream
+          name: ${OBJECT_NAME_PREFIX}
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: ${OBJECT_NAME_PREFIX}
+  spec:
+    ports:
+    - port: 3000
+    selector:
+      deploymentconfig: ${OBJECT_NAME_PREFIX}   
