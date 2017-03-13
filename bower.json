@@ -1,20 +1,23 @@
 {
-	"name": "angular-phonecat",
-	"description": "A starter project for AngularJS",
-	"version": "0.0.0",
-	"homepage": "https://github.com/angular/angular-phonecat",
-	"license": "MIT",
+	"name": "openstack-operations-poc",
+	"version": "1.0.0",
+	"license": "Apache",
 	"private": true,
 	"dependencies": {
-		"angular": "^1.6.2",
+		"angular": "~1.5.11",
 		"angular-animate": "1.5.x",
 		"angular-mocks": "1.5.x",
 		"angular-resource": "1.5.x",
 		"angular-route": "1.5.x",
 		"bootstrap": "3.3.x",
-		"jquery": "2.2.x",
+		"jquery": "~2.2.4",
 		"angular-patternfly": "^3.19.0",
 		"express": "^4.14.1",
 		"angular-ui-router": "^0.4.2"
-	}
+	},
+	 "resolutions": {
+    	"angular": "~1.5.11",
+    	"jquery": "~2.2.4"
+  	}
+
 }
