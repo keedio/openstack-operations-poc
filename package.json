@@ -4,7 +4,7 @@
 	"version": "0.1.0",	
 	"main": "server.js",
 	"scripts": {
-	    "postinstall": "bower install",
+	   "postinstall": "HOME=$OPENSHIFT_REPO_DIR bower install || bower install"  ,
 	    "start": "node server.js"
 	 },
 	"dependencies": {
