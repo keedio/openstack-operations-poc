@@ -8,5 +8,3 @@ WORKDIR /usr/src/openstack-poc
 COPY . /usr/src/openstack-poc
 
 
-EXPOSE 3000
-CMD [ "node", "server.js" ]
