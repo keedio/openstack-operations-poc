@@ -56,6 +56,10 @@ objects:
         containers:
         - name: nodejs
           image: ${OBJECT_NAME_PREFIX}
+          command:
+          - node
+          args:
+          - server.js
           volumeMounts:
           - mountPath: /usr/src/openstack-poc
             name: app-folder
