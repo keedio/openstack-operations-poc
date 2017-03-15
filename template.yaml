@@ -60,9 +60,6 @@ objects:
           - node
           args:
           - server.js
-          volumeMounts:
-          - mountPath: /usr/src/openstack-poc
-            name: app-folder
           ports:
           - containerPort: 3000
         volumes:
