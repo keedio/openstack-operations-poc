@@ -112,12 +112,12 @@ app.component('monitorNodes', {
 			});
 		
 			function initController() {
-				NodesService.GetNodesBy('1h', 'compute', [ 'boston', 'boston' ])
+				NodesService.GetNodesBy('1h', 'overcloud-controller-1', [ 'boston', 'boston' ])
 					.then(function(data) {
 						self.regions = parseNodes(data);
 
 					});
-				NodesService.GetNodesAzBy('1h', 'compute', [ 'boston', 'boston' ]).then(function(data) {
+				NodesService.GetNodesAzBy('1h', 'overcloud-controller-1', [ 'boston', 'boston' ]).then(function(data) {
 					self.azones = parseNodesByAz(data);
 				});
 
