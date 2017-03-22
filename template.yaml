@@ -60,6 +60,9 @@ objects:
           - node
           args:
           - server.js
+          env:
+          - name: CASSANDRA_SERVICE
+            value: cassandra-openstack-poc
           ports:
           - containerPort: 3000
         volumes:

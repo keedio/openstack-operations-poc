@@ -21,17 +21,25 @@ app.component('monitorNodes', {
 			self.logEntries = {
 				availableOptions : [
 					{
-						id : 'compute',
-						name : 'Compute'
+						id : 'overcloud-controller-1',
+						name : 'Controller 1'
 					},
 					{
-						id : 'storage',
-						name : 'Storage'
+						id : 'overcloud-compute-1',
+						name : 'Compute 1'
+					},
+					{
+						id : 'overcloud-compute-2',
+						name : 'Compute 2'
+					},
+					{
+						id : 'overcloud-compute-4',
+						name : 'Compute 4'
 					}
 				],
 				selectedOption : {
-					id : 'compute',
-					name : 'Storage'
+					id : 'overcloud-controller-1',
+					name : 'Controller 1'
 				}
 			};
 

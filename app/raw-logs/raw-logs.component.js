@@ -15,13 +15,25 @@ app.component('rawLogs',{
         function RawLogsController (RawLogsService) {
             var self = this;
 
-
-
             self.nodeType  = {
                 availableOptions: [
                     {id: -1, name: 'Nothing selected'},
-                    {id: 'compute', name: 'Compute'},
-                    {id: 'storage', name: 'Storage'}
+					{
+						id : 'overcloud-controller-1',
+						name : 'Controller 1'
+					},
+					{
+						id : 'overcloud-compute-1',
+						name : 'Compute 1'
+					},
+					{
+						id : 'overcloud-compute-2',
+						name : 'Compute 2'
+					},
+					{
+						id : 'overcloud-compute-4',
+						name : 'Compute 4'
+					}
                 ]
             };
             self.logLevel  = {
