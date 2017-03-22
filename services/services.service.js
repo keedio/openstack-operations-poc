@@ -50,4 +50,4 @@ function getStackedServicesBy(during,region){
 
 }
 
-var services = ['Keystone', 'Nova', 'Pacemaker', 'Neutron', 'Cinder','Glance'];
+var services = ['Ceilometer', 'Keystone', 'Neutron', 'Nova', 'Nova2'];
