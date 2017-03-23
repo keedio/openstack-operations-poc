@@ -1,3 +1,15 @@
+
+<style>
+p {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.overflow-ellipsis {
+	padding-top: 7px;
+	text-overflow: ellipsis;
+}
+</style>
 <div class="container-fluid">
 	<div class="row toolbar-pf">
 		<form>
@@ -40,10 +52,9 @@
 				</div>
 				<div class="list-view-pf-main-info" id="wrapper">
 					<div class="list-view-pf-body">
-						<div class="list-view-pf-description">
-							<div class="list-group-item-text"
-								style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-top: 7px;">
-								<span>{{log}}</span>
+						<div class="list-view-pf-description" style="min-width: 0">
+							<div class="list-group-item-text">
+								<p class="overflow-ellipsis">{{log}}</p>
 							</div>
 						</div>
 					</div>

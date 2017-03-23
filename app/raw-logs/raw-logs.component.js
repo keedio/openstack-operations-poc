@@ -55,14 +55,13 @@ app.component('rawLogs',{
             self.servicesEntries  = {
                 availableOptions: [
                     {id: -1, name: 'Nothing selected'},
-                    {id: 'Glance', name: 'Glance'},
+                    {id: 'Ceilometer', name: 'Ceilometer'},
                     {id: 'Keystone', name: 'Keystone'},
                     {id: 'Neutron', name: 'Neutron'},
-                    {id: 'Nova', name: 'Nova'},
-                    {id: 'Pacemaker', name: 'Pacemaker'},
-                    {id: 'Storage', name: 'Storage'},
+                    {id: 'Nova2', name: 'Nova2'}
                 ]
             };
+
             self.payLoad = "";
             self.dateFrom = "";
             self.dateTo = "";
