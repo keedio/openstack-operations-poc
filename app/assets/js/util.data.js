@@ -190,8 +190,8 @@ function formatDateHour(date){
 function formatDateDay(date){
     date = new Date (date)
     var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
-    var month =  date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth()
-    return (month + 1) + '/' + day;
+    		  var month =  parseInt(date.getMonth())+1< 10 ? '0' + parseInt(date.getMonth()+1) : parseInt(date.getMonth()+1)
+    return month + '/' + day;
 }
 function setUpCharts(services){
 	
