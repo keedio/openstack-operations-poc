@@ -7,7 +7,7 @@ Consists of:
 * StackedBars charts
 * Raw logs search
 
-## Arquitecture
+## Architecture
 
 * NodeJS v6.9.5
 * Cassandra 3.0.10
